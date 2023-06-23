@@ -1,0 +1,30 @@
+header{
+    width: 100%;
+    position: relative;
+    background-color: var(--bg-general-theme-color);
+    .logo{
+        img{
+            max-width: 70px;
+            object-fit: contain;
+        }
+    }
+    nav{
+        width: 100%;
+        position: relative;
+        padding: 15px 0;
+        .container{
+            @include column-center;
+        }
+        .inner{
+            width: 100%;
+        }
+        &.mobile-nav{
+            .inner{
+                @include row-between;
+            }
+        }
+    }
+}
+
+
+@import '../scss/components/c-index.scss'

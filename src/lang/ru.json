@@ -1,0 +1,131 @@
+{
+    "products":"Продукты",
+    
+    "water-based-paints": "Краски на водной основе",
+    "interior-wall-paints": "Краски для внутренних стен",
+    "exterior-front-paints": "Фасадная краска",
+    "putties": "Шпатлевки",
+    "primers": "Грунтовки",
+    "PVA-based-adhesives": "Клеи на основе ПВА",
+    "water-based-varnishes": "Лаки на водной основе",
+
+    "solvent-based-paints": "Краски на основе растворителей",
+    "synthetic-paints": "Синтетические краски",
+    "cellulosic-paints": "Целлюлозные краски",
+    "polyurethane-paints": "Полиуретановые краски",
+    "epoxy-paints": "Эпоксидные краски",
+
+    "gold-series": "золотая серия",
+
+
+    "decorative-paints": "Декоративные Краски",
+    "decorative-interior-paints": "Декоративные краски для интерьера",
+    "decorative-facade-paints": "Декоративные фасадные краски",
+
+
+    "industrial-paints": "Промышленные краски",
+    "paints": "Краски",
+    "thinners": "Разбавитель",
+
+
+    "construction-products": "Строительная Продукция",
+    "ceramic-adhesives": "Керамические клеи",
+    "gypsum-based-products": "Продукция на основе гипса",
+    "coatings": "Покрытия",
+    "decorative-plasters": "Декоративная штукатурка",
+    "waterproofing-products": "Гидроизоляционные изделия",
+    "repair-plasters": "Штукатурная смесь для ремонта",
+
+
+    "painter-tools": "Малярный инструмент",
+    "brushes": "Кисти",
+    "rolls": "Bалки",
+
+    "other": "Другие",
+
+    "home-page": "Домашняя страница",
+    "about-us": "О нас",
+    "about-the-coloring-system": "О Система Колеровки",
+    "catalogs": "Каталоги",
+    "media": "Медиа",
+    "actions": "Акции",
+    "news": "Hовости",
+    "gallery": "Галерея",
+    "payment-and-delivery": "Оплата и доставка",
+    "warranty-conditions": "Условия гарантии",
+    "contact-us": "Свяжитесь с нами",
+
+    "sign-in": "Войти", 
+    "register": "регистр",
+    "basket": "корзина",
+    "wishlist": "Избранные",
+    "comparisons": "сравнения",
+    "hot-line": "горячая линия",
+
+    "menu": "Меню",
+    "categories": "Категории",
+    "adresses": "Адреса",
+    "head-office": "Главный офис",
+    "factory-adress": "Адрес завода",
+    "useful-links": "Полезные ссылки",
+    "faq": "Часто задаваемые вопросы",
+    "career": "Карьера",
+    "service-network": "Сервисная сеть",
+    "all-rights-reserved": "Все права защищены.",
+    "powered-by": "Работает на",
+
+    "add-basket": "Добавить в корзину",
+    "comparison": "сравнение",
+    "stock": "Склад",
+    "offered": "предложенный",
+    "new": "новый",
+    "pieces": "шт",
+
+    "price": "Цена",
+    "brand": "Марка",
+
+    "features": "Особенности",
+    "erasable": "стираемый",
+    "antibacterial": "Антибактериальный",
+    "anti-corrosive": "Антикоррозионная",
+    "UV-durable": "UV устойчивый",
+    "washable": "Моющийся",
+
+    "type": "Тип",
+    "water-based": "На водной основе",
+    "synthetic": "Синтетический",
+    "cellulose": "Целлюлоза",
+    "epoxy": "Эпоксидный",
+    "polyurethane": "Полиуретан",
+    "thinner": "Разбавитель",
+    "cement-based": "На цементной основе",
+    "gypsum-based": "На гипсовой основе",
+
+    "application-areas": "Области применения",
+    "interior-wall": "Наружная стена",
+    "exterior-wall": "Внешняя стена",
+    "ceiling": "Потолок",
+    "metal-surface": "Металлическая поверхность",
+    "wooden-surface": "Деревянная поверхность",
+    "parquet-and-furniture": "Паркет и Мебель",
+    "concrete-surface": "Бетонная поверхность",
+    "stone-surface": "Каменная поверхность",
+    "interior-surface": "Внутренняя поверхность",
+    "exterior-surface": "Внешняя поверхность",
+    
+    "appearance": "Внешность",
+    "glossy": "Глянцевый",
+    "matt": "Mатовый",
+    "semi-matt": "Полуматовый",
+    "semi-gloss": "Полуглянцевая",
+    "semitransparent": "Полупрозрачный",
+    "transparent": "Прозрачный",
+    "silk-matt": "Шелковый -матовый",
+
+    "drying": "Высыхание",
+    "fast-drying": "Быстрое высыхание",
+
+
+    "submit": "подавать",
+    "reset": "сброс"
+}

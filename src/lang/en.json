@@ -1,0 +1,131 @@
+{
+    "products":"products",
+    
+    "water-based-paints": "water-based-paints",
+    "interior-wall-paints": "interior wall paints",
+    "exterior-front-paints": "exterior front paints",
+    "putties": "putties",
+    "primers": "primers",
+    "PVA-based-adhesives": "PVA-based adhesives",
+    "water-based-varnishes": "water-based varnishes",
+
+    "solvent-based-paints": "solvent-based paints",
+    "synthetic-paints": "synthetic paints",
+    "cellulosic-paints": "cellulosic paints",
+    "polyurethane-paints": "polyurethane paints",
+    "epoxy-paints": "epoxy paints",
+
+    "gold-series": "gold series",
+
+
+    "decorative-paints": "decorative paints",
+    "decorative-interior-paints": "decorative interior paints",
+    "decorative-facade-paints": "decorative facade paints",
+
+
+    "industrial-paints": "industrial paints",
+    "paints": "paints",
+    "thinners": "thinners",
+
+
+    "construction-products": "construction products",
+    "ceramic-adhesives": "ceramic adhesives",
+    "gypsum-based-products": "gypsum based products",
+    "coatings": "coatings",
+    "decorative-plasters": "decorative plasters",
+    "waterproofing-products": "waterproofing products",
+    "repair-plasters": "repair plasters",
+
+
+    "painter-tools": "painter tools",
+    "brushes": "brushes",
+    "rolls": "rolls",
+
+    "other": "others",
+
+    "home-page": "home page",
+    "about-us": "about us",
+    "about-the-coloring-system": "about the coloring system",
+    "catalogs": "catalogs",
+    "media": "media",
+    "actions": "actions",
+    "news": "news",
+    "gallery": "gallery",
+    "payment-and-delivery": "payment and delivery",
+    "warranty-conditions": "warranty conditions",
+    "contact-us": "contact us",
+
+    "sign-in": "sign in", 
+    "register": "register",
+    "basket": "basket",
+    "wishlist": "wishlist",
+    "comparisons": "comparisons",
+    "hot-line": "hot line",
+
+    "menu": "menu",
+    "categories": "categories",
+    "adresses": "adresses",
+    "head-office": "head office",
+    "factory-adress": "factory adress",
+    "useful-links": "useful links",
+    "faq": "F.A.Q",
+    "career": "career",
+    "service-network": "service network",
+    "all-rights-reserved": "All rights reserved",
+    "powered-by": "powered by",
+
+    "add-basket": "Add to basket",
+    "comparison": "comparison",
+    "stock": "stock",
+    "offered": "offered",
+    "new": "new",
+    "pieces": "pieces",
+
+    "price": "Price",
+    "brand": "Brand",
+
+    "features": "Features",
+    "erasable": "Erasable",
+    "antibacterial": "Antibacterial",
+    "anti-corrosive": "Anti-corrosive",
+    "UV-durable": "UV durable",
+    "washable": "Washable",
+
+    "type": "Type",
+    "water-based": "Water based",
+    "synthetic": "Synthetic",
+    "cellulose": "Cellulose",
+    "epoxy": "Epoxyde",
+    "polyurethane": "Polyurethane",
+    "thinner": "thinner",
+    "cement-based": "Cement based",
+    "gypsum-based": "Gypsum based",
+
+    "application-areas": "Application areas",
+    "interior-wall": "İnterior wall",
+    "exterior-wall": "Exterior wall",
+    "ceiling": "Ceiling",
+    "metal-surface": "Metal surface",
+    "wooden-surface": "Wooden surface",
+    "parquet-and-furniture": "Parquet and Furniture",
+    "concrete-surface": "Concrete surface",
+    "stone-surface": "Stone surface",
+    "interior-surface": "İnterior surface",
+    "exterior-surface": "Exterior surface",
+    
+    "appearance": "Appearance",
+    "glossy": "Glossy",
+    "matt": "Matt",
+    "semi-matt": "Semi-matt",
+    "semi-gloss": "Semi-gloss",
+    "semitransparent": "Semitransparent",
+    "transparent": "Transparent",
+    "silk-matt": "Silk-matt",
+
+    "drying": "Drying",
+    "fast-drying": "Fast drying",
+
+
+    "submit": "Submit",
+    "reset": "Reset"
+}

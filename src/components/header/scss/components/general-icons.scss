@@ -1,0 +1,27 @@
+.general-icons{
+    @include row-center;
+    .item{
+        @include row-center;
+        font-size: 20px;
+        color: #D8232A;
+        padding: 3px 7px;
+        border-right: 1px solid var(--black-1);
+        &:last-child{
+            border-right: 0;
+            padding-right: 0;
+        }
+        img{
+            max-width: 20px;
+            max-height: 20px;
+        }
+    }
+}
+
+@media only screen and (min-width: 576px){
+    .general-icons{
+        .item{
+            padding: 5px 12px;
+            transform: scale(1.1);
+        }
+    }
+}

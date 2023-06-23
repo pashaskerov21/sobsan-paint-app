@@ -1,0 +1,18 @@
+.app {
+    --bg-general-theme-color: #fff;
+    --text-general-theme-color: #000;
+    --category-link-theme-color: #212121;
+    --page-link-theme-color: #474747;
+    --mobile-category-border: var(--black-1);
+    background-color: var(--bg-general-theme-color);
+    color: var(--text-general-theme-color);
+
+    &.dark {
+        --bg-general-theme-color: #212121;
+        --text-general-theme-color: #fff;
+        --category-link-theme-color: #fff;
+        --page-link-theme-color: #fff;
+    --mobile-category-border: var(--white-2);
+
+    }
+}

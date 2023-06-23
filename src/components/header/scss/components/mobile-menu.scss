@@ -1,0 +1,96 @@
+.mobile-menu-backdrop{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--black-7);
+    z-index: 98;
+    transform: translateX(-1000px);
+    opacity: 0;
+    &.active{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+.mobile-menu{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 450px;
+    min-height: 100vh;
+    z-index: 99;
+    transform: translateX(-1000px);
+    opacity: 0;
+    background-color: var(--bg-general-theme-color);
+    
+    @include column-justify-start;
+    &.active{
+        transform: translateX(0);
+        opacity: 1;
+    }
+    .header{
+        width: 100%;
+        padding: 10px 12px;
+        @include row-between;
+        margin-bottom: 30px;
+        .logo{
+            img{
+                max-width: 50px;
+            }
+        }
+        .close-button{
+            min-width: 40px;
+            min-height: 40px;
+            font-size: 25px;
+            border: 2px solid var(--color-1);
+            color: var(--color-1);
+            border-radius: 50%;
+            &:hover{
+                background-color: var(--color-1);
+                color: var(--bg-general-theme-color);
+            }
+        }
+        .icons{
+            @include row-between;
+            width: 100%;
+            max-width: 150px;
+            margin: 0 10px;
+            a{
+                @include row-center;
+                color: var(--text-general-theme-color);
+                text-transform: capitalize;
+                font-weight: 600;
+                img{
+                    margin-right: 10px;
+                    transform: scale(1.4);
+                }
+                &.icon-red{
+                    width: 40px;
+                    height: 40px;
+                    background-color: var(--color-1);
+                    color: var(--color-5);
+                    border-radius: 50%;
+                    @include row-center;
+                    animation: pulse-red 1s ease infinite;
+                }
+            }
+        }
+    }
+    .menu-body{
+        width: 100%;
+        @include column-center;
+    }
+}
+
+
+@media only screen and (min-width: 576px){
+    .mobile-menu{
+        .header{
+            .icons{
+                max-width: 230px;
+            }
+        }
+    }
+}
