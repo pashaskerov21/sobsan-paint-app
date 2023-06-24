@@ -22,7 +22,7 @@ function Header({ theme, toggleTheme }) {
       <MobileNav fixed={fixed} theme={theme} toggleTheme={toggleTheme} toggleMobileMenu={toggleMobileMenu} />
       <TopNav theme={theme} toggleTheme={toggleTheme} handleLinkClick={handleLinkClick} />
       <MobileMenu mobileMenu={mobileMenu} toggleMobileMenu={toggleMobileMenu} handleLinkClick={handleLinkClick} />
-      <BottomNav fixed={fixed} />
+      <BottomNav fixed={fixed} theme={theme} toggleTheme={toggleTheme} />
     </header>
   )
 }

@@ -1,1 +1,2 @@
 export const SET_LANGUAGE = 'SET_LANGUAGE';
+export const SEND_FILTER_PARAMS = 'SEND_FILTER_PARAMS';

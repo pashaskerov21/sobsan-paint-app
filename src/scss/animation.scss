@@ -85,6 +85,13 @@
     50%{transform: translateY(-15px);}
     100%{transform: translateY(0);}
 }
+@keyframes reset-btn-animation{
+    0%{transform: translateX(0);}
+    25%{transform: translateX(3px);}
+    50%{transform: translateX(0);}
+    75%{transform: translateX(-3px);}
+    100%{transform: translateX(0);}
+}
 .fa-phone:hover{animation: phone-animation 0.2s ease 5;}
 .fa-envelope:hover{animation: envelope-animation 1s ease;}
 .fa-location-dot:hover{animation: location-animation 0.5s ease;}

@@ -48,7 +48,7 @@ function Toolbar() {
             </div>
             <div className="toolbar-bottom">
                 <button onClick={() => window.scrollTo(0,0)} className={fixed ? 'page-up-scroll-btn' : 'page-up-scroll-btn d-none'}><i className="fa-solid fa-arrow-up"></i></button>
-                <a href="#" className="hot-line-mobile d-md-none"><span>*4545</span></a>
+                <Link className="hot-line-mobile d-md-none"><span>*4545</span></Link>
             </div>
         </>
     )

@@ -1,15 +1,11 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import ProductSection from '../components/product/ProductSection';
 
 function Products() {
-    const {categoryName} = useParams();
-    const {subcategoryName} = useParams();
-    const {typeName} = useParams();
+    
   return (
     <div>
-      {categoryName}<br/>
-      {subcategoryName}<br/>
-      {typeName}<br/>
+      <ProductSection/>
     </div>
   )
 }

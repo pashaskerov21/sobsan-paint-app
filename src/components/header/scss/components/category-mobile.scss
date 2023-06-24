@@ -1,42 +1,97 @@
-.mobile-category-links{
+.mobile-category-links {
     width: 100%;
     @include column-center;
     margin-bottom: 40px;
+    position: relative;
+    .category{
+        position: relative;
+    }
     .category,
     .subcategories,
     .types,
     .subcategory,
-    .type{
+    .type {
         width: 100%;
         @include column-center;
     }
-    .subcategory{
-        .link-row{
+
+    .subcategory {
+        .link-row {
             padding-left: 30px;
         }
     }
-    .type{
-        .link-row{
+
+    .type {
+        .link-row {
             padding-left: 45px;
         }
     }
-    .link-row{
+
+    .link-row {
         padding: 5px 20px;
         width: 100%;
         @include row-between;
         border-bottom: 1px solid var(--mobile-category-border);
         margin-bottom: 5px;
-        a{
+
+        a {
             color: var(--category-link-theme-color);
             text-transform: capitalize;
         }
-        button{
+
+        i {
+            color: var(--color-1);
+            font-size: 14px;
+        }
+
+        button {
             min-width: 60px;
             justify-content: flex-end;
-            &.active{
-                img{
+
+            &.active {
+                img {
                     transform: rotate(90deg);
                 }
+            }
+        }
+    }
+}
+
+
+
+section.products {
+    .mobile-category-links {
+        border: 1px solid var(--border-theme-color);
+        border-bottom: 0;
+
+        .link-row {
+            &.active {
+                background-color: var(--color-1);
+
+                a,
+                i {
+                    color: var(--color-5);
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    section.products {
+        .mobile-category-links {
+            .subcategory, .type {
+                .link-row {
+                    padding-left: 20px;
+                }
+            }
+            .subcategories,
+            .types{
+                position: absolute;
+                top: 0;
+                left: 100%;
+                border: 1px solid var(--border-theme-color);
+                border-bottom: 0;
             }
         }
     }

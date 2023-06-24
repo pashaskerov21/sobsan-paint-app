@@ -1,11 +1,14 @@
 .category-nav {
     min-width: 850px;
     @include row-between;
-
+    margin: 0 15px;
     .category {
         min-height: 120px;
         @include column-center;
-
+        margin-right: 12px;
+        &:last-child{
+            margin-right: 0;
+        }
         &:hover {
             cursor: pointer;
 
@@ -18,6 +21,7 @@
             color: var(--category-link-theme-color);
             text-transform: capitalize;
             font-weight: 600;
+            text-align: center;
 
         }
 
@@ -71,6 +75,17 @@
                         margin-bottom: 5px;
                     }
                 }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 1400px){
+    .category-nav{
+        min-width: 1000px;
+        .category{
+            .category-name{
+                font-size: 18px;
             }
         }
     }

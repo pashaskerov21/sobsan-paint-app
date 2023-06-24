@@ -1,0 +1,26 @@
+.page-title{
+    width: 100%;
+    @include column-align-start;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-theme-color);
+    margin-bottom: 30px;
+    .root-links{
+        @include row-justify-start;
+        margin-bottom: 15px;
+        i{
+            font-size: 10px;
+            padding: 0 5px;
+        }
+        a{
+            text-transform: capitalize;
+            color: var(--root-link-color);
+        }
+    }
+}
+
+.section-title{
+    text-transform: capitalize;
+    color: var(--text-general-theme-color);
+}
+
+

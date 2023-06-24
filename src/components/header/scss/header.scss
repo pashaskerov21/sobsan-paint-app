@@ -1,45 +1,73 @@
-header{
+header {
     width: 100%;
     position: relative;
     background-color: var(--bg-general-theme-color);
-    .logo{
-        img{
+
+    .logo {
+        img {
             max-width: 70px;
             object-fit: contain;
         }
     }
-    nav{
+
+    nav {
         width: 100%;
         position: relative;
         padding: 15px 0;
-        &.fixed-top{
+        background-color: var(--bg-general-theme-color);
+
+        &.fixed-top {
             animation: fixed-nav 0.5s ease forwards;
             box-shadow: 0 0 5px var(--box-shadow-theme-color)
         }
-        .container{
+
+        .container {
             @include column-center;
             position: relative;
         }
-        .inner{
+
+        .inner {
             width: 100%;
             @include row-between;
         }
-        &.top-nav{
-            .right{
+
+        &.top-nav {
+            .right {
                 @include row-justify-end;
-                .social-icons{
+
+                .social-icons {
                     padding: 0 12px;
                     border-right: 1px solid var(--general-icon-border);
                 }
             }
         }
-        &.bottom-nav{
-            .masters-link{
-                img{
+
+        &.bottom-nav {
+            .masters-link {
+                img {
                     max-width: 150px;
                     animation: usta-logo-animation 1s ease-in-out infinite alternate;
                 }
             }
+        }
+    }
+
+    .fix-nav-items {
+        @include row-justify-end;
+
+        .login {
+            margin-right: 15px;
+        }
+
+        .login {
+            color: var(--text-general-theme-color);
+            text-transform: capitalize;
+            @include row-center;
+            img {
+                margin-right: 5px;
+            }
+
+
         }
     }
 }
