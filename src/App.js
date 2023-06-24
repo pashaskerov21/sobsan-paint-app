@@ -23,6 +23,7 @@ import { useEffect, useState } from "react";
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import Products from "./pages/Products";
+import Toolbar from "./components/toolbar/Toolbar";
 
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
   return (
     <>
       <div className={theme === 'dark' ? 'app dark' : 'app'}>
+        <Toolbar/>
         <Header theme={theme} toggleTheme={toggleTheme} />
         <main>
           <ToastContainer position="bottom-right" autoClose={3000} />
