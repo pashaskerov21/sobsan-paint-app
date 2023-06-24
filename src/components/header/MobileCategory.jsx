@@ -4,7 +4,7 @@ import { productCategories } from '../../data/ProductData'
 import arrow_right from '../../image/icon/arrow-right.svg'
 import { Link } from 'react-router-dom';
 
-function MobileCategory() {
+function MobileCategory({handleLinkClick}) {
     const language = useSelector(state => state.language.language)
     const text = require(`../../lang/${language}.json`);
     const [activeSubcategory, setActiveSubCategory] = useState('');
@@ -33,7 +33,7 @@ function MobileCategory() {
                 productCategories.map(category => (
                     <div className="category" key={category.id} onMouseMove={() => openSubcategory(category.id)} onMouseLeave={closeSubcategory}>
                         <div className="link-row">
-                            <Link>{text[`${category.name}`]}</Link>
+                            <Link to={`/${category.path}`} onClick={() => handleLinkClick()}>{text[`${category.name}`]}</Link>
                             {
                                 category.is_subcategory ? (
                                     <button onClick={() => toggleSubCategory(category.id)} className={activeSubcategory === category.id ? 'active' : null}><img src={arrow_right} alt="arrow" /></button>
@@ -47,7 +47,7 @@ function MobileCategory() {
                                         category.subcategories.map(subcategory => (
                                             <div className="subcategory" key={subcategory.id} onMouseMove={() => openType(subcategory.id)} onMouseLeave={closeType}>
                                                 <div className="link-row">
-                                                    <Link>{text[`${subcategory.name}`]}</Link>
+                                                    <Link to={`/${category.path}/${subcategory.path}`} onClick={() => handleLinkClick()}>{text[`${subcategory.name}`]}</Link>
                                                     {
                                                         subcategory.is_type ? (
                                                             <button onClick={() => toggleType(subcategory.id)} className={activeType === subcategory.id ? 'active' : null}><img src={arrow_right} alt="arrow" /></button>
@@ -61,7 +61,7 @@ function MobileCategory() {
                                                                 subcategory.types.map(type => (
                                                                     <div className="type" key={type.id}>
                                                                         <div className="link-row">
-                                                                            <Link>{text[`${type.name}`]}</Link>
+                                                                            <Link to={`/${category.path}/${subcategory.path}/${type.path}`} onClick={() => handleLinkClick()}>{text[`${type.name}`]}</Link>
                                                                         </div>
                                                                     </div>
                                                                 ))

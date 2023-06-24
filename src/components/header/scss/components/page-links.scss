@@ -8,6 +8,10 @@
         text-transform: capitalize;
         margin-bottom: 5px;
         position: relative;
+        white-space: nowrap;
+        &:last-child{
+            margin: 0;
+        }
         &::after{
             content: '';
             position: absolute;
@@ -28,6 +32,7 @@
 
     .link-dropdown {
         @include column-align-start;
+        position: relative;
         .dropdown-btn {
             @include row-center;
             margin-bottom: 5px;
@@ -42,6 +47,42 @@
         .link-menu{
             @include column-align-start;
             margin-left: 10px;
+        }
+    }
+}
+
+.top-nav{
+    .page-links{
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        a{
+            margin-right: 10px;
+            font-size: 14px;
+            
+        }
+        .link-dropdown{
+            .dropdown-btn{
+                img{
+                    display: none;
+                }
+            }
+            .link-menu{
+                position: absolute;
+                top: 100%;
+                left: 0;
+                min-width: 100px;
+                margin-left: 0;
+                box-shadow: 0 0 5px var(--box-shadow-theme-color);
+                padding: 12px 10px;
+                @include column-center;
+                border-radius: 10px;
+                background-color: var(--bg-general-theme-color);
+                z-index: 99;
+                a{
+                    margin-right: 0;
+                }
+            }
         }
     }
 }

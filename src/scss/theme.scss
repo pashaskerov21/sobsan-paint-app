@@ -4,6 +4,10 @@
     --category-link-theme-color: #212121;
     --page-link-theme-color: #474747;
     --mobile-category-border: var(--black-1);
+    --general-icon-border: var(--black-1);
+    --border-theme-color: var(--black-1);
+    --box-shadow-theme-color: var(--black-2);
+    --footer-link-theme-color: #212121;
     background-color: var(--bg-general-theme-color);
     color: var(--text-general-theme-color);
 
@@ -12,7 +16,13 @@
         --text-general-theme-color: #fff;
         --category-link-theme-color: #fff;
         --page-link-theme-color: #fff;
-    --mobile-category-border: var(--white-2);
+        --mobile-category-border: var(--white-2);
+        --general-icon-border: var(--white-2);
+        --border-theme-color: var(--white-2);
+        --box-shadow-theme-color: var(--white-3);
+        --footer-link-theme-color: #fff;
+
+
 
     }
 }

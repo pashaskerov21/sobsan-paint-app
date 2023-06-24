@@ -12,15 +12,33 @@ header{
         width: 100%;
         position: relative;
         padding: 15px 0;
+        &.fixed-top{
+            animation: fixed-nav 0.5s ease forwards;
+            box-shadow: 0 0 5px var(--box-shadow-theme-color)
+        }
         .container{
             @include column-center;
+            position: relative;
         }
         .inner{
             width: 100%;
+            @include row-between;
         }
-        &.mobile-nav{
-            .inner{
-                @include row-between;
+        &.top-nav{
+            .right{
+                @include row-justify-end;
+                .social-icons{
+                    padding: 0 12px;
+                    border-right: 1px solid var(--general-icon-border);
+                }
+            }
+        }
+        &.bottom-nav{
+            .masters-link{
+                img{
+                    max-width: 150px;
+                    animation: usta-logo-animation 1s ease-in-out infinite alternate;
+                }
             }
         }
     }

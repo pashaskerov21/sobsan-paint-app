@@ -1,0 +1,87 @@
+footer{
+    width: 100%;
+    position: relative;
+    padding: 35px 0;
+    .container{
+        @include column-center;
+    }
+    .footer-top{
+        width: 100%;
+        @include row-center;
+        .col-12{
+            @include column-justify-start;
+            margin-bottom: 40px;
+            .logo-col{
+                width: 100%;
+                @include column-center;
+                .logo{
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
+    .footer-links{
+        @include column-center;
+        .title{
+            text-transform: capitalize;
+            margin-bottom: 20px;
+        }
+        a{
+            color: var(--footer-link-theme-color);
+            text-transform: capitalize;
+            text-align: center;
+            font-size: 15px;
+            max-width: 150px;
+            &:hover{
+                color: var(--color-1);
+            }
+        }
+    }
+    .footer-bottom{
+        width: 100%;
+        text-align: center;
+        @include column-center;
+        font-size: 15px;
+        color: var(--text-general-theme-color);
+        border-top: 1px solid var(--border-theme-color);
+        padding-top: 30px;
+        .left{
+            margin-bottom: 20px;
+            a{
+                color: var(--color-1);
+                font-weight: 600;
+            }
+        }
+        a{
+            color: var(--footer-link-theme-color);
+            &:hover{
+                color: var(--color-1);
+            }
+        }
+    }
+}
+
+
+@media only screen and (min-width: 576px){
+    footer{
+        .footer-links{
+            align-items: flex-start;
+        }
+    }
+}
+
+@media only screen and (min-width: 768px){
+    footer{
+        .footer-bottom{
+            flex-direction: row;
+            justify-content: space-between;
+            .left{
+                @include column-align-start;
+                margin-bottom: 0;
+            }
+            .right{
+                @include column-align-end;
+            }
+        }
+    }
+}

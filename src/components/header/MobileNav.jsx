@@ -1,14 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import GeneralIcons from './GeneralIcons'
-import MobileMenu from './MobileMenu';
 
-function MobileNav({ theme, toggleTheme }) {
-    const [mobileMenu, setMobileMenu] = useState(false);
-    const toggleMobileMenu = () => {
-        setMobileMenu(!mobileMenu);
-    }
+function MobileNav({fixed, theme, toggleTheme, toggleMobileMenu }) {
+    
     return (
-        <nav className='mobile-nav'>
+        <nav className={fixed ? 'mobile-nav fixed-top d-xl-none' : 'mobile-nav d-xl-none'}>
             <div className="container">
                 <div className="inner">
                     <div className='menu-button' onClick={toggleMobileMenu}>
@@ -16,8 +12,7 @@ function MobileNav({ theme, toggleTheme }) {
                         <div className="bar"></div>
                         <div className="bar"></div>
                     </div>
-                    <GeneralIcons theme={theme} toggleTheme={toggleTheme} />
-                    <MobileMenu mobileMenu={mobileMenu} toggleMobileMenu={toggleMobileMenu}/>
+                    <GeneralIcons theme={theme} toggleTheme={toggleTheme} />                    
                 </div>
             </div>
         </nav>

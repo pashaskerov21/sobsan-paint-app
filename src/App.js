@@ -1,4 +1,5 @@
-import { Route, Routes } from "react-router-dom";
+
+import { Route, Routes, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
 import Compare from "./pages/Compare";
 import Wishlist from "./pages/Wishlist";
@@ -15,29 +16,61 @@ import WarrantyConditions from "./pages/WarrantyConditions";
 import Contact from "./pages/Contact";
 import PaymentDelivery from "./pages/PaymentDelivery";
 import NoPage from "./pages/NoPage";
+import MastersUnion from "./pages/MastersUnion";
+import Header from "./components/header/Header";
+import Footer from "./components/footer/Footer";
+import { useEffect, useState } from "react";
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
+import Products from "./pages/Products";
 
 
 function App() {
+  const [theme, setTheme] = useState('light');
+  const toggleTheme = () => {
+    if (theme === 'light') {
+      setTheme('dark')
+    } else {
+      setTheme('light')
+    }
+  }
+
+
+  const location = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [location])
   return (
     <>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/compare" element={<Compare/>}/>
-        <Route path="/wishlist" element={<Wishlist/>}/>
-        <Route path="/basket" element={<Basket/>}/>
-        <Route path="/login" element={<Login/>}/>
-        <Route path="/register" element={<Register/>}/>
-        <Route path="/about-us" element={<About/>}/>
-        <Route path="/about-coloring-system" element={<ColorSystem/>}/>
-        <Route path="/catalogs" element={<Catalogs/>}/>
-        <Route path="/media/actions" element={<Actions/>}/>
-        <Route path="/media/news" element={<News/>}/>
-        <Route path="/media/gallery" element={<Gallery/>}/>
-        <Route path="/payment-and-delivery" element={<PaymentDelivery/>}/>
-        <Route path="/warranty-conditions" element={<WarrantyConditions/>}/>
-        <Route path="/contact-us" element={<Contact/>}/>
-        <Route path="*" element={<NoPage/>}/>
-      </Routes>
+      <div className={theme === 'dark' ? 'app dark' : 'app'}>
+        <Header theme={theme} toggleTheme={toggleTheme} />
+        <main>
+          <ToastContainer position="bottom-right" autoClose={3000} />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/:categoryName" element={<Products />} />
+            <Route path="/:categoryName/:subcategoryName" element={<Products />} />
+            <Route path="/:categoryName/:subcategoryName/:typeName" element={<Products />} />
+            <Route path="/compare" element={<Compare />} />
+            <Route path="/wishlist" element={<Wishlist />} />
+            <Route path="/basket" element={<Basket />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/about-us" element={<About />} />
+            <Route path="/about-coloring-system" element={<ColorSystem />} />
+            <Route path="/catalogs" element={<Catalogs />} />
+            <Route path="/media/actions" element={<Actions />} />
+            <Route path="/media/news" element={<News />} />
+            <Route path="/media/gallery" element={<Gallery />} />
+            <Route path="/payment-and-delivery" element={<PaymentDelivery />} />
+            <Route path="/warranty-conditions" element={<WarrantyConditions />} />
+            <Route path="/contact-us" element={<Contact />} />
+            <Route path="/masters-union" element={<MastersUnion />} />
+            <Route path="*" element={<NoPage />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
     </>
   );
 }
