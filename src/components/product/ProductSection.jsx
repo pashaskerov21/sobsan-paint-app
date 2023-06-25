@@ -6,7 +6,7 @@ import CategoryList from './CategoryList';
 import LeftFIlter from './filter/LeftFIlter';
 
 function ProductSection() {
-    const language = useSelector(state => state.language.language)
+    const language = useSelector(state => state.language.language);
     const text = require(`../../lang/${language}.json`);
 
     const filterParams = useSelector(state => state.filterParams.filterParams);

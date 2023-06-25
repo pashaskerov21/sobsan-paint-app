@@ -1,6 +1,5 @@
 {
-    "products":"məhsullar",
-    
+    "products": "məhsullar",
     "water-based-paints": "su əsaslı boyalar",
     "interior-wall-paints": "daxili divar boyaları",
     "exterior-front-paints": "xarici cəbhə boyaları",
@@ -8,26 +7,18 @@
     "primers": "astarlar",
     "PVA-based-adhesives": "PVA əsaslı yapışdırıcılar",
     "water-based-varnishes": "su əsaslı laklar",
-
     "solvent-based-paints": "solvent əsaslı boyalar",
     "synthetic-paints": "sintetik boyalar",
     "cellulosic-paints": "sellülozik boyalar",
     "polyurethane-paints": "poliuretan boyalar",
     "epoxy-paints": "epoksi boyalar",
-
     "gold-series": "gold series",
-
-
     "decorative-paints": "dekorativ boyalar",
     "decorative-interior-paints": "dekorativ daxili boyalar",
     "decorative-facade-paints": "dekorativ fasad boyaları",
-
-
     "industrial-paints": "sənaye boyaları",
     "paints": "boyalar",
     "thinners": "tinerlər",
-
-
     "construction-products": "inşaat məhsulları",
     "ceramic-adhesives": "keramika yapışdırıcıları",
     "gypsum-based-products": "gips əsaslı məhsullar",
@@ -35,18 +26,15 @@
     "decorative-plasters": "dekorativ suvaqlar",
     "waterproofing-products": "hidroizolasiya məhsulları",
     "repair-plasters": "təmir suvaqları",
-
-
     "painter-tools": "boyaçı alətləri",
     "brushes": "fırçalar",
     "rolls": "rulonlar",
-
     "other": "digər",
-
     "home-page": "əsas səhifə",
     "about-us": "haqqımızda",
     "about-the-coloring-system": "rəngləndirmə sistemi haqqında",
     "catalogs": "kataloqlar",
+    "color-catalog": "rəng kataloqu",
     "media": "media",
     "actions": "aksiyalar",
     "news": "xəbərlər",
@@ -54,14 +42,12 @@
     "payment-and-delivery": "ödəniş və çatdırılma",
     "warranty-conditions": "zəmanət şərtləri",
     "contact-us": "bizimlə əlaqə",
-
-    "sign-in": "giriş", 
+    "sign-in": "giriş",
     "register": "qeydiyyat",
     "basket": "səbət",
     "wishlist": "seçilmişlər",
     "comparisons": "müqayisələr",
     "hot-line": "qaynar xətt",
-
     "menu": "menyular",
     "categories": "kateqoriyalar",
     "addresses": "ünvanlarımız",
@@ -73,24 +59,20 @@
     "service-network": "xidmət şəbəkəsi",
     "all-rights-reserved": "Bütün hüquqlar qorunur",
     "powered-by": "Hazırladı",
-
     "add-basket": "Səbətə at",
     "comparison": "Müqayisə",
     "stock": "anbarda",
     "offered": "Təklif olunan",
     "new": "Yeni",
     "pieces": "ədəd",
-
     "price": "Qiymət",
     "brand": "Brend",
-
     "features": "xüsusiyyətləri",
     "erasable": "Silinə bilən",
     "antibacterial": "Antibakterial",
     "anti-corrosive": "Antikorroziv",
     "UV-durable": "UV dözümlü",
     "washable": "Yuyula bilən",
-
     "type": "tipi",
     "water-based": "Su əsaslı",
     "synthetic": "Sintetik",
@@ -100,7 +82,6 @@
     "thinner": "tiner",
     "cement-based": "Sement əsaslı",
     "gypsum-based": "Gips əsaslı",
-
     "application-areas": "Tətbiq sahələri",
     "interior-wall": "Daxili cəbhə",
     "exterior-wall": "Xarici cəbhə",
@@ -112,7 +93,6 @@
     "stone-surface": "Daş səth",
     "interior-surface": "Daxili səth",
     "exterior-surface": "Xarici səth",
-    
     "appearance": "Görünüş",
     "glossy": "Parlaq",
     "matt": "Mat",
@@ -121,13 +101,48 @@
     "semitransparent": "Yarı - şəffaf",
     "transparent": "Şəffaf",
     "silk-matt": "Ipək - mat",
-
     "drying": "Quruma",
     "fast-drying": "Tez quruyan",
-
-
     "submit": "Təsdiqlə",
-    "reset": "Sıfırla"
-    
-
+    "reset": "Sıfırla",
+    "yellow": "Sarı",
+    "gold-yellow": "Qızılı sarı",
+    "ochre": "Sarımtıl",
+    "cream": "Krem",
+    "champagne": "Şampan şərabı",
+    "red-oxide": "Qırmızı oksid",
+    "bordeaux": "Tünd qırmızı",
+    "chocolate": "Şokolad rəngi",
+    "brown": "Qəhvəyi",
+    "beige": "Bej",
+    "mustard": "Xardal",
+    "tobacco": "Tütün",
+    "oxide-green": "Yaşıl oksid",
+    "turquoise": "Firuzəyi",
+    "green": "Yaşıl",
+    "blue": "Mavi",
+    "petroleum": "Petrolium",
+    "ultramarine": "Ultramarin",
+    "sapphire-blue": "Parlaq mavi",
+    "violet": "Bənövşəyi",
+    "wine-red": "Qırmızı şərab",
+    "orange": "Narıncı",
+    "red": "Qırmızı",
+    "black": "Qara",
+    "white": "Bəyaz",
+    "all": "hamısı",
+    "main-color": "Ana rəng",
+    "sobmatik": "Sobmatik",
+    "sadaf": "Sədəf",
+    "crystal": "Kristal",
+    "sobrano-veneziano": "Sobrano Veneziano",
+    "sobrano-travertino": "Sobrano Travertino",
+    "mineral-plaster": "Mineral Sıva",
+    "nitro-based": "Sellülozik Parlaq Boya",
+    "mobitex": "Mobitex",
+    "synthetic-paint": "Sintetik boya",
+    "rulotex": "Rulotex",
+    "hammerton": "Hammerton",
+    "universal-color-paste": "Universal rəng pastası",
+    "catalog-note": "Qeyd: Ekrandakı kataloq rəngləri monitor, planşet, noutbuk və smartfonların ekran kalibrasiya fərqlərinə və işığın düşməsinə görə tətbiq olunacaq orijinal rənglərindən fərqli görünə bilər. Dəqiq nəticə üçün rəng kataloqumuza ən yaxın satış ünvanlarında baxa bilərsiniz. Həmçinin seçdiyiniz rəngi tətbiq edərkən, boyanın rəngi otağa təbii günəş işığının düşməsinə, istifadə etdiyiniz aydınlatma cihazlarının lampa rənginə (məs: sarı, led və s.) görə də fərqli görünə bilər."
 }

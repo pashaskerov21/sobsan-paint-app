@@ -10,6 +10,11 @@
     --footer-link-theme-color: #212121;
     --root-link-color: #212121;
     --filter-button-color: #efefef;
+    --category-button-color: #efefef;
+    --catalog-subpanel-bg-color: #efefef;
+    --catalog-note-bg: #f7f7f7;
+    
+    
     background-color: var(--bg-general-theme-color);
     color: var(--text-general-theme-color);
 
@@ -25,7 +30,9 @@
         --footer-link-theme-color: #fff;
         --root-link-color: #fff;
         --filter-button-color: var(--black-6);
-
+        --category-button-color: var(--black-6);
+        --catalog-subpanel-bg-color: var(--black-6);
+        --catalog-note-bg: var(--black-4);
 
 
     }

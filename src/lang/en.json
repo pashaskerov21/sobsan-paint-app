@@ -1,6 +1,5 @@
 {
-    "products":"products",
-    
+    "products": "products",
     "water-based-paints": "water-based-paints",
     "interior-wall-paints": "interior wall paints",
     "exterior-front-paints": "exterior front paints",
@@ -8,26 +7,18 @@
     "primers": "primers",
     "PVA-based-adhesives": "PVA-based adhesives",
     "water-based-varnishes": "water-based varnishes",
-
     "solvent-based-paints": "solvent-based paints",
     "synthetic-paints": "synthetic paints",
     "cellulosic-paints": "cellulosic paints",
     "polyurethane-paints": "polyurethane paints",
     "epoxy-paints": "epoxy paints",
-
     "gold-series": "gold series",
-
-
     "decorative-paints": "decorative paints",
     "decorative-interior-paints": "decorative interior paints",
     "decorative-facade-paints": "decorative facade paints",
-
-
     "industrial-paints": "industrial paints",
     "paints": "paints",
     "thinners": "thinners",
-
-
     "construction-products": "construction products",
     "ceramic-adhesives": "ceramic adhesives",
     "gypsum-based-products": "gypsum based products",
@@ -35,18 +26,15 @@
     "decorative-plasters": "decorative plasters",
     "waterproofing-products": "waterproofing products",
     "repair-plasters": "repair plasters",
-
-
     "painter-tools": "painter tools",
     "brushes": "brushes",
     "rolls": "rolls",
-
     "other": "others",
-
     "home-page": "home page",
     "about-us": "about us",
     "about-the-coloring-system": "about the coloring system",
     "catalogs": "catalogs",
+    "color-catalog": "Color catalog",
     "media": "media",
     "actions": "actions",
     "news": "news",
@@ -54,14 +42,12 @@
     "payment-and-delivery": "payment and delivery",
     "warranty-conditions": "warranty conditions",
     "contact-us": "contact us",
-
-    "sign-in": "sign in", 
+    "sign-in": "sign in",
     "register": "register",
     "basket": "basket",
     "wishlist": "wishlist",
     "comparisons": "comparisons",
     "hot-line": "hot line",
-
     "menu": "menu",
     "categories": "categories",
     "addresses": "adresses",
@@ -73,24 +59,20 @@
     "service-network": "service network",
     "all-rights-reserved": "All rights reserved",
     "powered-by": "powered by",
-
     "add-basket": "Add to basket",
     "comparison": "comparison",
     "stock": "stock",
     "offered": "offered",
     "new": "new",
     "pieces": "pieces",
-
     "price": "Price",
     "brand": "Brand",
-
     "features": "Features",
     "erasable": "Erasable",
     "antibacterial": "Antibacterial",
     "anti-corrosive": "Anti-corrosive",
     "UV-durable": "UV durable",
     "washable": "Washable",
-
     "type": "Type",
     "water-based": "Water based",
     "synthetic": "Synthetic",
@@ -100,7 +82,6 @@
     "thinner": "thinner",
     "cement-based": "Cement based",
     "gypsum-based": "Gypsum based",
-
     "application-areas": "Application areas",
     "interior-wall": "İnterior wall",
     "exterior-wall": "Exterior wall",
@@ -112,7 +93,6 @@
     "stone-surface": "Stone surface",
     "interior-surface": "İnterior surface",
     "exterior-surface": "Exterior surface",
-    
     "appearance": "Appearance",
     "glossy": "Glossy",
     "matt": "Matt",
@@ -121,11 +101,48 @@
     "semitransparent": "Semitransparent",
     "transparent": "Transparent",
     "silk-matt": "Silk-matt",
-
     "drying": "Drying",
     "fast-drying": "Fast drying",
-
-
     "submit": "Submit",
-    "reset": "Reset"
+    "reset": "Reset",
+    "yellow": "Yellow",
+    "gold-yellow": "Gold yellow",
+    "ochre": "Ochre",
+    "cream": "Cream",
+    "champagne": "Champagne",
+    "red-oxide": "Red oxide",
+    "bordeaux": "Bordeaux",
+    "chocolate": "Chocolate",
+    "brown": "Brown",
+    "beige": "Beige",
+    "mustard": "Mustard",
+    "tobacco": "Tobacco",
+    "oxide-green": "Oxide green",
+    "turquoise": "Turquoise",
+    "green": "Green",
+    "blue": "Blue",
+    "petroleum": "Petroleum",
+    "ultramarine": "Ultramarine",
+    "sapphire-blue": "Sapphire blue",
+    "violet": "Violet",
+    "wine-red": "Wine red",
+    "orange": "Orange",
+    "red": "Red",
+    "black": "Black",
+    "white": "White",
+    "all": "all",
+    "main-color": "Main color",
+    "sobmatik": "Sobmatik",
+    "sadaf": "Sadaf",
+    "crystal": "Crystal",
+    "sobrano-veneziano": "Sobrano Veneziano",
+    "sobrano-travertino": "Sobrano Travertino",
+    "mineral-plaster": "Mineral Plaster",
+    "nitro-based": "Nitrocellulose Based Finish Coat",
+    "mobitex": "Mobitex",
+    "synthetic-paint": "Synthetic paint",
+    "rulotex": "Rulotex",
+    "hammerton": "Hammerton",
+    "universal-color-paste": "Universal color paste",
+    "catalog-note": "Note: The colors on the catalogue may not look same on different types of monitor, notebook, tablet, smartphone. You may look the color catalogues at any of our sales points. In addition this, after applying the paint the color of the wall may change depending on the natural sunlight or home lighting color ( for example yellow, led, etc.)"
 }

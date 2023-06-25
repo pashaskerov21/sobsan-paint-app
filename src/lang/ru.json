@@ -1,6 +1,5 @@
 {
-    "products":"Продукты",
-    
+    "products": "Продукты",
     "water-based-paints": "Краски на водной основе",
     "interior-wall-paints": "Краски для внутренних стен",
     "exterior-front-paints": "Фасадная краска",
@@ -8,26 +7,18 @@
     "primers": "Грунтовки",
     "PVA-based-adhesives": "Клеи на основе ПВА",
     "water-based-varnishes": "Лаки на водной основе",
-
     "solvent-based-paints": "Краски на основе растворителей",
     "synthetic-paints": "Синтетические краски",
     "cellulosic-paints": "Целлюлозные краски",
     "polyurethane-paints": "Полиуретановые краски",
     "epoxy-paints": "Эпоксидные краски",
-
     "gold-series": "золотая серия",
-
-
     "decorative-paints": "Декоративные Краски",
     "decorative-interior-paints": "Декоративные краски для интерьера",
     "decorative-facade-paints": "Декоративные фасадные краски",
-
-
     "industrial-paints": "Промышленные краски",
     "paints": "Краски",
     "thinners": "Разбавитель",
-
-
     "construction-products": "Строительная Продукция",
     "ceramic-adhesives": "Керамические клеи",
     "gypsum-based-products": "Продукция на основе гипса",
@@ -35,18 +26,15 @@
     "decorative-plasters": "Декоративная штукатурка",
     "waterproofing-products": "Гидроизоляционные изделия",
     "repair-plasters": "Штукатурная смесь для ремонта",
-
-
     "painter-tools": "Малярный инструмент",
     "brushes": "Кисти",
     "rolls": "Bалки",
-
     "other": "Другие",
-
     "home-page": "Домашняя страница",
     "about-us": "О нас",
     "about-the-coloring-system": "О Система Колеровки",
     "catalogs": "Каталоги",
+    "color-catalog": "Каталог цветов",
     "media": "Медиа",
     "actions": "Акции",
     "news": "Hовости",
@@ -54,14 +42,12 @@
     "payment-and-delivery": "Оплата и доставка",
     "warranty-conditions": "Условия гарантии",
     "contact-us": "Свяжитесь с нами",
-
-    "sign-in": "Войти", 
+    "sign-in": "Войти",
     "register": "регистр",
     "basket": "корзина",
     "wishlist": "Избранные",
     "comparisons": "сравнения",
     "hot-line": "горячая линия",
-
     "menu": "Меню",
     "categories": "Категории",
     "addresses": "Адреса",
@@ -73,24 +59,20 @@
     "service-network": "Сервисная сеть",
     "all-rights-reserved": "Все права защищены.",
     "powered-by": "Работает на",
-
     "add-basket": "Добавить в корзину",
     "comparison": "сравнение",
     "stock": "Склад",
     "offered": "предложенный",
     "new": "новый",
     "pieces": "шт",
-
     "price": "Цена",
     "brand": "Марка",
-
     "features": "Особенности",
     "erasable": "стираемый",
     "antibacterial": "Антибактериальный",
     "anti-corrosive": "Антикоррозионная",
     "UV-durable": "UV устойчивый",
     "washable": "Моющийся",
-
     "type": "Тип",
     "water-based": "На водной основе",
     "synthetic": "Синтетический",
@@ -100,7 +82,6 @@
     "thinner": "Разбавитель",
     "cement-based": "На цементной основе",
     "gypsum-based": "На гипсовой основе",
-
     "application-areas": "Области применения",
     "interior-wall": "Наружная стена",
     "exterior-wall": "Внешняя стена",
@@ -112,7 +93,6 @@
     "stone-surface": "Каменная поверхность",
     "interior-surface": "Внутренняя поверхность",
     "exterior-surface": "Внешняя поверхность",
-    
     "appearance": "Внешность",
     "glossy": "Глянцевый",
     "matt": "Mатовый",
@@ -121,11 +101,48 @@
     "semitransparent": "Полупрозрачный",
     "transparent": "Прозрачный",
     "silk-matt": "Шелковый -матовый",
-
     "drying": "Высыхание",
     "fast-drying": "Быстрое высыхание",
-
-
     "submit": "подавать",
-    "reset": "сброс"
+    "reset": "сброс",
+    "yellow": "Желтый",
+    "gold-yellow": "Цвет золота",
+    "ochre": "Oxpa",
+    "cream": "Кремовый",
+    "champagne": "Шампанский",
+    "red-oxide": "Оксид красный",
+    "bordeaux": "Бордовый",
+    "chocolate": "Шоколадный",
+    "brown": "Коричневый",
+    "beige": "Бежевый",
+    "mustard": "Горчица",
+    "tobacco": "Табак",
+    "oxide-green": "Оксид зеленый",
+    "turquoise": "Бирюза",
+    "green": "Зеленый",
+    "blue": "Синий",
+    "petroleum": "Петролеум",
+    "ultramarine": "Ультрамарин",
+    "sapphire-blue": "Ярко синий",
+    "violet": "Фиолетовый",
+    "wine-red": "Красное вино",
+    "orange": "Апельсин",
+    "red": "Красный",
+    "black": "Чёрный",
+    "white": "Белый",
+    "all": "все",
+    "main-color": "Основной цвет",
+    "sobmatik": "Sobmatik",
+    "sadaf": "Sadaf",
+    "crystal": "Кристалл",
+    "sobrano-veneziano": "Sobrano Veneziano",
+    "sobrano-travertino": "Sobrano Travertino",
+    "mineral-plaster": "Минеральная Штукатурка",
+    "nitro-based": "Целлюлозное Глянцевое Краска",
+    "mobitex": "Mobitex",
+    "synthetic-paint": "Синтетическая краска",
+    "rulotex": "Rulotex",
+    "hammerton": "Hammerton",
+    "universal-color-paste": "Универсальная колеровачная паста",
+    "catalog-note": "Примечание: Цвета, представленные в каталоге, могут выглядеть различно в зависимости от типа экрана (ноутбук, планшет, смартфон). Более наглядно познакомиться с цветами в каталоге вы сможете в любом из наших точек продаж. Также цвет на стенах может меняться в зависимости от попадания солнечных лучей и цвета лампы, использующейся в комнате (Например: обычные жёлтые или светодиодные лампы)."
 }
