@@ -1,0 +1,46 @@
+.accordion {
+    width: 100%;
+    background-color: transparent !important;
+
+    .accordion-item {
+        background-color: transparent !important;
+    }
+
+    &-button {
+        font-weight: 600;
+        text-transform: capitalize;
+        color: var(--text-general-theme-color);
+        background-color: transparent;
+        justify-content: space-between;
+
+        i {
+            transition: 0.2s;
+        }
+
+        &::after {
+            display: none;
+        }
+
+        &:not(.collapsed) {
+            background: url("../../../image/large-drop-bg.png") #ed3237;
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: var(--color-5);
+            box-shadow: none;
+
+            i {
+                transform: rotate(-180deg);
+            }
+        }
+
+        &:focus {
+            border-color: #fff;
+            box-shadow: none;
+        }
+    }
+
+    &-body {
+        padding: 10px;
+        @include column-center;
+    }
+}

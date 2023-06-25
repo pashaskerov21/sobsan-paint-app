@@ -542,7 +542,7 @@ export const catalogSobmatik = {
             colorCode: '#C9D6E9',
             shades: [
                 {
-                    id: 'color-1-1',
+                    id: 'color-20-1',
                     label: '1:5',
                     colorCode: '#C29CEF',
                 },

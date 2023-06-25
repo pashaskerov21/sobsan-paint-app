@@ -3,7 +3,9 @@ import { catalogSobmatik } from '../../data/color-catalog/Sobmatik'
 import { useSelector } from 'react-redux';
 import loader from '../../image/loader.svg'
 
-function CatalogSobmatik() {
+
+
+function CatalogSobmatik({sobmatikStatus}) {
     const language = useSelector(state => state.language.language);
     const text = require(`../../lang/${language}.json`);
 
@@ -26,7 +28,7 @@ function CatalogSobmatik() {
     };
 
     return (
-        <div className='accordion-item'>
+        <div className={`accordion-item ${sobmatikStatus ? '' : 'd-none'}`}>
             <h2 className="accordion-header">
                 <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#catalog-collapse-1" onClick={() => handleAccordionClick()}>
                     <span>{text[`${catalogSobmatik.name}`]}</span>
@@ -44,8 +46,8 @@ function CatalogSobmatik() {
                             <div className="color-buttons-grid">
                                 {
                                     catalogSobmatik.colors.map(color => (
-                                        <>
-                                            <div className="grid-item" key={color.id}>
+                                        <React.Fragment key={color.id}>
+                                            <div className="grid-item" >
                                                 <div className="color-button" onClick={() => changeShadeGroup(color.id)}>
                                                     <div className="color" style={{ backgroundColor: `${color.colorCode}` }}></div>
                                                     <div className="info">
@@ -74,7 +76,7 @@ function CatalogSobmatik() {
                                                     </div>
                                                 ) : null
                                             }
-                                        </>
+                                        </React.Fragment>
                                     ))
                                 }
                             </div>

@@ -1,17 +1,41 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { productCategories } from '../../data/ProductData';
 import CatalogAccordion from './CatalogAccordion';
+import { colorCatalog } from '../../data/color-catalog/Catalog';
+import { catalogSobmatik } from '../../data/color-catalog/Sobmatik';
 
 function CatalogSection() {
     const language = useSelector(state => state.language.language);
     const text = require(`../../lang/${language}.json`);
 
     const [activeCatalogCategory, setActiveCatalogCategory] = useState('all');
+
+    //const [catalog, setCatalog] = useState([...colorCatalog]);
+    
+
     const handleCatalogCategoryClick = (category) => {
-        setActiveCatalogCategory(category)
+        setActiveCatalogCategory(category);
     } 
+    
+    const [catalog, setCatalog] = useState([]);
+    const [sobmatikStatus, setSobmatikStatus] = useState(false)
+    useEffect(() => {
+        let filteredCatalogs = [];
+        if(activeCatalogCategory === 'all'){
+            filteredCatalogs = colorCatalog;
+        }else{
+            filteredCatalogs = colorCatalog.filter((c) => c.category === activeCatalogCategory);
+        }
+        if(activeCatalogCategory === catalogSobmatik.category || activeCatalogCategory === 'all'){
+            setSobmatikStatus(true)
+        }else{
+            setSobmatikStatus(false)
+        }
+        setCatalog([...filteredCatalogs])
+        
+    },[activeCatalogCategory])
     return (
         <section className='catalogs'>
             <div className="container">
@@ -31,7 +55,7 @@ function CatalogSection() {
                         ))
                     }
                 </div>
-                <CatalogAccordion/>
+                <CatalogAccordion sobmatikStatus={sobmatikStatus} catalog={catalog}/>
             </div>
         </section>
     )

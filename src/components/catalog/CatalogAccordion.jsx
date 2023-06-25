@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
 import CatalogSobmatik from './CatalogSobmatik'
-import { colorCatalog } from '../../data/color-catalog/Catalog'
 import { useSelector } from 'react-redux';
 import loader from '../../image/loader.svg'
+import { Fancybox } from "@fancyapps/ui";
+Fancybox.bind("[data-fancybox]", {
+  // Your custom options
+});
 
-function CatalogAccordion() {
+function CatalogAccordion({ catalog, sobmatikStatus }) {
   const language = useSelector(state => state.language.language);
   const text = require(`../../lang/${language}.json`);
 
@@ -19,12 +22,12 @@ function CatalogAccordion() {
 
   return (
     <div className='accordion' id='catalog-accordion'>
-      <CatalogSobmatik />
+      <CatalogSobmatik sobmatikStatus={sobmatikStatus} />
       {
-        colorCatalog.length > 0 ? (
+        catalog.length > 0 ? (
           <>
             {
-              colorCatalog.map(catalog => (
+              catalog.map(catalog => (
                 <div className="accordion-item" key={catalog.id}>
                   <h2 className="accordion-header">
                     <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={`#collapse-${catalog.id}`} onClick={() => handleAccordionClick()}>
@@ -48,7 +51,9 @@ function CatalogAccordion() {
                                     catalog.colors.map(color => (
                                       <div className="col-4 col-lg-3 col-xl-2" key={color.id}>
                                         <div className="color-item">
-                                          <img src={color.img} alt="color" />
+                                          <a href={color.img} data-fancybox={`gallery-${catalog.name}`}>
+                                            <img src={color.img} alt="color" />
+                                          </a>
                                           <span className='label'>{color.label === 'main-color' ? text['main-color'] : color.label}</span>
                                         </div>
                                       </div>

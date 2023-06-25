@@ -1,0 +1,89 @@
+.color-buttons-grid {
+    width: 100%;
+    padding: 25px 0;
+
+    .grid-item {
+        width: 33.333%;
+        display: inline-block;
+        vertical-align: top;
+        padding: 5px;
+        margin-bottom: 30px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .color-buttons-grid {
+        .grid-item {
+            width: 25%;
+        }
+    }
+}
+@media only screen and (min-width: 1400px) {
+    .color-buttons-grid {
+        .grid-item {
+            width: 20%;
+        }
+    }
+}
+
+
+
+
+
+.color-subpanel {
+    width: 100%;
+    float: left;
+    background-color: var(--catalog-subpanel-bg-color);
+    margin-bottom: 40px;
+    padding: 25px 10px;
+    @include row-center;
+    .row{
+        max-width: 1150px;
+        .col-3{
+            padding: 0;
+            @include row-center;
+        }
+    }
+    .color-button{
+        width: 90%;
+        .color{
+            min-height: 70px;
+        }
+        .info{
+            min-height: 20px;
+        }
+    }
+}
+
+@media only screen and (min-width: 576px){
+    .color-subpanel{
+        .color-button{
+            width: 90%;
+            .color{
+                min-height: 120px;
+            }
+            .info{
+                min-height: 60px;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 768px){
+    .color-subpanel{
+        .color-button{
+            .color{
+                min-height: 150px;
+            }
+        }
+    }
+}
+@media only screen and (min-width: 1200px){
+    .color-subpanel{
+        .color-button{
+            .color{
+                min-height: 250px;
+            }
+        }
+    }
+}

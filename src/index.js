@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'react-toastify/dist/ReactToastify.css';
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import './scss/app.scss'
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
