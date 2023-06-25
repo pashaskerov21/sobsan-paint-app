@@ -3,6 +3,7 @@ import CatalogSobmatik from './CatalogSobmatik'
 import { useSelector } from 'react-redux';
 import loader from '../../image/loader.svg'
 import { Fancybox } from "@fancyapps/ui";
+import TextTranslate from '../../translate/TextTranslate';
 Fancybox.bind("[data-fancybox]", {
   // Your custom options
 });
@@ -54,7 +55,9 @@ function CatalogAccordion({ catalog, sobmatikStatus }) {
                                           <a href={color.img} data-fancybox={`gallery-${catalog.name}`}>
                                             <img src={color.img} alt="color" />
                                           </a>
-                                          <span className='label'>{color.label === 'main-color' ? text['main-color'] : color.label}</span>
+                                          <span className='label'>
+                                            <TextTranslate text={color.label}/>
+                                          </span>
                                         </div>
                                       </div>
                                     ))

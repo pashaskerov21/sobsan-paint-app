@@ -117,7 +117,7 @@ export const colorCatalog = [
             {
                 id: 'c-1-1',
                 img: catalog_1_1,
-                label: 'main-color',
+                label: 'Ana rəng',
             },
             {
                 id: 'c-1-2',
@@ -185,7 +185,7 @@ export const colorCatalog = [
             {
                 id: 'c-2-1',
                 img: catalog_2_1,
-                label: 'main-color',
+                label: 'Ana rəng',
             },
             {
                 id: 'c-2-2',

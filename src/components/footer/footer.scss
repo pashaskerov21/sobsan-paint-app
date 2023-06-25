@@ -66,6 +66,9 @@ footer{
     footer{
         .footer-links{
             align-items: flex-start;
+            a{
+                text-align: start;
+            }
         }
     }
 }
