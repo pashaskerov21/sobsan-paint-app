@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom'
 import delete_icon from '../image/icon/delete-icon.svg'
@@ -14,15 +14,44 @@ function Compare() {
   const dispatch = useDispatch()
 
   const comparisonProducts = useSelector(state => state.productState.comparisonProducts);
+  const [products, setProducts] = useState([])
+  useEffect(() => {
+    setProducts([...comparisonProducts])
+  }, [comparisonProducts])
 
   const handleRemoveProductsButton = () => {
     dispatch(removeAllProductsFromComparisons());
+    setProducts([]);
   }
 
-  const [activeCatalogCategory, setActiveCatalogCategory] = useState('all');
-  const handleCatalogCategoryClick = (category) => {
-    setActiveCatalogCategory(category);
+  const [activeCategory, setActiveCategory] = useState('all');
+  const handleCategoryButton = (categoryName) => {
+    setActiveCategory(categoryName);
+    if (categoryName === 'all') {
+      setProducts([...comparisonProducts])
+    }else{
+      let filteredProducts = comparisonProducts.filter((product) => product.category.includes(categoryName))
+      setProducts([...filteredProducts])
+    }
   }
+
+  const [categoryNames, setCategoryNames] = useState([])
+  useEffect(() => {
+    let allCategories = []
+    comparisonProducts.forEach((product) => {
+      product.category.forEach((category) => {
+        if(allCategories.includes(category) === false){
+          allCategories.push(category)
+        }
+      })
+    })
+    
+    let filteredCategories = productCategories.filter((category) => allCategories.includes(category.name))
+    console.log(filteredCategories)
+
+    setCategoryNames([...filteredCategories])
+
+  },[comparisonProducts])
   return (
     <section className='compare-section'>
       <div className="container">
@@ -51,16 +80,16 @@ function Compare() {
                 <div className="row">
                   <div className="col-12">
                     <div className="category-buttons-row">
-                      <button className={activeCatalogCategory === 'all' ? 'active' : ''} onClick={() => handleCatalogCategoryClick('all')}>{text['all']}</button>
+                      <button className={activeCategory === 'all' ? 'active' : ''} onClick={() => handleCategoryButton('all')}>{text['all']}</button>
                       {
-                        productCategories.map(category => (
-                          <button className={activeCatalogCategory === category.name ? 'active' : ''} onClick={() => handleCatalogCategoryClick(category.name)} key={category.id}>{text[`${category.name}`]}</button>
+                        categoryNames.map(category => (
+                          <button className={activeCategory === category.name ? 'active' : ''} onClick={() => handleCategoryButton(category.name)} key={category.id}>{text[`${category.name}`]}</button>
                         ))
                       }
                     </div>
                   </div>
                   {
-                    comparisonProducts.map(product => (
+                    products.map(product => (
                       <div className="col-12 col-md-6 col-lg-4 col-xxl-3" key={product.id}>
                         <ProductCard product={product} />
                       </div>
