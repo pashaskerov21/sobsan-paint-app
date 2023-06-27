@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import { productCategories, productsArr } from '../../data/ProductData';
 import CategoryList from './CategoryList';
 import LeftFIlter from './filter/LeftFIlter';
@@ -10,6 +10,8 @@ import ProductCard from './ProductCard';
 function ProductSection() {
     const language = useSelector(state => state.language.language);
     const text = require(`../../lang/${language}.json`);
+
+    const location = useLocation();
 
     const { categoryName } = useParams();
     const { subcategoryName } = useParams();
@@ -45,27 +47,69 @@ function ProductSection() {
     // products
     const [products, setProducts] = useState([...productsArr])
 
-    const filterParams = useSelector(state => state.filterParams.filterParams);
-    //console.log(filterParams)
+    const [filterParams, setFilterParams] = useState([])
+    let filters = useSelector(state => state.filterParams.filterParams);
+    useEffect(() => {
+        setFilterParams([...filters])
+    }, [filters])
+    useEffect(() => {
+        setFilterParams([]);
+    }, [location.pathname])
+
+    const [sortFilterValue, setSortFilterValue] = useState('expToCheap');
+    const handleSortFilterButton = (type) => {
+        if (type === 'price') {
+            setSortFilterValue('expToCheap')
+            if (sortFilterValue === 'expToCheap') {
+                setSortFilterValue('cheapToExp')
+            }
+        } else if (type === 'name') {
+            setSortFilterValue('a-z')
+            if (sortFilterValue === 'a-z') {
+                setSortFilterValue('z-a')
+            } 
+        }else if(type === 'popular'){
+            setSortFilterValue('many')
+            if(sortFilterValue === 'many'){
+                setSortFilterValue('few')
+            }
+        }
+    }
 
     useEffect(() => {
 
-        let filteredProducts = productsArr;
-        
+        let filteredProducts = productsArr.slice();
+
+        // qiymet filterlenmesi
+
+        if (sortFilterValue === 'expToCheap') {
+            filteredProducts.sort((a, b) => b.price - a.price);
+        } else if (sortFilterValue === 'cheapToExp') {
+            filteredProducts.sort((a, b) => a.price - b.price);
+        } else if (sortFilterValue === 'a-z') {
+            filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
+        } else if (sortFilterValue === 'z-a') {
+            filteredProducts.sort((a, b) => b.name.localeCompare(a.name));
+        }else if(sortFilterValue === 'many'){
+            filteredProducts.sort((a, b) => b.stockValue - a.stockValue);
+        }else if(sortFilterValue === 'few'){
+            filteredProducts.sort((a, b) => a.stockValue - b.stockValue);
+        }
+
         // sonda elave et ---- && filteredProducts.length > 0
-        if (filterParams.length > 0 ) {
+        if (filterParams.length > 0) {
             // qiymet filteri
             let rangeMin = filterParams[0].rangeMin;
             let rangeMax = filterParams[0].rangeMax;
-            if(rangeMax > 0){
+            if (rangeMax > 0) {
                 filteredProducts = filteredProducts.filter(
                     (product) => rangeMin <= product.price && product.price <= rangeMax
                 );
             }
             // brend filteri
             let selectedBrands = filterParams[0].selectedBrands;
-            if(selectedBrands.length > 0){
-                
+            if (selectedBrands.length > 0) {
+
                 selectedBrands.forEach((brand) => {
                     const newProducts = filteredProducts.filter((product) => product.brand === brand);
                     filteredProducts.push(...newProducts)
@@ -74,7 +118,7 @@ function ProductSection() {
 
             // xususiyyet filteri
             let selectedFeatures = filterParams[0].selectedFeatures;
-            if(selectedFeatures.length > 0){
+            if (selectedFeatures.length > 0) {
                 filteredProducts = filteredProducts.filter((product) => {
                     return selectedFeatures.some((feature) => product.features.includes(feature));
                 });
@@ -82,14 +126,14 @@ function ProductSection() {
 
             // tip filteri
             let selectedTypes = filterParams[0].selectedTypes
-            if(selectedTypes.length > 0){
+            if (selectedTypes.length > 0) {
                 filteredProducts = filteredProducts.filter((product) => {
                     return selectedTypes.some((type) => product.types.includes(type));
                 })
             }
             // tetbiq sahesi filteri
             let selectedApplicationAreas = filterParams[0].selectedApplicationAreas
-            if(selectedApplicationAreas.length > 0){
+            if (selectedApplicationAreas.length > 0) {
                 filteredProducts = filteredProducts.filter((product) => {
                     return selectedApplicationAreas.some((area) => product.application_areas.includes(area))
                 })
@@ -97,7 +141,7 @@ function ProductSection() {
 
             // gorunus filteri
             let selectedAppearance = filterParams[0].selectedAppearance
-            if(selectedAppearance.length > 0){
+            if (selectedAppearance.length > 0) {
                 filteredProducts = filteredProducts.filter((product) => {
                     return selectedAppearance.some((appearance) => product.appearance.includes(appearance))
                 })
@@ -105,17 +149,17 @@ function ProductSection() {
 
             // quruma filteri
             let selectedDrying = filterParams[0].selectedDrying
-            if(selectedDrying.length > 0){
+            if (selectedDrying.length > 0) {
                 filteredProducts = filteredProducts.filter((product) => {
                     return selectedDrying.some((drying) => product.drying.includes(drying))
                 })
             }
 
-            setProducts(filteredProducts)
         }
-        
-    }, [filterParams])
-    
+        setProducts(filteredProducts)
+
+    }, [filterParams, sortFilterValue])
+
     //console.log(products.length)
 
     return (
@@ -169,7 +213,7 @@ function ProductSection() {
                         <div className="row right">
                             <div className="col-12">
                                 <div className="filter-nav">
-                                    <SortFilter />
+                                    <SortFilter handleSortFilterButton={handleSortFilterButton} />
                                     <div className="view-filter-buttons">
                                         <button onClick={handleListFilter} className={viewFilter === 'list' ? 'active' : ''}><i className="fa-solid fa-list"></i></button>
                                         <button onClick={handleGridFilter} className={viewFilter === 'grid' ? 'active' : ''}><i className="fa-solid fa-table-cells-large"></i></button>

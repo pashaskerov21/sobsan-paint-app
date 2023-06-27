@@ -447,8 +447,8 @@ export const productsArr = [
     },
     {
         id: 'product-3',
-        name: ['antibakterial sobplus'],
-        path: ['antibakterial-sobplus'],
+        name: 'antibakterial sobplus',
+        path: 'antibakterial-sobplus',
         img: product_3,
         price: 20,
         stockValue: 61,
