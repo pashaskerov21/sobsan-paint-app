@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 import { sendFilterParams } from '../../../redux/actions/FilterAction';
 import TextTranslate from '../../../translate/TextTranslate';
 
-function LeftFIlter({ category, subcategory, type }) {
+function LeftFIlter({ category, subcategory, altcategory }) {
     const language = useSelector(state => state.language.language)
     const text = require(`../../../lang/${language}.json`);
 
@@ -21,12 +21,12 @@ function LeftFIlter({ category, subcategory, type }) {
 
     const [propertyFilters, setPropertyFilters] = useState(false);
     useEffect(() => {
-        if (type !== 'no-type') {
+        if (altcategory !== 'no-altcategory') {
             setPropertyFilters(false);
         } else {
             setPropertyFilters(true)
         }
-    }, [category, subcategory, type]);
+    }, [category, subcategory, altcategory]);
 
 
     const [selectedBrands, setSelectedBrands] = useState([]);
@@ -57,7 +57,7 @@ function LeftFIlter({ category, subcategory, type }) {
     const handleTypeChange = (event) => {
         const { value } = event.target;
         if(selectedTypes.includes(value)){
-            setSelectedTypes(selectedTypes.filter((type) => type !== value));
+            setSelectedTypes(selectedTypes.filter((altcategory) => altcategory !== value));
         }else{
             setSelectedTypes([...selectedTypes, value])
         }

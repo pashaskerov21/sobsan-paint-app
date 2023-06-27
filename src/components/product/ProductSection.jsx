@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
-import { productCategories } from '../../data/ProductData';
+import { productCategories, productsArr } from '../../data/ProductData';
 import CategoryList from './CategoryList';
 import LeftFIlter from './filter/LeftFIlter';
+import SortFilter from './filter/SortFilter';
+import ProductCard from './ProductCard';
 
 function ProductSection() {
     const language = useSelector(state => state.language.language);
     const text = require(`../../lang/${language}.json`);
 
-    const filterParams = useSelector(state => state.filterParams.filterParams);
-    console.log(filterParams)
+    //const filterParams = useSelector(state => state.filterParams.filterParams);
+    //console.log(filterParams)
 
     const { categoryName } = useParams();
     const { subcategoryName } = useParams();
@@ -31,6 +33,20 @@ function ProductSection() {
             setSectionTitle('');
         }
     }, [altcategory, subcategory, category]);
+
+
+    // view filter
+    const [viewFilter, setViewFilter] = useState('grid');
+    const handleListFilter = () => {
+        setViewFilter('list')
+    }
+    const handleGridFilter = () => {
+        setViewFilter('grid')
+    }
+
+
+    // products
+    const [products, setProducts] = useState([...productsArr])
 
     return (
         <section className="products">
@@ -72,11 +88,37 @@ function ProductSection() {
                         </div>
                     ) : null
                 }
-                <div className="row">
+                <div className="row general-row">
                     <div className="col-12 col-lg-4 col-xl-3">
-                        <div className="inner">
+                        <div className="left">
                             <CategoryList categoryPath={categoryName} subcategoryPath={subcategoryName} altcategoryPath={altcategoryName} />
                             <LeftFIlter category={category} subcategory={subcategory} altcategory={altcategory} />
+                        </div>
+                    </div>
+                    <div className="col-12 col-lg-8 col-xl-9 ps-lg-4">
+                        <div className="row right">
+                            <div className="col-12">
+                                <div className="filter-nav">
+                                    <SortFilter/>
+                                    <div className="view-filter-buttons">
+                                        <button onClick={handleListFilter} className={viewFilter === 'list' ? 'active' : ''}><i className="fa-solid fa-list"></i></button>
+                                        <button onClick={handleGridFilter} className={viewFilter === 'grid' ? 'active' : ''}><i className="fa-solid fa-table-cells-large"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-12 p-0">
+                                <div className="row products-row">
+                                    {
+                                        products.length > 0 ? (
+                                            products.map(product => (
+                                                <div className={viewFilter === 'list' ? 'col-12 list-item' : 'col-12 col-md-6 col-xl-4'} key={product.id}>
+                                                    <ProductCard viewFilter={viewFilter} product={product}/>
+                                                </div>
+                                            ))
+                                        ) : null
+                                    }
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

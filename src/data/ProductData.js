@@ -369,7 +369,7 @@ export const productsArr = [
         price: 13,
         stockValue: 86,
         sellAmount: 1,
-        isNew: false,
+        isNew: true,
         offered: true,
         code: 'T1100-901003',
         brand: 'Sobsan',

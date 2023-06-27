@@ -24,6 +24,7 @@ import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import Products from "./pages/Products";
 import Toolbar from "./components/toolbar/Toolbar";
+import ProductDetail from "./components/product/ProductDetail";
 
 
 function App() {
@@ -53,6 +54,7 @@ function App() {
             <Route path="/:categoryName" element={<Products />} />
             <Route path="/:categoryName/:subcategoryName" element={<Products />} />
             <Route path="/:categoryName/:subcategoryName/:typeName" element={<Products />} />
+            <Route path="/product/:productPath" element={<ProductDetail/>}/>
             <Route path="/compare" element={<Compare />} />
             <Route path="/wishlist" element={<Wishlist />} />
             <Route path="/basket" element={<Basket />} />

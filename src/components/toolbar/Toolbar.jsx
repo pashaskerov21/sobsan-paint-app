@@ -12,6 +12,12 @@ function Toolbar() {
     window.addEventListener('scroll', function () {
         this.window.scrollY > 400 ? setFixed(true) : setFixed(false);
     })
+
+    const comparisonProducts = useSelector(state => state.productState.comparisonProducts);
+    const wishlistProducts = useSelector(state => state.productState.wishlistProducts)
+
+
+
     return (
         <>
             <div className='toolbar-center'>
@@ -34,14 +40,14 @@ function Toolbar() {
                 <div className="toolbar-card">
                     <div className="icon">
                         <img src={heart_icon} alt="icon" />
-                        <span className='amount'>0</span>
+                        <span className='amount'>{wishlistProducts.length}</span>
                     </div>
                     <Link to='/wishlist'>{text['wishlist']}</Link>
                 </div>
                 <div className="toolbar-card">
                     <div className="icon">
                         <img src={compare_icon} alt="icon" />
-                        <span className='amount'>0</span>
+                        <span className='amount'>{comparisonProducts.length}</span>
                     </div>
                     <Link to='/compare'>{text['comparisons']}</Link>
                 </div>

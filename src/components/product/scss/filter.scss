@@ -180,3 +180,72 @@
         }
     }
 }
+
+.filter-nav {
+    width: 100%;
+    @include column-center;
+
+    .sort-filter {
+        @include row-center;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+
+        button {
+            padding: 10px;
+            color: var(--text-general-theme-color);
+            font-weight: 600;
+
+            i {
+                color: var(--color-1);
+                margin-left: 5px;
+                font-size: 13px;
+                transition: 0.2s;
+            }
+
+            &:hover {
+                i {
+                    transform: rotate(90deg);
+                }
+            }
+        }
+    }
+
+    .view-filter-buttons {
+        @include row-center;
+
+        button {
+            width: 35px;
+            height: 35px;
+            border-radius: 5px;
+            background-color: var(--filter-button-color);
+            margin-right: 10px;
+            color: var(--text-general-theme-color);
+
+            &:last-child {
+                margin-right: 0
+            }
+
+            &.active {
+                background-color: var(--color-1);
+                color: var(--color-5);
+            }
+        }
+    }
+}
+
+
+@media only screen and (min-width: 768px) {
+    .filter-nav {
+        flex-direction: row;
+        justify-content: space-between;
+
+        .sort-filter {
+            margin-bottom: 0;
+
+            button {
+                padding: 0;
+                margin-right: 15px;
+            }
+        }
+    }
+}
