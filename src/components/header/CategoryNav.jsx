@@ -32,11 +32,11 @@ function CategoryNav() {
                                                     <div className="subcategory">
                                                         <Link to={`/${category.path}/${subcategory.path}`} className='subcategory-name'>{text[`${subcategory.name}`]}</Link>
                                                         {
-                                                            subcategory.is_type ? (
-                                                                <div className="types">
+                                                            subcategory.is_altcategory ? (
+                                                                <div className="altcategories">
                                                                     {
-                                                                        subcategory.types.map(type => (
-                                                                            <Link to={`/${category.path}/${subcategory.path}/${type.path}`} key={type.id}>{text[`${type.name}`]}</Link>
+                                                                        subcategory.altcategories.map(altcategory => (
+                                                                            <Link to={`/${category.path}/${subcategory.path}/${altcategory.path}`} key={altcategory.id}>{text[`${altcategory.name}`]}</Link>
                                                                         ))
                                                                     }
                                                                 </div>

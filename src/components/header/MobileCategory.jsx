@@ -8,7 +8,7 @@ function MobileCategory({handleLinkClick}) {
     const language = useSelector(state => state.language.language)
     const text = require(`../../lang/${language}.json`);
     const [activeSubcategory, setActiveSubCategory] = useState('');
-    const [activeType, setActiveType] = useState('');
+    const [activeAltcategory, setActiveAltcategory] = useState('');
     const toggleSubCategory = (id) => {
         if (activeSubcategory === id) {
             setActiveSubCategory('');
@@ -18,15 +18,15 @@ function MobileCategory({handleLinkClick}) {
     }
     const openSubcategory = (id) => setActiveSubCategory(id);
     const closeSubcategory = () => setActiveSubCategory('') 
-    const toggleType = (id) => {
-        if (activeType === id) {
-            setActiveType('');
+    const toggleAltcategory = (id) => {
+        if (activeAltcategory === id) {
+            setActiveAltcategory('');
         } else {
-            setActiveType(id);
+            setActiveAltcategory(id);
         }
     }
-    const openType = (id) => setActiveType(id);
-    const closeType = () => setActiveType('');
+    const openAltcategory = (id) => setActiveAltcategory(id);
+    const closeAltcategory = () => setActiveAltcategory('');
     return (
         <div className="mobile-category-links">
             {
@@ -45,23 +45,23 @@ function MobileCategory({handleLinkClick}) {
                                 <div className={activeSubcategory === category.id ? 'subcategories' : 'subcategories d-none'} >
                                     {
                                         category.subcategories.map(subcategory => (
-                                            <div className="subcategory" key={subcategory.id} onMouseMove={() => openType(subcategory.id)} onMouseLeave={closeType}>
+                                            <div className="subcategory" key={subcategory.id} onMouseMove={() => openAltcategory(subcategory.id)} onMouseLeave={closeAltcategory}>
                                                 <div className="link-row">
                                                     <Link to={`/${category.path}/${subcategory.path}`} onClick={() => handleLinkClick()}>{text[`${subcategory.name}`]}</Link>
                                                     {
-                                                        subcategory.is_type ? (
-                                                            <button onClick={() => toggleType(subcategory.id)} className={activeType === subcategory.id ? 'active' : null}><img src={arrow_right} alt="arrow" /></button>
+                                                        subcategory.is_altcategory ? (
+                                                            <button onClick={() => toggleAltcategory(subcategory.id)} className={activeAltcategory === subcategory.id ? 'active' : null}><img src={arrow_right} alt="arrow" /></button>
                                                         ) : null
                                                     }
                                                 </div>
                                                 {
-                                                    subcategory.is_type ? (
-                                                        <div className={activeType === subcategory.id ? 'types' : 'types d-none'}>
+                                                    subcategory.is_altcategory ? (
+                                                        <div className={activeAltcategory === subcategory.id ? 'altcategories' : 'altcategories d-none'}>
                                                             {
-                                                                subcategory.types.map(type => (
-                                                                    <div className="type" key={type.id}>
+                                                                subcategory.altcategories.map(altcategory => (
+                                                                    <div className="altcategory" key={altcategory.id}>
                                                                         <div className="link-row">
-                                                                            <Link to={`/${category.path}/${subcategory.path}/${type.path}`} onClick={() => handleLinkClick()}>{text[`${type.name}`]}</Link>
+                                                                            <Link to={`/${category.path}/${subcategory.path}/${altcategory.path}`} onClick={() => handleLinkClick()}>{text[`${altcategory.name}`]}</Link>
                                                                         </div>
                                                                     </div>
                                                                 ))

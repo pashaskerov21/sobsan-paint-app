@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { sendFilterParams } from '../../../redux/actions/FilterAction';
+import TextTranslate from '../../../translate/TextTranslate';
 
 function LeftFIlter({ category, subcategory, type }) {
     const language = useSelector(state => state.language.language)
@@ -138,7 +139,7 @@ function LeftFIlter({ category, subcategory, type }) {
         <>
             <button className='open-filter-button d-lg-none' onClick={toggleFilter}>
                 <i className='fa-solid fa-filter'></i>
-                <span>Filterlə</span>
+                <span><TextTranslate text={'Filterlə'}/></span>
             </button>
             <form onSubmit={handleFilterFormSubmit} className={filterActive ? 'left-filters d-lg-flex' : 'left-filters d-none d-lg-flex'}>
                 <div className="filter-item">

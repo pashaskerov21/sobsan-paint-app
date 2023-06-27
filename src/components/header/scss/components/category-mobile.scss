@@ -8,9 +8,9 @@
     }
     .category,
     .subcategories,
-    .types,
+    .altcategories,
     .subcategory,
-    .type {
+    .altcategory {
         width: 100%;
         @include column-center;
     }
@@ -21,7 +21,7 @@
         }
     }
 
-    .type {
+    .altcategory {
         .link-row {
             padding-left: 45px;
         }
@@ -80,13 +80,13 @@ section.products {
 @media only screen and (min-width: 992px) {
     section.products {
         .mobile-category-links {
-            .subcategory, .type {
+            .subcategory, .altcategory {
                 .link-row {
                     padding-left: 20px;
                 }
             }
             .subcategories,
-            .types{
+            .altcategories{
                 position: absolute;
                 top: 0;
                 left: 100%;

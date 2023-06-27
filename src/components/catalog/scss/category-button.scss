@@ -13,8 +13,8 @@
         border-radius: 10px;
         margin-right: 15px;
         text-transform: capitalize;
-        font-family: 600;
-        white-space: nowrap;
+        font-weight: 600;
+        //white-space: nowrap;
 
         &:hover {
             background-color: var(--color-1);

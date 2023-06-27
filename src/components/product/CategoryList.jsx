@@ -3,11 +3,11 @@ import { useSelector } from 'react-redux';
 import { productCategories } from '../../data/ProductData';
 import { Link } from 'react-router-dom';
 
-function CategoryList({categoryPath ,subcategoryPath , typePath}) {
+function CategoryList({categoryPath ,subcategoryPath , altcategoryPath}) {
     const language = useSelector(state => state.language.language)
     const text = require(`../../lang/${language}.json`);
     const [activeSubcategory, setActiveSubCategory] = useState('');
-    const [activeType, setActiveType] = useState('');
+    const [activeAltcategory, setActiveAltcategory] = useState('');
     const toggleSubCategory = (id) => {
         if (activeSubcategory === id) {
             setActiveSubCategory('');
@@ -17,15 +17,15 @@ function CategoryList({categoryPath ,subcategoryPath , typePath}) {
     }
     const openSubcategory = (id) => setActiveSubCategory(id);
     const closeSubcategory = () => setActiveSubCategory('')
-    const toggleType = (id) => {
-        if (activeType === id) {
-            setActiveType('');
+    const toggleAltcategory = (id) => {
+        if (activeAltcategory === id) {
+            setActiveAltcategory('');
         } else {
-            setActiveType(id);
+            setActiveAltcategory(id);
         }
     }
-    const openType = (id) => setActiveType(id);
-    const closeType = () => setActiveType('');
+    const openAltcategory = (id) => setActiveAltcategory(id);
+    const closeAltcategory = () => setActiveAltcategory('');
     return (
         <div className="mobile-category-links">
             {
@@ -44,23 +44,23 @@ function CategoryList({categoryPath ,subcategoryPath , typePath}) {
                                 <div className={activeSubcategory === category.id ? 'subcategories' : 'subcategories d-none'} >
                                     {
                                         category.subcategories.map(subcategory => (
-                                            <div className="subcategory" key={subcategory.id} onMouseMove={() => openType(subcategory.id)} onMouseLeave={closeType}>
+                                            <div className="subcategory" key={subcategory.id} onMouseMove={() => openAltcategory(subcategory.id)} onMouseLeave={closeAltcategory}>
                                                 <div className={subcategory.path === subcategoryPath && subcategoryPath !== undefined  ? 'link-row active' : 'link-row'}>
                                                     <Link to={`/${category.path}/${subcategory.path}`}>{text[`${subcategory.name}`]}</Link>
                                                     {
-                                                        subcategory.is_type ? (
-                                                            <button onClick={() => toggleType(subcategory.id)} className={activeType === subcategory.id ? 'active' : null}><i className="fa-solid fa-chevron-right"></i></button>
+                                                        subcategory.is_altcategory ? (
+                                                            <button onClick={() => toggleAltcategory(subcategory.id)} className={activeAltcategory === subcategory.id ? 'active' : null}><i className="fa-solid fa-chevron-right"></i></button>
                                                         ) : null
                                                     }
                                                 </div>
                                                 {
-                                                    subcategory.is_type ? (
-                                                        <div className={activeType === subcategory.id ? 'types' : 'types d-none'}>
+                                                    subcategory.is_altcategory ? (
+                                                        <div className={activeAltcategory === subcategory.id ? 'altcategories' : 'altcategories d-none'}>
                                                             {
-                                                                subcategory.types.map(type => (
-                                                                    <div className="type" key={type.id}>
-                                                                        <div className={type.path === typePath && typePath !== undefined  ? 'link-row active' : 'link-row'}>
-                                                                            <Link to={`/${category.path}/${subcategory.path}/${type.path}`}>{text[`${type.name}`]}</Link>
+                                                                subcategory.altcategories.map(altcategory => (
+                                                                    <div className="altcategory" key={altcategory.id}>
+                                                                        <div className={altcategory.path === altcategoryPath && altcategoryPath !== undefined  ? 'link-row active' : 'link-row'}>
+                                                                            <Link to={`/${category.path}/${subcategory.path}/${altcategory.path}`}>{text[`${altcategory.name}`]}</Link>
                                                                         </div>
                                                                     </div>
                                                                 ))

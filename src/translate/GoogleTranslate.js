@@ -8,7 +8,7 @@ async function googleTranslate(text, language) {
   
       return data[0][0][0];
     } catch (error) {
-      console.error('Çeviri sırasında bir hata oluştu:', error);
+      console.error('Tərcümə xətası:', );
       throw error;
     }
   }

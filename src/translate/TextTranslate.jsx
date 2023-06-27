@@ -8,10 +8,15 @@ function TextTranslate({text}) {
     useEffect(() => {
         const fetchTranslation = async () => {
             try {
-                const translation = await googleTranslate(text, language);
-                setTranslatedText(translation);
+                if(language === 'az'){
+                    setTranslatedText(text)
+                }else{
+                    const translation = await googleTranslate(text, language);
+                    setTranslatedText(translation);
+                }
             } catch (error) {
                 console.error('Tərcümə xətası:', error);
+                setTranslatedText(text)
             }
         };
 
