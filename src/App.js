@@ -24,7 +24,7 @@ import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import Products from "./pages/Products";
 import Toolbar from "./components/toolbar/Toolbar";
-import ProductDetail from "./components/product/ProductDetail";
+import ProductDetail from "./pages/ProductDetail";
 
 
 function App() {

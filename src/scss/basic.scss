@@ -97,8 +97,13 @@ section {
 .row {
     width: 100%;
     .col-12 {
-        @include row-center;
+        @include column-center;
         margin-bottom: 40px;
+    }
+    &.layout-row{
+        .col-12{
+            margin-bottom: 0;
+        }
     }
 }
 

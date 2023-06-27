@@ -11,9 +11,6 @@ function ProductSection() {
     const language = useSelector(state => state.language.language);
     const text = require(`../../lang/${language}.json`);
 
-    //const filterParams = useSelector(state => state.filterParams.filterParams);
-    //console.log(filterParams)
-
     const { categoryName } = useParams();
     const { subcategoryName } = useParams();
     const { altcategoryName } = useParams();
@@ -47,6 +44,79 @@ function ProductSection() {
 
     // products
     const [products, setProducts] = useState([...productsArr])
+
+    const filterParams = useSelector(state => state.filterParams.filterParams);
+    //console.log(filterParams)
+
+    useEffect(() => {
+
+        let filteredProducts = productsArr;
+        
+        // sonda elave et ---- && filteredProducts.length > 0
+        if (filterParams.length > 0 ) {
+            // qiymet filteri
+            let rangeMin = filterParams[0].rangeMin;
+            let rangeMax = filterParams[0].rangeMax;
+            if(rangeMax > 0){
+                filteredProducts = filteredProducts.filter(
+                    (product) => rangeMin <= product.price && product.price <= rangeMax
+                );
+            }
+            // brend filteri
+            let selectedBrands = filterParams[0].selectedBrands;
+            if(selectedBrands.length > 0){
+                
+                selectedBrands.forEach((brand) => {
+                    const newProducts = filteredProducts.filter((product) => product.brand === brand);
+                    filteredProducts.push(...newProducts)
+                })
+            }
+
+            // xususiyyet filteri
+            let selectedFeatures = filterParams[0].selectedFeatures;
+            if(selectedFeatures.length > 0){
+                filteredProducts = filteredProducts.filter((product) => {
+                    return selectedFeatures.some((feature) => product.features.includes(feature));
+                });
+            }
+
+            // tip filteri
+            let selectedTypes = filterParams[0].selectedTypes
+            if(selectedTypes.length > 0){
+                filteredProducts = filteredProducts.filter((product) => {
+                    return selectedTypes.some((type) => product.types.includes(type));
+                })
+            }
+            // tetbiq sahesi filteri
+            let selectedApplicationAreas = filterParams[0].selectedApplicationAreas
+            if(selectedApplicationAreas.length > 0){
+                filteredProducts = filteredProducts.filter((product) => {
+                    return selectedApplicationAreas.some((area) => product.application_areas.includes(area))
+                })
+            }
+
+            // gorunus filteri
+            let selectedAppearance = filterParams[0].selectedAppearance
+            if(selectedAppearance.length > 0){
+                filteredProducts = filteredProducts.filter((product) => {
+                    return selectedAppearance.some((appearance) => product.appearance.includes(appearance))
+                })
+            }
+
+            // quruma filteri
+            let selectedDrying = filterParams[0].selectedDrying
+            if(selectedDrying.length > 0){
+                filteredProducts = filteredProducts.filter((product) => {
+                    return selectedDrying.some((drying) => product.drying.includes(drying))
+                })
+            }
+
+            setProducts(filteredProducts)
+        }
+        
+    }, [filterParams])
+    
+    //console.log(products.length)
 
     return (
         <section className="products">
@@ -99,7 +169,7 @@ function ProductSection() {
                         <div className="row right">
                             <div className="col-12">
                                 <div className="filter-nav">
-                                    <SortFilter/>
+                                    <SortFilter />
                                     <div className="view-filter-buttons">
                                         <button onClick={handleListFilter} className={viewFilter === 'list' ? 'active' : ''}><i className="fa-solid fa-list"></i></button>
                                         <button onClick={handleGridFilter} className={viewFilter === 'grid' ? 'active' : ''}><i className="fa-solid fa-table-cells-large"></i></button>
@@ -112,7 +182,7 @@ function ProductSection() {
                                         products.length > 0 ? (
                                             products.map(product => (
                                                 <div className={viewFilter === 'list' ? 'col-12 list-item' : 'col-12 col-md-6 col-xl-4'} key={product.id}>
-                                                    <ProductCard viewFilter={viewFilter} product={product}/>
+                                                    <ProductCard viewFilter={viewFilter} product={product} />
                                                 </div>
                                             ))
                                         ) : null

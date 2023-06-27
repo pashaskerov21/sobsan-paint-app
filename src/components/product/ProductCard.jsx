@@ -8,7 +8,9 @@ import compare_red from '../../image/icon/compare-red.svg'
 import compare_white from '../../image/icon/compare-white.svg'
 import heaert_red from '../../image/icon/heart-red.svg'
 import heaert_full from '../../image/icon/heart-full.svg'
-import { addToComparisons, addToWishlist, removeToComparisons, removeToWishlist } from '../../redux/actions/ProductAction'
+import { addProductToComparisons, addProductToWishlist, removeProductFromComparisons, removeProductFromWishlist } from '../../redux/actions/ProductAction'
+
+
 
 function ProductCard({ viewFilter, product }) {
     const language = useSelector(state => state.language.language)
@@ -39,9 +41,9 @@ function ProductCard({ viewFilter, product }) {
     const productCompareStatus = comparisonProducts.find((p) => p.id === product.id);
     const handleCompareButton = () => {
         if(productCompareStatus){
-            dispatch(removeToComparisons(product.id))
+            dispatch(removeProductFromComparisons(product.id))
         }else{
-            dispatch(addToComparisons(product))
+            dispatch(addProductToComparisons(product))
         }
     }
 
@@ -49,9 +51,9 @@ function ProductCard({ viewFilter, product }) {
     const productWishlistStatus = wishlistProducts.find((p) => p.id === product.id);
     const handleHeartButton = () => {
         if(productWishlistStatus){
-            dispatch(removeToWishlist(product.id));
+            dispatch(removeProductFromWishlist(product.id));
         }else{
-            dispatch(addToWishlist(product))
+            dispatch(addProductToWishlist(product))
         }
     }
     
@@ -92,7 +94,9 @@ function ProductCard({ viewFilter, product }) {
                     <Link to={`/product/${product.path}`} className="name">{product.name}</Link>
                 </div>
                 <div className="description">
-                    <TextTranslate text={product.text.description} />
+                    {
+                        product.text.description !== '' && <TextTranslate text={`${product.text.description}`} />
+                    }
                 </div>
                 <div className="bottom">
                     <div className="price">{product.price.toFixed(2)} AZN</div>

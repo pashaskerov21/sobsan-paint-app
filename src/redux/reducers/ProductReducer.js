@@ -1,4 +1,4 @@
-import { ADD_COMPARISONS, ADD_WISHLIST, REMOVE_COMPARISONS, REMOVE_WISHLIST } from "../ActionTypes"
+import { ADD_PRODUCT_TO_COMPARISONS, ADD_PRODUCT_TO_WISHLIST, REMOVE_ALL_PRODUCTS_FROM_COMPARISONS, REMOVE_ALL_PRODUCTS_FROM_WISHLIST, REMOVE_PRODUCT_FROM_COMPARISONS, REMOVE_PRODUCT_FROM_WISHLIST } from "../ActionTypes"
 
 const initialState = {
     comparisonProducts: [],
@@ -8,26 +8,36 @@ const initialState = {
 
 const ProductReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_COMPARISONS:
+        case ADD_PRODUCT_TO_COMPARISONS:
             return {
                 ...state,
                 comparisonProducts: [...state.comparisonProducts, action.payload]
             }
-        case REMOVE_COMPARISONS:
+        case REMOVE_PRODUCT_FROM_COMPARISONS:
             return {
                 ...state,
                 comparisonProducts: state.comparisonProducts.filter((product) => product.id !== action.payload)
             }
-        case ADD_WISHLIST:
+        case REMOVE_ALL_PRODUCTS_FROM_COMPARISONS:
+            return {
+                ...state,
+                comparisonProducts: []
+            }
+        case ADD_PRODUCT_TO_WISHLIST:
             return {
                 ...state,
                 wishlistProducts: [...state.wishlistProducts, action.payload]
             }
-        case REMOVE_WISHLIST:
+        case REMOVE_PRODUCT_FROM_WISHLIST:
             return {
                 ...state,
                 wishlistProducts: state.wishlistProducts.filter((product) => product.id !== action.payload)
             }
+        case REMOVE_ALL_PRODUCTS_FROM_WISHLIST: 
+        return{
+            ...state,
+            wishlistProducts: []
+        }
         default:
             return state;
     }

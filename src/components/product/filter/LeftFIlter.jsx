@@ -17,7 +17,7 @@ function LeftFIlter({ category, subcategory, altcategory }) {
     }
 
     let [rangeMin, setRangeMin] = useState(0)
-    let [rangeMax, setRangeMax] = useState(2000)
+    let [rangeMax, setRangeMax] = useState(500)
 
     const [propertyFilters, setPropertyFilters] = useState(false);
     useEffect(() => {
@@ -89,7 +89,7 @@ function LeftFIlter({ category, subcategory, altcategory }) {
 
     const resetFilters = () => {
         setRangeMin(0);
-        setRangeMax(2000);
+        setRangeMax(500);
         setSelectedBrands([]);
         setSelectedFeatures([]);
         setSelectedTypes([]);
@@ -110,7 +110,7 @@ function LeftFIlter({ category, subcategory, altcategory }) {
     }
     useEffect(() => {
         setRangeMin(0);
-        setRangeMax(2000);
+        setRangeMax(500);
         setSelectedBrands([]);
         setSelectedFeatures([]);
         setSelectedTypes([]);
@@ -122,6 +122,8 @@ function LeftFIlter({ category, subcategory, altcategory }) {
 
     const handleFilterFormSubmit = (e) => {
         e.preventDefault();
+        window.scrollTo(0,500)
+        setFilterActive(false)
         let filterParams = {
             rangeMin,
             rangeMax,
@@ -146,8 +148,8 @@ function LeftFIlter({ category, subcategory, altcategory }) {
                     <h5 className="title">{text['price']}</h5>
                     <div className='range-filter'>
                         <div className='range-inputs'>
-                            <input type="range" value={rangeMin} onChange={(e) => { setRangeMin(e.target.value) }} min={0} max={2000} step={1} />
-                            <input type="range" value={rangeMax} onChange={(e) => { setRangeMax(e.target.value) }} min={0} max={2000} step={1} />
+                            <input type="range" value={rangeMin} onChange={(e) => { setRangeMin(e.target.value) }} min={0} max={500} step={1} />
+                            <input type="range" value={rangeMax} onChange={(e) => { setRangeMax(e.target.value) }} min={0} max={500} step={1} />
                         </div>
                         <div className='result-inputs'>
                             <div className="item">

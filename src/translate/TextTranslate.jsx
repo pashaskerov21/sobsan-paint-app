@@ -7,16 +7,18 @@ function TextTranslate({text}) {
     const [translatedText, setTranslatedText] = useState('');
     useEffect(() => {
         const fetchTranslation = async () => {
-            try {
-                if(language === 'az'){
+            if(text){
+                try {
+                    if(language === 'az'){
+                        setTranslatedText(text)
+                    }else{
+                        const translation = await googleTranslate(text, language);
+                        setTranslatedText(translation);
+                    }
+                } catch (error) {
+                    console.error('Tərcümə xətası:', error);
                     setTranslatedText(text)
-                }else{
-                    const translation = await googleTranslate(text, language);
-                    setTranslatedText(translation);
                 }
-            } catch (error) {
-                console.error('Tərcümə xətası:', error);
-                setTranslatedText(text)
             }
         };
 

@@ -11,10 +11,6 @@ function CatalogSection() {
     const text = require(`../../lang/${language}.json`);
 
     const [activeCatalogCategory, setActiveCatalogCategory] = useState('all');
-
-    //const [catalog, setCatalog] = useState([...colorCatalog]);
-    
-
     const handleCatalogCategoryClick = (category) => {
         setActiveCatalogCategory(category);
     } 
@@ -47,7 +43,7 @@ function CatalogSection() {
                     </div>
                     <h2 className="section-title">{text['color-catalog']}</h2>
                 </div>
-                <div className="catalog-category-buttons">
+                <div className="category-buttons-row">
                     <button className={activeCatalogCategory === 'all' ? 'active' : ''} onClick={() => handleCatalogCategoryClick('all')}>{text['all']}</button>
                     {
                         productCategories.map(category => (

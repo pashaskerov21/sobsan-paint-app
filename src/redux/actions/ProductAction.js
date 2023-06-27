@@ -1,30 +1,42 @@
-import { ADD_COMPARISONS, ADD_WISHLIST, REMOVE_COMPARISONS, REMOVE_WISHLIST } from "../ActionTypes"
+import { ADD_PRODUCT_TO_COMPARISONS, ADD_PRODUCT_TO_WISHLIST, REMOVE_ALL_PRODUCTS_FROM_COMPARISONS, REMOVE_ALL_PRODUCTS_FROM_WISHLIST, REMOVE_PRODUCT_FROM_COMPARISONS, REMOVE_PRODUCT_FROM_WISHLIST } from "../ActionTypes"
 
-export const addToComparisons = (product) => {
+export const addProductToComparisons = (product) => {
     return{
-        type: ADD_COMPARISONS,
+        type: ADD_PRODUCT_TO_COMPARISONS,
         payload: product,
     }
 }
 
-export const removeToComparisons = (productID) => {
+export const removeProductFromComparisons = (productID) => {
     return{
-        type: REMOVE_COMPARISONS,
+        type: REMOVE_PRODUCT_FROM_COMPARISONS,
         payload: productID,
+    }
+}
+export const removeAllProductsFromComparisons = () => {
+    return{
+        type: REMOVE_ALL_PRODUCTS_FROM_COMPARISONS,
     }
 }
 
 
-export const addToWishlist = (product) => {
+
+
+export const addProductToWishlist = (product) => {
     return{
-        type: ADD_WISHLIST,
+        type: ADD_PRODUCT_TO_WISHLIST,
         payload: product,
     }
 }
 
-export const removeToWishlist = (productID) => {
+export const removeProductFromWishlist = (productID) => {
     return{
-        type: REMOVE_WISHLIST,
+        type: REMOVE_PRODUCT_FROM_WISHLIST,
         payload: productID,
+    }
+}
+export const removeAllProductsFromWishlist = () => {
+    return{ 
+        type: REMOVE_ALL_PRODUCTS_FROM_WISHLIST
     }
 }
