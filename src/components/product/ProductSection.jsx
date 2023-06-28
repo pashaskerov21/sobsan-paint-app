@@ -6,6 +6,7 @@ import CategoryList from './CategoryList';
 import LeftFIlter from './filter/LeftFIlter';
 import SortFilter from './filter/SortFilter';
 import ProductCard from './ProductCard';
+import Pagination from './Pagination';
 
 function ProductSection() {
     const language = useSelector(state => state.language.language);
@@ -67,10 +68,10 @@ function ProductSection() {
             setSortFilterValue('a-z')
             if (sortFilterValue === 'a-z') {
                 setSortFilterValue('z-a')
-            } 
-        }else if(type === 'popular'){
+            }
+        } else if (type === 'popular') {
             setSortFilterValue('many')
-            if(sortFilterValue === 'many'){
+            if (sortFilterValue === 'many') {
                 setSortFilterValue('few')
             }
         }
@@ -79,6 +80,28 @@ function ProductSection() {
     useEffect(() => {
 
         let filteredProducts = productsArr.slice();
+
+
+        // categoriyaya gore filterlenme
+        if (categoryName) {
+            filteredProducts = filteredProducts.filter((product) => {
+                return product.category.includes(categoryName)
+            })
+        }
+        // subcategoriyaya gore filterlenme
+        if (subcategoryName) {
+            filteredProducts = filteredProducts.filter((product) => {
+                return product.subcategory.includes(subcategoryName)
+            })
+        }
+
+        // altcategoriyaya gore filterlenme
+        if (altcategoryName) {
+            filteredProducts = filteredProducts.filter((product) => {
+                return product.altcategory.includes(altcategoryName)
+            })
+        }
+
 
         // qiymet filterlenmesi
 
@@ -90,9 +113,9 @@ function ProductSection() {
             filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
         } else if (sortFilterValue === 'z-a') {
             filteredProducts.sort((a, b) => b.name.localeCompare(a.name));
-        }else if(sortFilterValue === 'many'){
+        } else if (sortFilterValue === 'many') {
             filteredProducts.sort((a, b) => b.stockValue - a.stockValue);
-        }else if(sortFilterValue === 'few'){
+        } else if (sortFilterValue === 'few') {
             filteredProducts.sort((a, b) => a.stockValue - b.stockValue);
         }
 
@@ -158,9 +181,41 @@ function ProductSection() {
         }
         setProducts(filteredProducts)
 
-    }, [filterParams, sortFilterValue])
+    }, [filterParams, sortFilterValue, categoryName, subcategoryName, altcategoryName])
 
-    //console.log(products.length)
+    // pagination
+    const [currentPage, setCurrentPage] = useState(1);
+    const [productsPerPage, setProductsPerPage] = useState(12);
+
+    const changeProductsPerPage = (value) => {
+        setProductsPerPage(value)
+    }
+
+    const indexOfLastProduct = currentPage * productsPerPage;
+    const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+    const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
+
+    const handlePageChange = (pageNumber) => {
+        setCurrentPage(pageNumber);
+        window.scrollTo(0, 0);
+    };
+    const handlePrevPage = () => {
+        if (currentPage > 1) {
+            setCurrentPage(currentPage - 1);
+            window.scrollTo(0, 0);
+        }
+    }
+    const handleNextPage = () => {
+        let lastPage = Math.ceil(products.length / productsPerPage)
+        if (currentPage < lastPage) {
+            setCurrentPage(currentPage + 1);
+            window.scrollTo(0, 0);
+        }
+    }
+    console.log(currentPage)
+    useEffect(() => {
+        setCurrentPage(1)
+    }, [location.pathname])
 
     return (
         <section className="products">
@@ -213,7 +268,7 @@ function ProductSection() {
                         <div className="row right">
                             <div className="col-12">
                                 <div className="filter-nav">
-                                    <SortFilter handleSortFilterButton={handleSortFilterButton} />
+                                    <SortFilter handleSortFilterButton={handleSortFilterButton} changeProductsPerPage={changeProductsPerPage} />
                                     <div className="view-filter-buttons">
                                         <button onClick={handleListFilter} className={viewFilter === 'list' ? 'active' : ''}><i className="fa-solid fa-list"></i></button>
                                         <button onClick={handleGridFilter} className={viewFilter === 'grid' ? 'active' : ''}><i className="fa-solid fa-table-cells-large"></i></button>
@@ -224,13 +279,23 @@ function ProductSection() {
                                 <div className="row products-row">
                                     {
                                         products.length > 0 ? (
-                                            products.map(product => (
+                                            currentProducts.map(product => (
                                                 <div className={viewFilter === 'list' ? 'col-12 list-item' : 'col-12 col-md-6 col-xl-4'} key={product.id}>
                                                     <ProductCard viewFilter={viewFilter} product={product} />
                                                 </div>
                                             ))
                                         ) : null
                                     }
+                                    <div className="col-12">
+                                        {products.length > productsPerPage && <Pagination
+                                            totalProducts={products.length}
+                                            productsPerPage={productsPerPage}
+                                            currentPage={currentPage}
+                                            onPageChange={handlePageChange}
+                                            prev={handlePrevPage}
+                                            next={handleNextPage}
+                                        />}
+                                    </div>
                                 </div>
                             </div>
                         </div>

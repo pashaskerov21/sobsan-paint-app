@@ -73,3 +73,34 @@
         }
     }
 }
+
+
+.product-pagination{
+    margin-top: 10px;
+    width: 100%;
+    max-width: 600px;
+    @include row-center;
+    list-style: none;
+    li{
+        list-style: none;
+        margin-right: 10px;
+        &:last-child{
+            margin-right: 0;
+        }
+    }
+    button{
+        width: 30px;
+        height: 30px;
+        border: 1px solid var(--border-theme-color);
+        color: var(--color-1);
+        border-radius: 5px;
+        i{
+            font-size: 14px;
+        }
+        &.active{
+            background-color: var(--color-1);
+            border-color: var(--color-1);
+            color: var(--color-5);
+        }
+    }
+}
