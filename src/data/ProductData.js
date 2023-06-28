@@ -109,37 +109,50 @@ export const productCategories = [
                 id: 'id-1-1',
                 name: 'water-based-paints',
                 path: 'water-based-paints',
+                categoryPath: 'products',
                 is_altcategory: true,
                 altcategories: [
                     {
                         id: 'id-1-1-1',
                         name: 'interior-wall-paints',
                         path: 'interior-wall-paints',
+                        subcategoryPath: 'water-based-paints',
+                        categoryPath: 'products',
                     },
                     {
                         id: 'id-1-1-2',
                         name: 'exterior-front-paints',
                         path: 'exterior-front-paints',
+                        subcategoryPath: 'water-based-paints',
+                        categoryPath: 'products',
                     },
                     {
                         id: 'id-1-1-3',
                         name: 'putties',
                         path: 'putties',
+                        subcategoryPath: 'water-based-paints',
+                        categoryPath: 'products',
                     },
                     {
                         id: 'id-1-1-4',
                         name: 'primers',
                         path: 'primers',
+                        subcategoryPath: 'water-based-paints',
+                        categoryPath: 'products',
                     },
                     {
                         id: 'id-1-1-5',
                         name: 'PVA-based-adhesives',
                         path: 'PVA-based-adhesives',
+                        subcategoryPath: 'water-based-paints',
+                        categoryPath: 'products',
                     },
                     {
                         id: 'id-1-1-6',
                         name: 'water-based-varnishes',
                         path: 'water-based-varnishes',
+                        subcategoryPath: 'water-based-paints',
+                        categoryPath: 'products',
                     },
                 ]
             },
@@ -147,27 +160,36 @@ export const productCategories = [
                 id: 'id-1-2',
                 name: 'solvent-based-paints',
                 path: 'solvent-based-paints',
+                categoryPath: 'products',
                 is_altcategory: true,
                 altcategories: [
                     {
                         id: 'id-1-2-1',
                         name: 'synthetic-paints',
                         path: 'synthetic-paints',
+                        subcategoryPath: 'solvent-based-paints',
+                        categoryPath: 'products',
                     },
                     {
                         id: 'id-1-2-2',
                         name: 'cellulosic-paints',
                         path: 'cellulosic-paints',
+                        subcategoryPath: 'solvent-based-paints',
+                        categoryPath: 'products',
                     },
                     {
                         id: 'id-1-2-3',
                         name: 'polyurethane-paints',
                         path: 'polyurethane-paints',
+                        subcategoryPath: 'solvent-based-paints',
+                        categoryPath: 'products',
                     },
                     {
                         id: 'id-1-2-4',
                         name: 'epoxy-paints',
                         path: 'epoxy-paints',
+                        subcategoryPath: 'solvent-based-paints',
+                        categoryPath: 'products',
                     },
                 ]
             },
@@ -175,6 +197,7 @@ export const productCategories = [
                 id: 'id-1-3',
                 name: 'gold-series',
                 path: 'gold-series',
+                categoryPath: 'products',
                 is_altcategory: false,
                 altcategories: []
             },
@@ -198,6 +221,7 @@ export const productCategories = [
                 id: 'id-2-1',
                 name: 'decorative-interior-paints',
                 path: 'decorative-interior-paints',
+                categoryPath: 'decorative-paints',
                 is_altcategory: false,
                 altcategories: []
             },
@@ -205,6 +229,7 @@ export const productCategories = [
                 id: 'id-2-2',
                 name: 'decorative-facade-paints',
                 path: 'decorative-facade-paints',
+                categoryPath: 'decorative-paints',
                 is_altcategory: false,
                 altcategories: []
             },
@@ -228,6 +253,7 @@ export const productCategories = [
                 id: 'id-3-1',
                 name: 'paints',
                 path: 'paints',
+                categoryPath: 'industrial-paints',
                 is_altcategory: false,
                 altcategories: []
             },
@@ -235,6 +261,7 @@ export const productCategories = [
                 id: 'id-3-2',
                 name: 'primers',
                 path: 'primers',
+                categoryPath: 'industrial-paints',
                 is_altcategory: false,
                 altcategories: []
             },
@@ -242,6 +269,7 @@ export const productCategories = [
                 id: 'id-3-3',
                 name: 'thinners',
                 path: 'thinners',
+                categoryPath: 'industrial-paints',
                 is_altcategory: false,
                 altcategories: []
             },
@@ -265,6 +293,7 @@ export const productCategories = [
                 id: 'id-4-1',
                 name: 'ceramic-adhesives',
                 path: 'ceramic-adhesives',
+                categoryPath: 'construction-products',
                 is_altcategory: false,
                 altcategories: []
             },
@@ -272,17 +301,22 @@ export const productCategories = [
                 id: 'id-4-2',
                 name: 'gypsum-based-products',
                 path: 'gypsum-based-products',
+                categoryPath: 'construction-products',
                 is_altcategory: true,
                 altcategories: [
                     {
                         id: 'id-4-2-1',
                         name: 'primers',
                         path: 'primers',
+                        subcategoryPath: 'gypsum-based-products',
+                        categoryPath: 'construction-products',
                     },
                     {
                         id: 'id-4-2-2',
                         name: 'coatings',
                         path: 'coatings',
+                        subcategoryPath: 'gypsum-based-products',
+                        categoryPath: 'construction-products',
                     },
                 ]
             },
@@ -290,6 +324,7 @@ export const productCategories = [
                 id: 'id-4-3',
                 name: 'decorative-plasters',
                 path: 'decorative-plasters',
+                categoryPath: 'construction-products',
                 is_altcategory: false,
                 altcategories: []
             },
@@ -297,6 +332,7 @@ export const productCategories = [
                 id: 'id-4-4',
                 name: 'waterproofing-products',
                 path: 'waterproofing-products',
+                categoryPath: 'construction-products',
                 is_altcategory: false,
                 altcategories: []
             },
@@ -304,6 +340,7 @@ export const productCategories = [
                 id: 'id-4-5',
                 name: 'repair-plasters',
                 path: 'repair-plasters',
+                categoryPath: 'construction-products',
                 is_altcategory: false,
                 altcategories: []
             },
@@ -327,6 +364,7 @@ export const productCategories = [
                 id: 'id-5-1',
                 name: 'brushes',
                 path: 'brushes',
+                categoryPath: 'painter-tools',
                 is_altcategory: false,
                 altcategories: []
             },
@@ -334,6 +372,7 @@ export const productCategories = [
                 id: 'id-5-2',
                 name: 'rolls',
                 path: 'rolls',
+                categoryPath: 'painter-tools',
                 is_altcategory: false,
                 altcategories: []
             },

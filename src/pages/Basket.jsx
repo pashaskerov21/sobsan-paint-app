@@ -1,13 +1,19 @@
 import React from 'react'
 import TextTranslate from '../translate/TextTranslate'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import delete_icon from '../image/icon/delete-icon.svg'
+import { removeAllProductsFromBasket } from '../redux/actions/ProductAction';
 
 
 function Basket() {
   const language = useSelector(state => state.language.language)
   const text = require(`../lang/${language}.json`);
+  const dispatch = useDispatch()
+
+  const handleRemoveProductsButton = () => {
+    dispatch(removeAllProductsFromBasket());
+  }
   return (
     <section className='basket-section'>
       <div className="container">
@@ -23,7 +29,7 @@ function Basket() {
                 <h2 className="section-title">{text['basket']}</h2>
               </div>
               <div className="right">
-                <div className="remove-products-button">
+                <div className="remove-products-button" onClick={handleRemoveProductsButton}>
                   <img src={delete_icon} alt="delete-icon" />
                   <span><TextTranslate text='Təmizlə' /></span>
                 </div>

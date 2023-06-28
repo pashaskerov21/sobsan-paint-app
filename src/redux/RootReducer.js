@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
 import languageReducer from './reducers/LanguageReducer';
-import FilterReducer from './reducers/FilterReducer';
 import ProductReducer from './reducers/ProductReducer';
+import FilterParamReducer from './reducers/FilterParamsReducer';
 
 const rootReducer = combineReducers({
     language: languageReducer,
-    filterParams: FilterReducer,
+    filterParams: FilterParamReducer,
     productState: ProductReducer,
 })
 

@@ -4,7 +4,7 @@ const initialState = {
     filterParams: [],
 }
 
-const FilterReducer = (state = initialState, action) => {
+const FilterParamReducer = (state = initialState, action) => {
     switch (action.type) {
         case SEND_FILTER_PARAMS:
             return {
@@ -16,4 +16,4 @@ const FilterReducer = (state = initialState, action) => {
     }
 }
 
-export default FilterReducer;
+export default FilterParamReducer;

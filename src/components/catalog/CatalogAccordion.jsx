@@ -56,7 +56,7 @@ function CatalogAccordion({ catalog, sobmatikStatus }) {
                                             <img src={color.img} alt="color" />
                                           </a>
                                           <span className='label'>
-                                            <TextTranslate text={color.label}/>
+                                            <TextTranslate text={color.name}/>
                                           </span>
                                         </div>
                                       </div>

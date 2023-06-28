@@ -146,40 +146,7 @@
 }
 
 
-.filter-buttons {
-    width: 100%;
-    @include row-justify-start;
-    flex-wrap: wrap;
 
-    .filter-button {
-        background-color: var(--filter-button-color);
-        padding: 10px 20px;
-        border-radius: 5px;
-        @include row-center;
-        cursor: pointer;
-        font-weight: 600;
-        position: relative;
-        margin-right: 10px;
-        margin-bottom: 10px;
-        text-transform: capitalize;
-        font-size: 14px;
-
-        &.active {
-            background-color: var(--color-1);
-            color: var(--color-5);
-        }
-
-        input {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            cursor: pointer;
-            opacity: 0;
-        }
-    }
-}
 
 .filter-nav {
     width: 100%;

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { catalogSobmatik } from '../../data/color-catalog/Sobmatik'
 import { useSelector } from 'react-redux';
 import loader from '../../image/loader.svg'
+import TextTranslate from '../../translate/TextTranslate';
 
 
 
@@ -49,9 +50,9 @@ function CatalogSobmatik({sobmatikStatus}) {
                                         <React.Fragment key={color.id}>
                                             <div className="grid-item" >
                                                 <div className="color-button" onClick={() => changeShadeGroup(color.id)}>
-                                                    <div className="color" style={{ backgroundColor: `${color.colorCode}` }}></div>
+                                                    <div className="color" style={{ backgroundColor: `${color.hexCode}` }}></div>
                                                     <div className="info">
-                                                        <span className="name">{text[`${color.name}`]}</span>
+                                                        <span className="name"><TextTranslate text={color.name}/></span>
                                                         <span className='code'>{color.code}</span>
                                                     </div>
                                                 </div>
@@ -64,9 +65,9 @@ function CatalogSobmatik({sobmatikStatus}) {
                                                                 color.shades.map(shade => (
                                                                     <div className="col-3" key={shade.id}>
                                                                         <div className="color-button">
-                                                                            <div className="color" style={{ backgroundColor: `${shade.colorCode}` }}></div>
+                                                                            <div className="color" style={{ backgroundColor: `${shade.hexCode}` }}></div>
                                                                             <div className="info">
-                                                                                <span className='code'>{shade.label}</span>
+                                                                                <span className='code'>{shade.name}</span>
                                                                             </div>
                                                                         </div>
                                                                     </div>

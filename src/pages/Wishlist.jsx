@@ -29,7 +29,7 @@ function Wishlist() {
     setActiveCategory(categoryName);
     if (categoryName === 'all') {
       setProducts([...wishlistProducts])
-    }else{
+    } else {
       let filteredProducts = wishlistProducts.filter((product) => product.category.includes(categoryName))
       setProducts([...filteredProducts])
     }
@@ -41,70 +41,64 @@ function Wishlist() {
     let allCategories = []
     wishlistProducts.forEach((product) => {
       product.category.forEach((category) => {
-        if(allCategories.includes(category) === false){
+        if (allCategories.includes(category) === false) {
           allCategories.push(category)
         }
       })
     })
-    
+
     let filteredCategories = productCategories.filter((category) => allCategories.includes(category.name))
     console.log(filteredCategories)
 
     setCategoryNames([...filteredCategories])
 
-  },[wishlistProducts])
+  }, [wishlistProducts])
 
 
   return (
     <section className='wishlist-section'>
       <div className="container">
-        <div className="row layout-row">
-          <div className="col-12">
-            <div className="page-title secondary">
-              <div className="left">
-                <div className="root-links d-none d-md-flex">
-                  <Link to='/'>{text['home-page']}</Link>
-                  <i className="fa-solid fa-chevron-right"></i>
-                  <Link to='/wishlist'>{text['wishlist']}</Link>
-                </div>
-                <h2 className="section-title">{text['wishlist']}</h2>
-              </div>
-              <div className="right">
-                <div className="remove-products-button" onClick={handleRemoveProductsButton}>
-                  <img src={delete_icon} alt="delete-icon" />
-                  <span><TextTranslate text='Təmizlə' /></span>
-                </div>
-              </div>
+        <div className="page-title secondary">
+          <div className="left">
+            <div className="root-links d-none d-md-flex">
+              <Link to='/'>{text['home-page']}</Link>
+              <i className="fa-solid fa-chevron-right"></i>
+              <Link to='/wishlist'>{text['wishlist']}</Link>
+            </div>
+            <h2 className="section-title">{text['wishlist']}</h2>
+          </div>
+          <div className="right">
+            <div className="remove-products-button" onClick={handleRemoveProductsButton}>
+              <img src={delete_icon} alt="delete-icon" />
+              <span><TextTranslate text='Təmizlə' /></span>
             </div>
           </div>
-          {
-            wishlistProducts.length > 0 ? (
-              <div className="col-12 p-0">
-                <div className="row">
-                  <div className="col-12">
-                    <div className="category-buttons-row">
-                      <button className={activeCategory === 'all' ? 'active' : ''} onClick={() => handleCategoryButton('all')}>{text['all']}</button>
-                      {
-                        categoryNames.map((category) => (
-                          <button className={activeCategory === category.name ? 'active' : ''} onClick={() => handleCategoryButton(category.name)} key={category.id}>{text[`${category.name}`]}</button>
-                        ))
-                      }
-                    </div>
-                  </div>
+        </div>
+        {
+          wishlistProducts.length > 0 ? (
+            <div className="row">
+              <div className="col-12">
+                <div className="category-buttons-row">
+                  <button className={activeCategory === 'all' ? 'active' : ''} onClick={() => handleCategoryButton('all')}>{text['all']}</button>
                   {
-                    products.map(product => (
-                      <div className="col-12 col-md-6 col-lg-4 col-xxl-3" key={product.id}>
-                        <ProductCard product={product} />
-                      </div>
+                    categoryNames.map((category) => (
+                      <button className={activeCategory === category.name ? 'active' : ''} onClick={() => handleCategoryButton(category.name)} key={category.id}>{text[`${category.name}`]}</button>
                     ))
                   }
                 </div>
               </div>
-            ) : (
-              <h3><TextTranslate text='Seçilmiş məhsul yoxdur' /></h3>
-            )
-          }
-        </div>
+              {
+                products.map(product => (
+                  <div className="col-12 col-md-6 col-lg-4 col-xxl-3" key={product.id}>
+                    <ProductCard product={product} />
+                  </div>
+                ))
+              }
+            </div>
+          ) : (
+            <h3><TextTranslate text='Seçilmiş məhsul yoxdur' /></h3>
+          )
+        }
       </div>
     </section>
   )

@@ -1,0 +1,155 @@
+// .modal-content{
+//     background-color: var(--modal-bg-color)
+// }
+
+.catalog-modal{
+    .modal-body{
+        padding: 0;
+    }
+    &-inner {
+        width: 100%;
+        min-height: 400px;
+        @include column-justify-start;
+        position: relative;
+    
+        .close-button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            font-size: 28px;
+            cursor: pointer;
+            z-index: 2;
+        }
+    }
+    .color-swiper{
+        margin-bottom: 20px;
+        padding-bottom: 30px;
+        .swiper-button-prev,
+        .swiper-button-next {
+            font-size: 20px;
+        }
+        .color-slide{
+            width: 100%;
+            @include row-center;
+            display: flex !important;
+            padding: 15px 0;
+            .color{
+                width: 80%;
+                max-width: 300px;
+                height: 200px;
+            }
+            img{
+                width: 80%;
+                max-width: 320px;
+                height: 200px;
+                object-fit: contain;
+            }
+        }
+    }
+    .catalog-name{
+        width: 100%;
+        padding: 15px;
+        @include row-center;
+        text-align: center;
+        background: url("../../../image/large-drop-bg.png") #ed3237;
+        color: var(--color-5);
+        font-weight: 700;
+        text-transform: capitalize;
+    }
+    form{
+        width: 100%;
+        padding: 15px;
+        @include column-center;
+        .note{
+            width: 100%;
+            font-size: 15px;
+            font-style: italic;
+        }
+        .submit-button{
+            width: 100%;
+            padding: 15px;
+            background-color: var(--color-1);
+            color: var(--color-5);
+            font-weight: 700;
+        }
+
+    }
+    .color-checkbox-wrapper{
+        width: 100%;
+        display: grid;
+        gap: 5px;
+        grid-template-columns: repeat(2,1fr);
+        max-height: 350px;
+        overflow: auto;
+        margin-bottom: 15px;
+        .color-checkbox{
+            width: 100%;
+            position: relative;
+            @include column-justify-start;
+            .color{
+                width: 100%;
+                height: 100px;
+                padding: 5px;
+                border: 1px solid transparent;
+                @include row-center;
+                &.active{
+                    border-color: var(--color-1);
+                }
+                span{
+                    width: 100%;
+                    height: 100%;
+                    display: block
+                }
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain
+                }
+            }
+            .name{
+                @include column-center;
+                span{
+                    font-size: 13px;
+                    font-weight: 600;
+                }
+            }
+            input{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                cursor: pointer;
+                opacity: 0;
+            }
+        }
+    }
+}
+
+
+@media only screen and (min-width: 576px){
+    .catalog-modal{
+        .color-checkbox-wrapper{
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+}
+@media only screen and (min-width: 992px){
+    .catalog-modal{
+        .color-checkbox-wrapper{
+            grid-template-columns: repeat(4, 1fr);
+            .color-checkbox{
+                .color{
+                    height: 150px;
+                }
+            }
+        }
+    }
+}
+@media only screen and (min-width: 1400px){
+    .catalog-modal{
+        .color-checkbox-wrapper{
+            grid-template-columns: repeat(5, 1fr);
+        }
+    }
+}

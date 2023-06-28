@@ -15,6 +15,7 @@ function Toolbar() {
 
     const comparisonProducts = useSelector(state => state.productState.comparisonProducts);
     const wishlistProducts = useSelector(state => state.productState.wishlistProducts)
+    const basketProducts = useSelector(state => state.productState.basketProducts)
 
 
 
@@ -33,7 +34,7 @@ function Toolbar() {
                 <div className="toolbar-card">
                     <div className="icon">
                         <img src={basket_icon} alt="icon" />
-                        <span className='amount'>0</span>
+                        <span className='amount'>{basketProducts.length}</span>
                     </div>
                     <Link to='/basket'>{text['basket']}</Link>
                 </div>

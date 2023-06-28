@@ -212,7 +212,6 @@ function ProductSection() {
             window.scrollTo(0, 0);
         }
     }
-    console.log(currentPage)
     useEffect(() => {
         setCurrentPage(1)
     }, [location.pathname])

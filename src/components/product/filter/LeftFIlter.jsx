@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import { sendFilterParams } from '../../../redux/actions/FilterAction';
+import { sendFilterParams } from '../../../redux/actions/FilterParamsAction';
 import TextTranslate from '../../../translate/TextTranslate';
 
 function LeftFIlter({ category, subcategory, altcategory }) {
@@ -167,10 +167,10 @@ function LeftFIlter({ category, subcategory, altcategory }) {
                     category.brands.length > 0 ? (
                         <div className="filter-item">
                             <h5 className="title">{text['brand']}</h5>
-                            <div className="filter-buttons">
+                            <div className="checkbox-buttons">
                                 {
                                     category.brands.map((brand, index) => (
-                                        <div className={`filter-button ${selectedBrands.includes(brand) ? 'active' : ''}`} key={index}>
+                                        <div className={`checkbox-button ${selectedBrands.includes(brand) ? 'active' : ''}`} key={index}>
                                             <label htmlFor={`${brand}`}>{brand}</label>
                                             <input type="checkbox" id={`${brand}`} value={brand} checked={selectedBrands.includes(brand)} onChange={handleBrandChange} />
                                         </div>
@@ -187,10 +187,10 @@ function LeftFIlter({ category, subcategory, altcategory }) {
                                 category.features.length > 0 ? (
                                     <div className="filter-item">
                                         <h5 className="title">{text['features']}</h5>
-                                        <div className="filter-buttons">
+                                        <div className="checkbox-buttons">
                                             {
                                                 category.features.map((feature, index) => (
-                                                    <div className={`filter-button ${selectedFeatures.includes(feature) ? 'active' : ''}`} key={index}>
+                                                    <div className={`checkbox-button ${selectedFeatures.includes(feature) ? 'active' : ''}`} key={index}>
                                                         <label htmlFor={`${feature}`}>{text[`${feature}`]}</label>
                                                         <input type="checkbox" id={`${feature}`} value={feature} checked={selectedFeatures.includes(feature)} onChange={handleFeatureChange} />
                                                     </div>
@@ -204,10 +204,10 @@ function LeftFIlter({ category, subcategory, altcategory }) {
                                 category.types.length > 0 ? (
                                     <div className="filter-item">
                                         <h5 className="title">{text['type']}</h5>
-                                        <div className="filter-buttons">
+                                        <div className="checkbox-buttons">
                                             {
                                                 category.types.map((type, index) => (
-                                                    <div className={`filter-button ${selectedTypes.includes(type) ? 'active' : ''}`} key={index}>
+                                                    <div className={`checkbox-button ${selectedTypes.includes(type) ? 'active' : ''}`} key={index}>
                                                         <label htmlFor={`${type}`}>{text[`${type}`]}</label>
                                                         <input type="checkbox" id={`${type}`} value={type} checked={selectedTypes.includes(type)} onChange={handleTypeChange} />
                                                     </div>
@@ -221,10 +221,10 @@ function LeftFIlter({ category, subcategory, altcategory }) {
                                 category.application_areas.length > 0 ? (
                                     <div className="filter-item">
                                         <h5 className="title">{text['application-areas']}</h5>
-                                        <div className="filter-buttons">
+                                        <div className="checkbox-buttons">
                                             {
                                                 category.application_areas.map((area, index) => (
-                                                    <div className={`filter-button ${selectedApplicationAreas.includes(area) ? 'active' : ''}`} key={index}>
+                                                    <div className={`checkbox-button ${selectedApplicationAreas.includes(area) ? 'active' : ''}`} key={index}>
                                                         <label htmlFor={`${area}`}>{text[`${area}`]}</label>
                                                         <input type="checkbox" id={`${area}`} value={area} checked={selectedApplicationAreas.includes(area)} onChange={handleApplicationAreaChange} />
                                                     </div>
@@ -238,10 +238,10 @@ function LeftFIlter({ category, subcategory, altcategory }) {
                                 category.appearance.length > 0 ? (
                                     <div className="filter-item">
                                         <h5 className="title">{text['appearance']}</h5>
-                                        <div className="filter-buttons">
+                                        <div className="checkbox-buttons">
                                             {
                                                 category.appearance.map((appearance, index) => (
-                                                    <div className={`filter-button ${selectedAppearance.includes(appearance) ? 'active' : ''}`} key={index}>
+                                                    <div className={`checkbox-button ${selectedAppearance.includes(appearance) ? 'active' : ''}`} key={index}>
                                                         <label htmlFor={`${appearance}`}>{text[`${appearance}`]}</label>
                                                         <input type="checkbox" id={`${appearance}`} value={appearance} checked={selectedAppearance.includes(appearance)} onChange={handleAppearanceChange} />
                                                     </div>
@@ -255,10 +255,10 @@ function LeftFIlter({ category, subcategory, altcategory }) {
                                 category.drying.length > 0 ? (
                                     <div className="filter-item">
                                         <h5 className="title">{text['drying']}</h5>
-                                        <div className="filter-buttons">
+                                        <div className="checkbox-buttons">
                                             {
                                                 category.drying.map((drying, index) => (
-                                                    <div className={`filter-button ${selectedDrying.includes(drying) ? 'active' : ''}`} key={index}>
+                                                    <div className={`checkbox-button ${selectedDrying.includes(drying) ? 'active' : ''}`} key={index}>
                                                         <label htmlFor={`${drying}`}>{text[`${drying}`]}</label>
                                                         <input type="checkbox" id={`${drying}`} value={drying} checked={selectedDrying.includes(drying)} onChange={handleDryingChange} />
                                                     </div>
