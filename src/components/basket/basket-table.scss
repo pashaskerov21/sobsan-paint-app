@@ -1,0 +1,104 @@
+.table-wrapper{
+    width: 100%;
+    overflow: auto;
+    margin-bottom: 40px;
+    table{
+        width: 100%;
+        min-width: 1200px;
+        margin-bottom: 50px;
+        color: var(--text-general-theme-color);
+        tr{
+            border-bottom: 1px solid var(--border-theme-color);
+            th{
+                text-align: center;
+                padding: 15px 0;
+            }
+        }
+        .td-inner{
+            width: 100%;
+            @include column-center;
+            padding: 10px 0;
+        }
+        .product-image{
+            width: 120px;
+            height: 120px;
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+        .product-name{
+            @include column-center;
+            color: var(--text-general-theme-color);
+            span{
+                opacity: 0.7;
+                margin-bottom: 5px;
+            }
+            a{
+                text-transform: uppercase;
+                font-weight: 600;
+                color: var(--text-general-theme-color);
+            }
+        }
+        .product-color,
+        .product-weight{
+            span{
+                opacity: 0.7;
+            }
+        }
+        .product-price,
+        .product-total-price{
+            font-weight: 700;
+            color: var(--color-1);
+        }
+        .stok-value {
+            opacity: 0.5;
+            font-size: 14px;
+            @include row-center;
+            margin-bottom: 10px;
+
+            i {
+                width: 17px;
+                height: 17px;
+                border-radius: 50%;
+                font-size: 10px;
+                color: var(--color-5);
+                background-color: var(--color-4);
+                @include row-center;
+                margin-right: 5px;
+            }
+        }
+        .product-counter{
+            width: 100%;
+            @include row-center;
+            padding: 15px 0;
+            input{
+                background-color: transparent;
+                border: none;
+                outline: none;
+                max-width: 60px;
+                text-align: center;
+                font-weight: 700;
+                color: var(--text-general-theme-color);
+            }
+            button{
+                font-size: 14px;
+                color: var(--text-general-theme-color);
+                &:hover{
+                    color: var(--color-1);
+                }
+            }
+        }
+        .single-delete-button{
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: var(--color-1);
+            color: var(--color-5);
+            &:hover{
+                transform: scale(1.2);
+            }
+        }
+    }
+}

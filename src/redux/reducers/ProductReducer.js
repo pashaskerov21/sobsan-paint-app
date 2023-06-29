@@ -1,4 +1,4 @@
-import { ADD_PRODUCT_TO_BASKET, ADD_PRODUCT_TO_COMPARISONS, ADD_PRODUCT_TO_WISHLIST, REMOVE_ALL_PRODUCTS_FROM_BASKET, REMOVE_ALL_PRODUCTS_FROM_COMPARISONS, REMOVE_ALL_PRODUCTS_FROM_WISHLIST, REMOVE_PRODUCT_FROM_BASKET, REMOVE_PRODUCT_FROM_COMPARISONS, REMOVE_PRODUCT_FROM_WISHLIST } from "../ActionTypes"
+import { ADD_PRODUCT_TO_BASKET, ADD_PRODUCT_TO_COMPARISONS, ADD_PRODUCT_TO_WISHLIST, DECREASE_BASKET_PRODUCT_AMOUNT, INCREASE_BASKET_PRODUCT_AMOUNT, REMOVE_ALL_PRODUCTS_FROM_BASKET, REMOVE_ALL_PRODUCTS_FROM_COMPARISONS, REMOVE_ALL_PRODUCTS_FROM_WISHLIST, REMOVE_PRODUCT_FROM_BASKET, REMOVE_PRODUCT_FROM_COMPARISONS, REMOVE_PRODUCT_FROM_WISHLIST, SET_BASKET_PRODUCT_AMOUNT, UPDATE_BASKET_PRODUCTS } from "../ActionTypes"
 
 const initialState = {
     comparisonProducts: [],
@@ -44,15 +44,59 @@ const ProductReducer = (state = initialState, action) => {
                 ...state,
                 basketProducts: [...state.basketProducts, action.payload]
             }
-        case REMOVE_PRODUCT_FROM_BASKET: 
-            return{
+        case REMOVE_PRODUCT_FROM_BASKET:
+            return {
                 ...state,
-                basketProducts: [...state.basketProducts.filter((product) => product.id !== action.payload)]
+                basketProducts: [...state.basketProducts.filter((product) => product.productBasketID !== action.payload)]
             }
-        case REMOVE_ALL_PRODUCTS_FROM_BASKET: 
-            return{
+        case REMOVE_ALL_PRODUCTS_FROM_BASKET:
+            return {
                 ...state,
                 basketProducts: []
+            }
+        case UPDATE_BASKET_PRODUCTS:
+            return {
+                ...state,
+                basketProducts: action.payload
+            }
+        case INCREASE_BASKET_PRODUCT_AMOUNT:
+            return {
+                ...state,
+                basketProducts: state.basketProducts.map((product) => {
+                    if (product.productBasketID === action.payload) {
+                        return {
+                            ...product,
+                            productBasketAmount: product.productBasketAmount + 1
+                        }
+                    }
+                    return product;
+                })
+            }
+        case DECREASE_BASKET_PRODUCT_AMOUNT:
+            return {
+                ...state,
+                basketProducts: state.basketProducts.map((product) => {
+                    if (product.productBasketID === action.payload) {
+                        return {
+                            ...product,
+                            productBasketAmount: product.productBasketAmount > 1 ? product.productBasketAmount - 1 : 1
+                        }
+                    }
+                    return product
+                })
+            }
+        case SET_BASKET_PRODUCT_AMOUNT:
+            return{
+                ...state,
+                basketProducts: state.basketProducts.map((product) => {
+                    if(product.productBasketID === action.payload[0]){
+                        return{
+                            ...product,
+                            productBasketAmount: action.payload[1] > 1 ? action.payload[1] : 1
+                        }
+                    }
+                    return product;
+                })
             }
         default:
             return state;

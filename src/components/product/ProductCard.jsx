@@ -57,6 +57,16 @@ function ProductCard({ viewFilter, product }) {
         }
     }
     
+    const basketProducts = useSelector(state => state.productState.basketProducts)
+    const [productBasketStatus, setProductBasketStatus] = useState(false)
+    useEffect(() => {
+        let p = basketProducts.find((p) => p.id === product.id)
+        if(p){
+            setProductBasketStatus(true)
+        }else{
+            setProductBasketStatus(false)
+        }
+    },[basketProducts, product])
     
 
     return (
@@ -107,7 +117,7 @@ function ProductCard({ viewFilter, product }) {
                 </div>
             </div>
             <div className="footer">
-                <Link onClick={handleBasketButton} className={basketActive ? 'basket-button active card-button' : 'basket-button card-button'}>
+                <Link onClick={handleBasketButton} className={`basket-button card-button ${basketActive ? 'click-active' : null} ${productBasketStatus ? 'basket-active' : null}`}>
                     <div className="label">{text['add-basket']}</div>
                     <div className="icon"><img src={basket_white} alt="basket-icon" /></div>
                 </Link>

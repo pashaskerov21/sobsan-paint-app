@@ -93,7 +93,7 @@ function Compare() {
               }
             </div>
           ) : (
-            <h3><TextTranslate text='Müqayisə üçün məhsul seçilməyib' /></h3>
+            <h3 className='alert-text'><TextTranslate text='Müqayisə üçün məhsul seçilməyib' /></h3>
           )
         }
       </div>

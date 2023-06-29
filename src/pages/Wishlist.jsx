@@ -96,7 +96,7 @@ function Wishlist() {
               }
             </div>
           ) : (
-            <h3><TextTranslate text='Seçilmiş məhsul yoxdur' /></h3>
+            <h3 className='alert-text'><TextTranslate text='Seçilmiş məhsul yoxdur' /></h3>
           )
         }
       </div>

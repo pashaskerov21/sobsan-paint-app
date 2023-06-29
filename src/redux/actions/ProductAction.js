@@ -1,4 +1,4 @@
-import { ADD_PRODUCT_TO_BASKET, ADD_PRODUCT_TO_COMPARISONS, ADD_PRODUCT_TO_WISHLIST, REMOVE_ALL_PRODUCTS_FROM_BASKET, REMOVE_ALL_PRODUCTS_FROM_COMPARISONS, REMOVE_ALL_PRODUCTS_FROM_WISHLIST, REMOVE_PRODUCT_FROM_BASKET, REMOVE_PRODUCT_FROM_COMPARISONS, REMOVE_PRODUCT_FROM_WISHLIST } from "../ActionTypes"
+import { ADD_PRODUCT_TO_BASKET, ADD_PRODUCT_TO_COMPARISONS, ADD_PRODUCT_TO_WISHLIST, DECREASE_BASKET_PRODUCT_AMOUNT, INCREASE_BASKET_PRODUCT_AMOUNT, REMOVE_ALL_PRODUCTS_FROM_BASKET, REMOVE_ALL_PRODUCTS_FROM_COMPARISONS, REMOVE_ALL_PRODUCTS_FROM_WISHLIST, REMOVE_PRODUCT_FROM_BASKET, REMOVE_PRODUCT_FROM_COMPARISONS, REMOVE_PRODUCT_FROM_WISHLIST, SET_BASKET_PRODUCT_AMOUNT, UPDATE_BASKET_PRODUCTS } from "../ActionTypes"
 
 export const addProductToComparisons = (product) => {
     return{
@@ -55,5 +55,30 @@ export const removeProductFromBasket = (productID) => {
 export const removeAllProductsFromBasket = () => {
     return{
         type: REMOVE_ALL_PRODUCTS_FROM_BASKET
+    }
+}
+export const updateBasketProducts = (basketProducts) => {
+    return{
+        type: UPDATE_BASKET_PRODUCTS,
+        payload: basketProducts
+    }
+}
+export const increaseBasketProductAmount = (basketID) => {
+    return{
+        type: INCREASE_BASKET_PRODUCT_AMOUNT,
+        payload: basketID
+    }
+}
+export const decreaseBasketProductAmount = (basketID) => {
+    return{
+        type: DECREASE_BASKET_PRODUCT_AMOUNT,
+        payload: basketID
+    }
+}
+
+export const setBasketProductAmount = (amountArray) => {
+    return{
+        type: SET_BASKET_PRODUCT_AMOUNT,
+        payload: amountArray
     }
 }
