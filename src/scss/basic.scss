@@ -10,10 +10,12 @@ body {
     font-family: var(--primary-font);
     scroll-behavior: smooth;
     min-height: 100vh;
-    #root{
+
+    #root {
         width: 100%;
         min-height: 100vh;
-        .app{
+
+        .app {
             width: 100%;
             min-height: 100vh;
             @include column-between;
@@ -72,11 +74,19 @@ button {
     transition: all 0.2s;
 }
 
-a{
+a {
     transition: all 0.2s;
     -o-transition: 0.2s;
     -moz-transition: 0.2s;
     -webkit-transition: 0.2s;
+}
+
+input {
+
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+        display: none;
+    }
 }
 
 main {
@@ -89,6 +99,7 @@ section {
     padding: var(--section-padding);
     @include column-center;
     background-repeat: no-repeat;
+
     .container {
         @include column-center;
     }
@@ -96,20 +107,23 @@ section {
 
 .row {
     width: 100%;
+
     .col-12 {
         @include column-center;
         margin-bottom: 40px;
     }
-    &.layout-row{
-        .col-12{
+
+    &.layout-row {
+        .col-12 {
             margin-bottom: 0;
         }
     }
 }
 
-.social-icons{
+.social-icons {
     @include row-center;
-    a{
+
+    a {
         @include row-center;
         min-width: 30px;
         min-height: 30px;
@@ -117,10 +131,12 @@ section {
         background-color: #f1f1f1;
         margin-right: 10px;
         box-shadow: 0 0 5px var(--black-4);
-        &:last-child{
+
+        &:last-child {
             margin-right: 0;
         }
-        &:hover{
+
+        &:hover {
             transform: scale(1.2);
         }
     }

@@ -56,14 +56,15 @@
         font-weight: 700;
         text-transform: capitalize;
     }
-    form{
+    .catalog-modal-bottom{
         width: 100%;
-        padding: 15px;
+        padding: 20px;
         @include column-center;
         .note{
             width: 100%;
-            font-size: 15px;
+            font-size: 12px;
             font-style: italic;
+            margin-bottom: 15px;
         }
         .submit-button{
             width: 100%;
@@ -79,7 +80,7 @@
         display: grid;
         gap: 5px;
         grid-template-columns: repeat(2,1fr);
-        max-height: 350px;
+        max-height: 150px;
         overflow: auto;
         margin-bottom: 15px;
         .color-checkbox{
@@ -91,6 +92,7 @@
                 height: 100px;
                 padding: 5px;
                 border: 1px solid transparent;
+                margin-bottom: 5px;
                 @include row-center;
                 &.active{
                     border-color: var(--color-1);
@@ -130,6 +132,7 @@
 @media only screen and (min-width: 576px){
     .catalog-modal{
         .color-checkbox-wrapper{
+            max-height: 250px;
             grid-template-columns: repeat(3, 1fr);
         }
     }
@@ -148,7 +151,13 @@
 }
 @media only screen and (min-width: 1400px){
     .catalog-modal{
+        form{
+            .note{
+                font-size: 14px;
+            }
+        }
         .color-checkbox-wrapper{
+            max-height: 300px;
             grid-template-columns: repeat(5, 1fr);
         }
     }

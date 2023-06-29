@@ -48,7 +48,7 @@ function App() {
         <Toolbar/>
         <Header theme={theme} toggleTheme={toggleTheme} />
         <main>
-          <ToastContainer position="bottom-right" autoClose={3000} />
+          <ToastContainer theme="colored" position="bottom-right" autoClose={3000} />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/:categoryName" element={<Products />} />

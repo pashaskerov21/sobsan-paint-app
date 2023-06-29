@@ -110,7 +110,7 @@ import catalog_11_12 from '../../image/catalog/universal/img-12.jpg'
 export const colorCatalog = [
     {
         id: 'catalog-1',
-        name: 'sadaf',
+        name: 'Sədəf',
         path: 'sadaf',
         category: 'decorative-paints',
         colors: [
@@ -178,7 +178,7 @@ export const colorCatalog = [
     },
     {
         id: 'catalog-2',
-        name: 'crystal',
+        name: 'Kristal',
         path: 'crystal',
         category: 'decorative-paints',
         colors: [
@@ -216,21 +216,21 @@ export const colorCatalog = [
     },
     {
         id: 'catalog-3',
-        name: 'sobrano-veneziano',
+        name: 'Sobrano Veneziano',
         path: 'sobrano-veneziano',
         category: 'decorative-paints',
         colors: []
     },
     {
         id: 'catalog-4',
-        name: 'sobrano-travertino',
+        name: 'Sobrano Travertino',
         path: 'sobrano-travertino',
         category: 'decorative-paints',
         colors: []
     },
     {
         id: 'catalog-5',
-        name: 'mineral-plaster',
+        name: 'Mineral Sıva',
         path: 'mineral-plaster',
         category: 'products',
         colors: [
@@ -298,7 +298,7 @@ export const colorCatalog = [
     },
     {
         id: 'catalog-6',
-        name: 'nitro-based',
+        name: 'Sellülozik Parlaq Boya',
         path: 'nitro-based',
         category: 'products',
         colors: [
@@ -366,7 +366,7 @@ export const colorCatalog = [
     },
     {
         id: 'catalog-7',
-        name: 'mobitex',
+        name: 'Mobitex',
         path: 'mobitex',
         category: 'products',
         colors: [
@@ -449,7 +449,7 @@ export const colorCatalog = [
     },
     {
         id: 'catalog-8',
-        name: 'synthetic-paint',
+        name: 'Sintetik boya',
         path: 'synthetic-paint',
         category: 'products',
         colors: [
@@ -517,7 +517,7 @@ export const colorCatalog = [
     },
     {
         id: 'catalog-9',
-        name: 'rulotex',
+        name: 'Rulotex',
         path: 'rulotex',
         category: 'products',
         colors: [
@@ -585,7 +585,7 @@ export const colorCatalog = [
     },
     {
         id: 'catalog-10',
-        name: 'hammerton',
+        name: 'Hammerton',
         path: 'hammerton',
         category: 'products',
         colors: [
@@ -653,7 +653,7 @@ export const colorCatalog = [
     },
     {
         id: 'catalog-11',
-        name: 'universal-color-paste',
+        name: 'Universal rəng pastası',
         path: 'universal-color-paste',
         category: 'products',
         colors: [

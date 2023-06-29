@@ -11,7 +11,7 @@ import { useSelector } from 'react-redux';
 
 
 
-function CatalogModal({ product, setSelectedModalCatalogColor }) {
+function CatalogModal({ product, selectedModalCatalogColor, setSelectedModalCatalogColor }) {
     const language = useSelector(state => state.language.language);
     const text = require(`../../lang/${language}.json`);
 
@@ -57,17 +57,17 @@ function CatalogModal({ product, setSelectedModalCatalogColor }) {
 
     const handleSlideChange = () => {
         if (swiperRef.current && swiperRef.current.swiper) {
-          const newIndex = swiperRef.current.swiper.realIndex;
-          setActiveColorIndex(newIndex);
+            const newIndex = swiperRef.current.swiper.realIndex;
+            setActiveColorIndex(newIndex);
         }
-      };
+    };
 
     const [selectedSobmatikColor, setSelectedSobmatikColor] = useState();
     const [selectedCatalogColor, setSelectedCatalogColor] = useState();
     useEffect(() => {
         if (activeCatalogColors.length > 0) {
             setSelectedSobmatikColor(activeCatalogColors[0].hexCode)
-            setSelectedCatalogColor(activeCatalogColors[0].name)
+            setSelectedCatalogColor(activeCatalogColors[0].id)
         }
     }, [activeCatalogColors])
 
@@ -90,29 +90,52 @@ function CatalogModal({ product, setSelectedModalCatalogColor }) {
     }
 
     useEffect(() => {
-        if(activeCatalogColors.length > 0 && catalogName === 'sobmatik'){
+        if (activeCatalogColors.length > 0 && catalogName === 'sobmatik') {
             setSelectedSobmatikColor(activeCatalogColors[activeColorIndex].hexCode)
         }
-        if(activeCatalogColors.length > 0 && catalogName !== 'sobmatik'){
-            setSelectedCatalogColor(activeCatalogColors[activeColorIndex].name)
+        if (activeCatalogColors.length > 0 && catalogName !== 'sobmatik') {
+            setSelectedCatalogColor(activeCatalogColors[activeColorIndex].id)
         }
-    }, [activeColorIndex,activeCatalogColors])
+    }, [activeColorIndex, activeCatalogColors, catalogName])
 
-    const catalogFormSubmit = (e) => {
-        e.preventDefault();
+
+    const [colorSelectionStatus, setColorSelectionStatus] = useState(false);
+
+
+    const handleSelecCatalogColor = () => {
+        
         setShowModal(false)
-        if(catalogName === 'sobmatik'){
-            if(selectedSobmatikColor){
-                setSelectedModalCatalogColor(selectedSobmatikColor)
+        setColorSelectionStatus(true)
+        if (catalogName === 'sobmatik') {
+            let colorObj = activeCatalogColors.filter((color) => color.hexCode === selectedSobmatikColor);
+            let mainColorObj = {
+                name: '',
+                code: '',
+                catalogName: 'Sobmatik',
+                hexCode: colorObj[0].hexCode,
             }
-        }else{
-            if(selectedCatalogColor){
-                setSelectedModalCatalogColor(selectedCatalogColor)
+            if (colorObj[0].mainColor === undefined) {
+                mainColorObj.name = colorObj[0].name;
+                mainColorObj.code = colorObj[0].code;
+            } else {
+                mainColorObj.name = colorObj[0].mainColor;
+                mainColorObj.code = colorObj[0].name;
             }
+            setSelectedModalCatalogColor(mainColorObj)
+        } else {
+            let colorobj = activeCatalogColors.filter((color) => color.id === selectedCatalogColor)
+            let mainColorObj = {
+                name: colorobj[0].name,
+                code: '',
+                catalogName: product.colors,
+                img: colorobj[0].img
+            }
+            console.log(selectedCatalogColor)
+            setSelectedModalCatalogColor(mainColorObj)
         }
     }
-    
-    
+
+
 
     return (
         <>
@@ -121,8 +144,26 @@ function CatalogModal({ product, setSelectedModalCatalogColor }) {
                     activeCatalogColors.length > 0 ? (
                         <>
                             <h5 className="title"><TextTranslate text='Rəngi seç' /></h5>
-                            <div className='catalog-modal-button' onClick={handleModalShow}>
-                                <TextTranslate text='Kataloqa bax' />
+                            <div className="color-block">
+                                <div className={`catalog-modal-button ${selectedModalCatalogColor ? 'active' : null}`} onClick={handleModalShow}
+                                    style={
+                                        selectedModalCatalogColor && catalogName === 'sobmatik'
+                                            ? { backgroundColor: selectedModalCatalogColor.hexCode }
+                                            : selectedModalCatalogColor && catalogName !== 'sobmatik'
+                                                ? { backgroundImage: `url(${selectedModalCatalogColor.img})` }
+                                                : null
+                                    }>
+                                    <span><TextTranslate text='Kataloqa bax' /></span>
+                                </div>
+                                {
+                                    colorSelectionStatus && selectedModalCatalogColor ? (
+                                        <div className="selected-color-info">
+                                            <span><TextTranslate text={selectedModalCatalogColor.name} /></span>
+                                            <span>{selectedModalCatalogColor.code}</span>
+                                            <span><TextTranslate text={selectedModalCatalogColor.catalogName} /></span>
+                                        </div>
+                                    ) : null
+                                }
                             </div>
                             <Modal className='catalog-modal' show={showModal} onHide={handleModalClose} centered size="lg" scrollable>
                                 <Modal.Body >
@@ -162,7 +203,7 @@ function CatalogModal({ product, setSelectedModalCatalogColor }) {
                                             <div onClick={handleNextButton} className="swiper-button-next"><i className="fa-solid fa-chevron-right"></i></div>
                                         </Swiper>
                                         <div className="catalog-name">{text[`${activeCatalog.name}`]}</div>
-                                        <form onSubmit={catalogFormSubmit}>
+                                        <div className='catalog-modal-bottom'>
                                             <div className="color-checkbox-wrapper">
                                                 {
                                                     activeCatalogColors.map((color, index) => (
@@ -183,8 +224,8 @@ function CatalogModal({ product, setSelectedModalCatalogColor }) {
                                                                     </>
                                                                 ) : (
                                                                     <>
-                                                                        <input type="checkbox" value={color.name} onChange={(e) => setSelectedCatalogColor(e.target.value)} />
-                                                                        <div className={`color ${selectedCatalogColor === color.name ? 'active' : null}`}>
+                                                                        <input type="checkbox" value={color.id} onChange={(e) => setSelectedCatalogColor(e.target.value)} />
+                                                                        <div className={`color ${selectedCatalogColor === color.id ? 'active' : null}`}>
                                                                             <img src={color.img} alt="color" />
                                                                         </div>
                                                                         <div className="name">
@@ -200,8 +241,8 @@ function CatalogModal({ product, setSelectedModalCatalogColor }) {
                                             <div className="note">
                                                 <TextTranslate text='Qeyd: Ekrandakı kataloq rəngləri monitor, planşet, noutbuk və smartfonların ekran kalibrasiya fərqlərinə və işığın düşməsinə görə tətbiq olunacaq orijinal rənglərindən fərqli görünə bilər. Dəqiq nəticə üçün rəng kataloqumuza ən yaxın satış ünvanlarında baxa bilərsiniz. Həmçinin seçdiyiniz rəngi tətbiq edərkən, boyanın rəngi otağa təbii günəş işığının düşməsinə, istifadə etdiyiniz aydınlatma cihazlarının lampa rənginə (məs: sarı, led və s.) görə də fərqli görünə bilər.' />
                                             </div>
-                                            <button className='submit-button' type='submit'><TextTranslate text='Rəngi seç' /></button>
-                                        </form>
+                                            <button onClick={handleSelecCatalogColor} className='submit-button' type='submit'><TextTranslate text='Rəngi seç' /></button>
+                                        </div>
                                     </div>
                                 </Modal.Body>
                             </Modal>

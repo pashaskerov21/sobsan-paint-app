@@ -32,7 +32,7 @@ function CatalogAccordion({ catalog, sobmatikStatus }) {
                 <div className="accordion-item" key={catalog.id}>
                   <h2 className="accordion-header">
                     <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={`#collapse-${catalog.id}`} onClick={() => handleAccordionClick()}>
-                      <span>{text[`${catalog.name}`]}</span>
+                      <span><TextTranslate text={catalog.name}/></span>
                       <i className='fa-solid fa-chevron-down'></i>
                     </button>
                   </h2>

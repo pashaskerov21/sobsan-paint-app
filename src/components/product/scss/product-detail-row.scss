@@ -1,57 +1,66 @@
-.product-detail-row{
-    .col-12{
+.product-detail-row {
+    .col-12 {
         padding: 0;
         justify-content: flex-start;
     }
-    .inner{
+
+    .inner {
         width: 100%;
         @include column-center;
     }
-    .title{
+
+    .title {
         width: 100%;
         margin: 20px 0;
     }
-    .product-info{
+
+    .product-info {
         width: 100%;
         @include column-center;
         color: var(--text-general-theme-color);
         border-bottom: 1px solid var(--border-theme-color);
         padding-bottom: 30px;
-        
-        .row{
-            .col-6{
-                &:first-child{
+
+        .row {
+            .col-6 {
+                &:first-child {
                     padding-left: 0;
                 }
             }
         }
-        .label{
+
+        .label {
             opacity: 0.6;
         }
-        .value{
+
+        .value {
             font-weight: 700;
             text-transform: capitalize;
         }
     }
-    .product-image{
+
+    .product-image {
         width: 100%;
         height: 100%;
         max-width: 500px;
         @include row-center;
         border: 1px solid var(--border-theme-color);
-        img{
+
+        img {
             width: 100%;
             height: 100%;
             object-fit: contain;
         }
     }
-    .text-buttons{
+
+    .text-buttons {
         width: 100%;
         @include row-justify-start;
         overflow: auto;
         margin-bottom: 30px;
         padding-bottom: 30px;
-        button{
+
+        button {
             min-width: 180px;
             padding: 10px;
             border: 1px solid var(--border-theme-color);
@@ -59,10 +68,12 @@
             border-right: 0;
             font-size: 14px;
             font-weight: 700;
-            &:last-child{
+
+            &:last-child {
                 border-right: 1px solid var(--border-theme-color);
             }
-            &.active{
+
+            &.active {
                 background: url("../../../image/large-drop-bg.png") #ed3237;
                 background-repeat: no-repeat;
                 background-size: cover;
@@ -71,26 +82,25 @@
             }
         }
     }
-    .product-text{
+
+    .product-text {
         width: 100%;
         border-top: 1px solid var(--border-theme-color);
         padding-top: 30px;
-        ul{
+
+        ul {
             padding-left: 25px;
         }
     }
-    .product-detail-form{
-        width: 100%;
-        padding: 25px 0;
-        @include column-center;
-    }
+
+
 }
 
 
-@media only screen and (min-width: 1200px){
-    .product-detail-row{
-        .text-buttons{
-            button{
+@media only screen and (min-width: 1200px) {
+    .product-detail-row {
+        .text-buttons {
+            button {
                 min-width: 150px;
             }
         }
@@ -100,52 +110,76 @@
 
 
 
-.product-color-wrapper{
+.product-color-wrapper {
     width: 100%;
     @include column-align-start;
-}
 
-.catalog-modal-button{
-    padding: 15px;
-    color: var(--text-general-theme-color);
-    background-color: var(--filter-button-color);
-    border-radius: 5px;
-    font-weight: 600;
-    cursor: pointer;
-    &:hover{
-        background-color: var(--color-1);
-        color: var(--color-5);
+    .catalog-modal-button {
+        padding: 15px;
+        color: var(--text-general-theme-color);
+        background-color: var(--filter-button-color);
+        border-radius: 5px;
+        font-weight: 600;
+        margin-right: 15px;
+        cursor: pointer;
+        text-align: center;
+        &.active{
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            span{
+                opacity: 0;
+            }
+        }
+        &:hover {
+            background-color: var(--color-1);
+            color: var(--color-5);
+        }
+    }
+    .color-block{
+        @include row-justify-start;
+        .selected-color-info{
+            @include column-align-start;
+        }
     }
 }
-.color-checkboxes{
+
+
+
+.color-checkboxes {
     width: 100%;
     @include row-justify-start;
     flex-wrap: wrap;
-    .color-checkbox{
+
+    .color-checkbox {
         @include column-center;
         position: relative;
         margin-right: 15px;
         margin-bottom: 15px;
         cursor: pointer;
-        .color{
+
+        .color {
             width: 45px;
             height: 45px;
             border-radius: 50%;
             margin-bottom: 5px;
             border: 1px solid transparent;
             @include row-center;
-            span{
+
+            span {
                 width: 35px;
                 height: 35px;
                 border-radius: 50%;
                 display: inline-block;
             }
         }
-        .name{
+
+        .name {
             font-weight: 600;
             font-size: 14px;
         }
-        input{
+
+        input {
             cursor: pointer;
             position: absolute;
             top: 0;
@@ -154,5 +188,82 @@
             height: 100%;
             opacity: 0;
         }
+    }
+}
+
+
+.product-detail-form {
+    width: 100%;
+    padding: 25px 0;
+    @include column-center;
+
+    .product-price {
+        width: 100%;
+        @include column-center;
+
+        .price {
+            font-weight: 800;
+            color: var(--color-1);
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+
+        .stok-value {
+            opacity: 0.9;
+            @include row-center;
+
+            i {
+                width: 15px;
+                height: 15px;
+                border-radius: 50%;
+                font-size: 10px;
+                color: var(--color-5);
+                background-color: var(--color-4);
+                @include row-center;
+                margin-right: 5px;
+            }
+        }
+    }
+
+    .submit-row {
+        .col-12 {
+            justify-content: center;
+        }
+    }
+
+    .product-counter {
+        width: 100%;
+        padding: 20px;
+        background-color: var(--counter-theme-bg);
+        border-radius: 5px;
+        @include row-center;
+
+        input {
+            background-color: transparent;
+            border: none;
+            outline: none;
+            max-width: 70px;
+            text-align: center;
+            font-weight: 700;
+            color: var(--text-general-theme-color);
+        }
+
+        button {
+            color: var(--color-5);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #CFCFCF;
+        }
+    }
+
+    .basket-button {
+        width: 100%;
+        padding: 20px;
+        background-color: var(--color-1);
+        color: var(--color-5);
+        font-weight: 600;
+        border-radius: 5px;
+        font-size: 20px;
     }
 }
