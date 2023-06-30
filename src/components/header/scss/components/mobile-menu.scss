@@ -5,11 +5,11 @@
     width: 100%;
     min-height: 100vh;
     background-color: var(--black-7);
-    z-index: 9998;
+    z-index: 199;
     opacity: 0;
     
     display: none;
-    animation: menu-backdrop 0.5s ease forwards;
+    animation: menu-backdrop 0.2s ease forwards;
     &.active{
         display: block;
         transform: translateX(0);
@@ -27,19 +27,18 @@
 .mobile-menu{
     position: fixed;
     top: 0;
-    left: 0;
+    left: -100%;
     width: 100%;
     max-width: 450px;
     min-height: 100vh;
-    z-index: 9999;
-    transform: translateX(-3000px);
+    z-index: 200;
     opacity: 0;
     background-color: var(--bg-general-theme-color);
-    transition: all 0.6s;
+    transition: all 0.4s;
     
     @include column-justify-start;
     &.active{
-        transform: translateX(0);
+        left: 0;
         opacity: 1;
     }
     .header{

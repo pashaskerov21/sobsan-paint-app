@@ -10,8 +10,7 @@ import { saveCatalogColor, sendCatalogColor } from '../../redux/actions/CatalogC
 
 
 function CatalogModal({ product, catalogName, activeCatalog, activeCatalogColors }) {
-    const language = useSelector(state => state.language.language);
-    const text = require(`../../lang/${language}.json`);
+    
 
 
 

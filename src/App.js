@@ -25,6 +25,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Products from "./pages/Products";
 import Toolbar from "./components/toolbar/Toolbar";
 import ProductDetail from "./pages/ProductDetail";
+import SearchPage from "./pages/SearchPage";
 
 
 function App() {
@@ -70,6 +71,7 @@ function App() {
             <Route path="/warranty-conditions" element={<WarrantyConditions />} />
             <Route path="/contact-us" element={<Contact />} />
             <Route path="/masters-union" element={<MastersUnion />} />
+            <Route path="/search" element={<SearchPage/>}/>
             <Route path="*" element={<NoPage />} />
           </Routes>
         </main>

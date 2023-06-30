@@ -1,0 +1,93 @@
+.search-backdrop {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--black-8);
+    z-index: 299;
+    opacity: 0;
+    transition: 0.5s;
+    animation: menu-backdrop 0.2s ease forwards;
+    &.active {
+        opacity: 1;
+    }
+}
+@keyframes menu-backdrop{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.search-offcanvas {
+    position: fixed;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    min-height: 220px;
+    background-color: var(--bg-general-theme-color);
+    z-index: 300;
+    opacity: 0;
+    transition: 0.5s;
+    @include row-center;
+    .container{
+        @include row-center;
+        .col-10, .col-2{
+            @include row-center;
+        }
+    }
+    &.active {
+        top: 0;
+        opacity: 1;
+
+    }
+    form{
+        width: 100%;
+        position: relative;
+        @include row-center;
+        input{
+            width: 100%;
+            border: 1px solid var(--color-1);
+            outline: none;
+            padding: 15px;
+            border-radius: 10px;
+            padding-right: 60px;
+            caret-color: var(--color-1);
+            &::placeholder{
+                font-weight: 600;
+                color: var(--color-1);
+            }
+            
+        }
+        button{
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            color: var(--color-1);
+            font-size: 22px;
+            padding: 0 15px;
+            border-radius: 0 10px 10px 0;
+            height: 100%;
+            &:hover{
+                background-color: var(--color-1);
+                color: var(--bg-general-theme-color);
+            }
+        }
+    }
+    .close-button{
+        min-width: 40px;
+        min-height: 40px;
+        border-radius: 50%;
+        border: 2px solid var(--color-1);
+        color: var(--color-1);
+        font-size: 24px;
+        &:hover{
+            background-color: var(--color-1);
+            color: var(--bg-general-theme-color);
+        }
+    }
+}

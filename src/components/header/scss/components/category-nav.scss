@@ -35,7 +35,7 @@
             overflow: auto;
             background-color: var(--bg-general-theme-color);
             box-shadow: 0 0 5px var(--box-shadow-theme-color);
-            z-index: 99;
+            z-index: 100;
             @include row-center;
             align-items: flex-start;
             padding: 20px;

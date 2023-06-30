@@ -8,7 +8,7 @@ import login_icon from '../../image/icon/login-red.svg'
 import Language from './Language'
 import { useSelector } from 'react-redux'
 
-function GeneralIcons({ theme, toggleTheme }) {
+function GeneralIcons({ theme, toggleTheme, toggleSearch }) {
   const language = useSelector(state => state.language.language)
   const text = require(`../../lang/${language}.json`);
   return (
@@ -16,7 +16,7 @@ function GeneralIcons({ theme, toggleTheme }) {
       <Link to='/compare' className='item'><img src={comparison_icon} alt="general-icon" /></Link>
       <Link to='/wishlist' className='item'><img src={heart_icon} alt="general-icon" /></Link>
       <Link to='/basket' className='item'><img src={basket_icon} alt="general-icon" /></Link>
-      <button className='item'><img src={loupe_icon} alt="general-icon" /></button>
+      <button onClick={() => toggleSearch()} className='item'><img src={loupe_icon} alt="general-icon" /></button>
       <Language />
       <Link to='/login' className='item login d-none d-xl-flex'><img src={login_icon} alt="general-icon" /> <span className='d-none d-sm-flex'>{text['sign-in']}</span></Link>
       <button className={theme === 'dark' ? 'theme-button active' : 'theme-button'} onClick={() => toggleTheme()}><i className={theme === 'light' ? 'fa-solid fa-moon' : 'fa-solid fa-sun'}></i></button>
