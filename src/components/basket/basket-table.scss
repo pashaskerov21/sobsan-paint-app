@@ -1,57 +1,69 @@
-.table-wrapper{
+.table-wrapper {
     width: 100%;
     overflow: auto;
     margin-bottom: 40px;
-    table{
+
+    table {
         width: 100%;
         min-width: 1200px;
-        margin-bottom: 50px;
+        margin-bottom: 20px;
         color: var(--text-general-theme-color);
-        tr{
+
+        tr {
             border-bottom: 1px solid var(--border-theme-color);
-            th{
+
+            th {
                 text-align: center;
-                padding: 15px 0;
+                padding: 10px 0;
             }
         }
-        .td-inner{
+
+        .td-inner {
             width: 100%;
             @include column-center;
             padding: 10px 0;
         }
-        .product-image{
-            width: 120px;
-            height: 120px;
-            img{
+
+        .product-image {
+            width: 90px;
+            height: 90px;
+
+            img {
                 width: 100%;
                 height: 100%;
                 object-fit: contain;
             }
         }
-        .product-name{
+
+        .product-name {
             @include column-center;
             color: var(--text-general-theme-color);
-            span{
+
+            span {
                 opacity: 0.7;
                 margin-bottom: 5px;
             }
-            a{
+
+            a {
                 text-transform: uppercase;
                 font-weight: 600;
                 color: var(--text-general-theme-color);
             }
         }
+
         .product-color,
-        .product-weight{
-            span{
+        .product-weight {
+            span {
                 opacity: 0.7;
             }
         }
+
         .product-price,
-        .product-total-price{
+        .product-total-price {
             font-weight: 700;
             color: var(--color-1);
         }
+
         .stok-value {
             opacity: 0.5;
             font-size: 14px;
@@ -69,11 +81,13 @@
                 margin-right: 5px;
             }
         }
-        .product-counter{
+
+        .product-counter {
             width: 100%;
             @include row-center;
             padding: 15px 0;
-            input{
+
+            input {
                 background-color: transparent;
                 border: none;
                 outline: none;
@@ -82,22 +96,96 @@
                 font-weight: 700;
                 color: var(--text-general-theme-color);
             }
-            button{
+
+            button {
                 font-size: 14px;
                 color: var(--text-general-theme-color);
-                &:hover{
+
+                &:hover {
                     color: var(--color-1);
                 }
             }
         }
-        .single-delete-button{
+
+        .single-delete-button {
             width: 30px;
             height: 30px;
             border-radius: 50%;
             background-color: var(--color-1);
             color: var(--color-5);
-            &:hover{
+
+            &:hover {
                 transform: scale(1.2);
+            }
+        }
+    }
+}
+
+.table-bottom {
+    width: 100%;
+    @include column-center;
+
+    .result {
+        font-weight: 700;
+        color: var(--text-general-theme-color);
+        @include row-center;
+        margin-bottom: 20px;
+
+        .total {
+            display: inline-block;
+            margin-left: 30px;
+            text-align: end;
+            color: var(--color-1);
+        }
+    }
+
+    .buttons {
+        @include column-center;
+        width: 100%;
+        .button {
+            width: 100%;
+            max-width: 250px;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid var(--color-1);
+            color: var(--color-1);
+            &.confirm{
+                @include row-center;
+                background-color: var(--color-1);
+                color: var(--color-5);
+                
+            }
+
+            &.reset {
+                margin-bottom: 10px;
+                &:hover {
+                    border-color: #23272B;
+                    background-color: #23272B;
+                    color: #fff;
+                    animation: reset-btn-animation 0.2s ease 4;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 768px){
+    .table-bottom{
+        align-items: flex-end;
+        .result{
+            justify-content: flex-end;
+            .total{
+                min-width: 70px;
+            }
+        }
+        .buttons{
+            flex-direction: row;
+            justify-content: flex-end;
+            button{
+                &.reset{
+                    margin-bottom: 0;
+                    margin-right: 15px;
+                }
             }
         }
     }

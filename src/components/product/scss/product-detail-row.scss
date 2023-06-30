@@ -254,6 +254,11 @@
             height: 30px;
             border-radius: 50%;
             background-color: #CFCFCF;
+            color: var(--bg-general-theme-color);
+            &:hover{
+                background-color: var(--color-1);
+                color: var(--color-5);
+            }
         }
     }
 

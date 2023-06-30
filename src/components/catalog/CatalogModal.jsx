@@ -9,7 +9,7 @@ import { saveCatalogColor, sendCatalogColor } from '../../redux/actions/CatalogC
 
 
 
-function CatalogModal({ product, selectedModalCatalogColor, catalogName, activeCatalog, activeCatalogColors }) {
+function CatalogModal({ product, catalogName, activeCatalog, activeCatalogColors }) {
     const language = useSelector(state => state.language.language);
     const text = require(`../../lang/${language}.json`);
 
@@ -153,11 +153,11 @@ function CatalogModal({ product, selectedModalCatalogColor, catalogName, activeC
                                     <span><TextTranslate text='Kataloqa bax' /></span>
                                 </div>
                                 {
-                                    colorSelectionStatus && selectedModalCatalogColor ? (
+                                    colorSelectionStatus && catalogColorActive ? (
                                         <div className="selected-color-info">
-                                            <span><TextTranslate text={selectedModalCatalogColor.name} /></span>
-                                            <span>{selectedModalCatalogColor.code}</span>
-                                            <span><TextTranslate text={selectedModalCatalogColor.catalogName} /></span>
+                                            <span><TextTranslate text={catalogColorActive.name} /></span>
+                                            <span>{catalogColorActive.code}</span>
+                                            <span><TextTranslate text={catalogColorActive.catalogName} /></span>
                                         </div>
                                     ) : null
                                 }

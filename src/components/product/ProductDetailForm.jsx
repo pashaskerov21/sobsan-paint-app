@@ -190,7 +190,7 @@ function ProductDetailForm({ product }) {
                                     </>
                                 ) : (
                                     <>
-                                        <CatalogModal product={product} catalogName={catalogName} activeCatalog={activeCatalog} activeCatalogColors={activeCatalogColors} selectedModalCatalogColor={selectedModalCatalogColor} setSelectedModalCatalogColor={setSelectedModalCatalogColor} />
+                                        <CatalogModal product={product} catalogName={catalogName} activeCatalog={activeCatalog} activeCatalogColors={activeCatalogColors}/>
                                     </>
                                 )
                             ) : null

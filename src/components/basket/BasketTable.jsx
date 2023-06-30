@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { decreaseBasketProductAmount, increaseBasketProductAmount, removeProductFromBasket, setBasketProductAmount } from '../../redux/actions/ProductAction';
+import { decreaseBasketProductAmount, increaseBasketProductAmount, removeAllProductsFromBasket, removeProductFromBasket, setBasketProductAmount } from '../../redux/actions/ProductAction';
 import TextTranslate from '../../translate/TextTranslate';
 import { Link } from 'react-router-dom';
 
@@ -9,9 +9,9 @@ function BasketTable() {
     const text = require(`../../lang/${language}.json`);
     const dispatch = useDispatch()
     const basketProducts = useSelector(state => state.productState.basketProducts)
-    // const handleRemoveProductsButton = () => {
-    //     dispatch(removeAllProductsFromBasket());
-    // }
+    const handleRemoveProductsButton = () => {
+        dispatch(removeAllProductsFromBasket());
+    }
 
     const handleIncrementButton = (id) => {
         dispatch(increaseBasketProductAmount(id))
@@ -59,7 +59,7 @@ function BasketTable() {
                                             <tr key={product.productBasketID}>
                                                 <td>
                                                     <div className="td-inner">
-                                                        <Link className='product-image'>
+                                                        <Link to={`/product/${product.path}`} className='product-image'>
                                                             <img src={product.img} alt="product" />
                                                         </Link>
                                                     </div>
@@ -68,7 +68,7 @@ function BasketTable() {
                                                     <div className="td-inner">
                                                         <div className="product-name">
                                                             <span className="brand">{product.brand}</span>
-                                                            <Link>{product.name}</Link>
+                                                            <Link to={`/product/${product.path}`}>{product.name}</Link>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -129,6 +129,16 @@ function BasketTable() {
                                     }
                                 </tbody>
                             </table>
+                        </div>
+                        <div className="table-bottom">
+                            <div className="result">
+                                <span className='label'><TextTranslate text='Ümumi məbləğ:'/></span>
+                                <span className='total'>{total.toFixed(2)} AZN</span>
+                            </div>
+                            <div className="buttons">
+                                <button onClick={handleRemoveProductsButton} className='button reset'><TextTranslate text='Səbəti təmizlə'/></button>
+                                <Link className='button confirm'><TextTranslate text='Təsdiqlə'/></Link>
+                            </div>
                         </div>
                     </>
                 ) : (
