@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom'
-import delete_icon from '../image/icon/delete-icon.svg'
 import TextTranslate from '../translate/TextTranslate';
 import ProductCard from '../components/product/ProductCard';
 import { removeAllProductsFromWishlist } from '../redux/actions/ProductAction';
 import { productCategories } from '../data/ProductData';
+import SecondarySection from '../components/sections/SecondarySection';
 
 function Wishlist() {
   const language = useSelector(state => state.language.language)
@@ -56,51 +55,33 @@ function Wishlist() {
 
 
   return (
-    <section className='wishlist-section'>
-      <div className="container">
-        <div className="page-title secondary">
-          <div className="left">
-            <div className="root-links d-none d-md-flex">
-              <Link to='/'>{text['home-page']}</Link>
-              <i className="fa-solid fa-chevron-right"></i>
-              <Link to='/wishlist'>{text['wishlist']}</Link>
-            </div>
-            <h2 className="section-title">{text['wishlist']}</h2>
-          </div>
-          <div className="right">
-            <div className="remove-products-button" onClick={handleRemoveProductsButton}>
-              <img src={delete_icon} alt="delete-icon" />
-              <span><TextTranslate text='Təmizlə' /></span>
-            </div>
-          </div>
-        </div>
-        {
-          wishlistProducts.length > 0 ? (
-            <div className="row">
-              <div className="col-12">
-                <div className="category-buttons-row">
-                  <button className={activeCategory === 'all' ? 'active' : ''} onClick={() => handleCategoryButton('all')}>{text['all']}</button>
-                  {
-                    categoryNames.map((category) => (
-                      <button className={activeCategory === category.name ? 'active' : ''} onClick={() => handleCategoryButton(category.name)} key={category.id}>{text[`${category.name}`]}</button>
-                    ))
-                  }
-                </div>
+    <SecondarySection className='wishlist' path='wishlist' rootLink='Seçilmişlər' sectionTitle='Seçilmişlər' removeProductsButtonFunc={handleRemoveProductsButton}>
+      {
+        wishlistProducts.length > 0 ? (
+          <div className="row">
+            <div className="col-12">
+              <div className="category-buttons-row">
+                <button className={activeCategory === 'all' ? 'active' : ''} onClick={() => handleCategoryButton('all')}>{text['all']}</button>
+                {
+                  categoryNames.map((category) => (
+                    <button className={activeCategory === category.name ? 'active' : ''} onClick={() => handleCategoryButton(category.name)} key={category.id}>{text[`${category.name}`]}</button>
+                  ))
+                }
               </div>
-              {
-                products.map(product => (
-                  <div className="col-12 col-md-6 col-lg-4 col-xxl-3" key={product.id}>
-                    <ProductCard product={product} />
-                  </div>
-                ))
-              }
             </div>
-          ) : (
-            <h3 className='alert-text'><TextTranslate text='Seçilmiş məhsul yoxdur' /></h3>
-          )
-        }
-      </div>
-    </section>
+            {
+              products.map(product => (
+                <div className="col-12 col-md-6 col-lg-4 col-xxl-3" key={product.id}>
+                  <ProductCard product={product} />
+                </div>
+              ))
+            }
+          </div>
+        ) : (
+          <h3 className='alert-text'><TextTranslate text='Seçilmiş məhsul yoxdur' /></h3>
+        )
+      }
+    </SecondarySection>
   )
 }
 

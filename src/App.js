@@ -1,5 +1,5 @@
 
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
 import Compare from "./pages/Compare";
 import Wishlist from "./pages/Wishlist";
@@ -72,7 +72,8 @@ function App() {
             <Route path="/contact-us" element={<Contact />} />
             <Route path="/masters-union" element={<MastersUnion />} />
             <Route path="/search" element={<SearchPage/>}/>
-            <Route path="*" element={<NoPage />} />
+            <Route path="/404" element={<NoPage/>}/>
+            <Route path="*" element={<Navigate to='/404' />} />
           </Routes>
         </main>
         <Footer />

@@ -1,10 +1,11 @@
 import React from 'react'
+import PrimarySection from '../components/sections/PrimarySection'
 
 function News() {
   return (
-    <>
-      News
-    </>
+    <PrimarySection className='news' path='media/news' rootLink='Xəbərlər' sectionTitle='Xəbərlər'>
+
+    </PrimarySection>
   )
 }
 

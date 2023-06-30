@@ -11,7 +11,7 @@ function ProductDetailForm({ product }) {
     const language = useSelector(state => state.language.language)
     const text = require(`../../lang/${language}.json`);
 
-    const [selectedWeight, setSelectedWeight] = useState(product.weight[0])
+    const [selectedWeight, setSelectedWeight] = useState(product?.weight[0])
     const [selectedCustomColor, setSelectedCustomColor] = useState();
     const [selectedModalCatalogColor, setSelectedModalCatalogColor] = useState()
 
@@ -44,8 +44,8 @@ function ProductDetailForm({ product }) {
     //product catalog colors
     const [catalogName, setCatalogName] = useState('');
     useEffect(() => {
-        if (product.colorStatus === 'catalog') {
-            setCatalogName(product.colors)
+        if (product?.colorStatus === 'catalog') {
+            setCatalogName(product?.colors)
         }
     }, [product])
 
@@ -87,11 +87,11 @@ function ProductDetailForm({ product }) {
     //basketColor
     const [basketColor, setBasketColor] = useState();
     useEffect(() => {
-        if (product.colorStatus === 'no-color') {
+        if (product?.colorStatus === 'no-color') {
             setBasketColor('-')
-        } else if (product.colorStatus === 'custom') {
+        } else if (product?.colorStatus === 'custom') {
             setBasketColor(selectedCustomColor)
-        } else if (product.colorStatus === 'catalog') {
+        } else if (product?.colorStatus === 'catalog') {
             if (activeCatalogColors.length > 0) {
                 setBasketColor(selectedModalCatalogColor)
             } else {
@@ -146,12 +146,12 @@ function ProductDetailForm({ product }) {
             <div className="row">
                 <div className="col-12 col-md-6 col-lg-12 col-xl-6">
                     {
-                        product.weight.length > 0 ? (
+                        product?.weight.length > 0 ? (
                             <>
                                 <h5 className="title"><TextTranslate text='Çəkini seç' /></h5>
                                 <div className="checkbox-buttons">
                                     {
-                                        product.weight.map((param, index) => (
+                                        product?.weight.map((param, index) => (
                                             <div className={`checkbox-button ${selectedWeight === param ? 'active' : null}`} key={index}>
                                                 <label htmlFor={`checkbox-${index}`}><TextTranslate text={param} /></label>
                                                 <input type="checkbox" id={`checkbox-${index}`} value={param} onChange={(e) => setSelectedWeight(e.target.value)} />
@@ -166,15 +166,15 @@ function ProductDetailForm({ product }) {
                 <div className="col-12 col-md-6 col-lg-12 col-xl-6">
                     <div className="product-color-wrapper">
                         {
-                            product.colorStatus !== 'no-color' ? (
-                                product.colorStatus === 'custom' ? (
+                            product?.colorStatus !== 'no-color' ? (
+                                product?.colorStatus === 'custom' ? (
                                     <>
                                         <h5 className="title"><TextTranslate text='Rəngi seç' /></h5>
                                         {
-                                            product.colors.length > 0 ? (
+                                            product?.colors.length > 0 ? (
                                                 <div className="color-checkboxes">
                                                     {
-                                                        product.colors.map(color => (
+                                                        product?.colors.map(color => (
                                                             <div className={`color-checkbox ${selectedCustomColor === color.name ? 'active' : null}`} key={color.id}>
                                                                 <input type="checkbox" value={color.name} onChange={(e) => setSelectedCustomColor(e.target.value)} />
                                                                 <div className="color" style={{ borderColor: `${selectedCustomColor === color.name ? selectedCustomColor !== 'Bəyaz' ? `${color.hexCode}` : '#212121' : 'transparent'}` }}>
@@ -215,9 +215,9 @@ function ProductDetailForm({ product }) {
                     <div className="product-price">
                         <div className="stok-value">
                             <i className="fa-solid fa-check"></i>
-                            <span>{text['stock']}: {product.stockValue} {text['pieces']}</span>
+                            <span>{text['stock']}: {product?.stockValue} {text['pieces']}</span>
                         </div>
-                        <div className="price">{product.price.toFixed(2)} AZN</div>
+                        <div className="price">{product?.price.toFixed(2)} AZN</div>
                     </div>
                 </div>
             </div>

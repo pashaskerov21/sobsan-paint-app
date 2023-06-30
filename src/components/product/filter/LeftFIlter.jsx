@@ -164,7 +164,7 @@ function LeftFIlter({ category, subcategory, altcategory }) {
                     </div>
                 </div>
                 {
-                    category.brands.length > 0 ? (
+                    category?.brands.length > 0 ? (
                         <div className="filter-item">
                             <h5 className="title">{text['brand']}</h5>
                             <div className="checkbox-buttons">
@@ -184,7 +184,7 @@ function LeftFIlter({ category, subcategory, altcategory }) {
                     propertyFilters ? (
                         <>
                             {
-                                category.features.length > 0 ? (
+                                category?.features.length > 0 ? (
                                     <div className="filter-item">
                                         <h5 className="title">{text['features']}</h5>
                                         <div className="checkbox-buttons">
@@ -201,7 +201,7 @@ function LeftFIlter({ category, subcategory, altcategory }) {
                                 ) : null
                             }
                             {
-                                category.types.length > 0 ? (
+                                category?.types.length > 0 ? (
                                     <div className="filter-item">
                                         <h5 className="title">{text['type']}</h5>
                                         <div className="checkbox-buttons">
@@ -218,7 +218,7 @@ function LeftFIlter({ category, subcategory, altcategory }) {
                                 ) : null
                             }
                             {
-                                category.application_areas.length > 0 ? (
+                                category?.application_areas.length > 0 ? (
                                     <div className="filter-item">
                                         <h5 className="title">{text['application-areas']}</h5>
                                         <div className="checkbox-buttons">
@@ -235,7 +235,7 @@ function LeftFIlter({ category, subcategory, altcategory }) {
                                 ) : null
                             }
                             {
-                                category.appearance.length > 0 ? (
+                                category?.appearance.length > 0 ? (
                                     <div className="filter-item">
                                         <h5 className="title">{text['appearance']}</h5>
                                         <div className="checkbox-buttons">
@@ -252,7 +252,7 @@ function LeftFIlter({ category, subcategory, altcategory }) {
                                 ) : null
                             }
                             {
-                                category.drying.length > 0 ? (
+                                category?.drying.length > 0 ? (
                                     <div className="filter-item">
                                         <h5 className="title">{text['drying']}</h5>
                                         <div className="checkbox-buttons">

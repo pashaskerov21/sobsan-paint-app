@@ -122,7 +122,7 @@ function CatalogModal({ product, catalogName, activeCatalog, activeCatalogColors
                 colorID: colorObj[0].id,
                 name: colorObj[0].name,
                 code: '',
-                catalogName: product.colors,
+                catalogName: product?.colors,
                 img: colorObj[0].img
             }
             setCatalogColorActive(mainColorObj)

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { productCategories, productsArr } from '../data/ProductData';
 import { useDispatch, useSelector } from 'react-redux';
 import { addProductToComparisons, addProductToWishlist, removeProductFromComparisons, removeProductFromWishlist } from '../redux/actions/ProductAction';
@@ -10,24 +10,32 @@ function ProductDetail() {
   const language = useSelector(state => state.language.language)
   const text = require(`../lang/${language}.json`);
 
+
+  const navigate = useNavigate();
+
   const { productPath } = useParams();
-  const product = productsArr.find((product) => product.path === productPath);
+  const product = productPath && productsArr.find((product) => product?.path === productPath);
+  useEffect(() =>{
+    if(product === undefined){
+      navigate('/404')
+    }
+  },[product,navigate])
 
   const [categories, setCategories] = useState([]);
   const [subcategories, setSubcategories] = useState([]);
   const [altcategories, setAltcategories] = useState([]);
   useEffect(() => {
-    if (product.category.length > 0) {
+    if (product?.category.length > 0) {
       let filteredCategories = [];
-      product.category.forEach((categoryName) => {
+      product?.category.forEach((categoryName) => {
         let newCategories = productCategories.filter((category) => category.name === categoryName);
         filteredCategories.push(...newCategories)
       })
       setCategories(filteredCategories)
     }
-    if (product.subcategory.length > 0) {
+    if (product?.subcategory.length > 0) {
       let filteredSubcategories = [];
-      product.subcategory.forEach((subcategoryName) => {
+      product?.subcategory.forEach((subcategoryName) => {
         productCategories.forEach((category) => {
           let newSubcategories = category.subcategories.filter((subcategory) => subcategory.name === subcategoryName);
           filteredSubcategories.push(...newSubcategories)
@@ -36,9 +44,9 @@ function ProductDetail() {
       })
       setSubcategories(filteredSubcategories)
     }
-    if (product.altcategory.length > 0) {
+    if (product?.altcategory.length > 0) {
       let filteredAltCategories = [];
-      product.altcategory.forEach((altcategoryName) => {
+      product?.altcategory.forEach((altcategoryName) => {
         productCategories.forEach((category) => {
           category.subcategories.forEach((subcategory) => {
             let newAltcategories = subcategory.altcategories.filter((altcategory) => altcategory.name === altcategoryName);
@@ -55,20 +63,20 @@ function ProductDetail() {
   // product settings
   const dispatch = useDispatch();
   const comparisonProducts = useSelector(state => state.productState.comparisonProducts);
-  const productCompareStatus = comparisonProducts.find((p) => p.id === product.id);
+  const productCompareStatus = comparisonProducts.find((p) => p.id === product?.id);
   const handleCompareButton = () => {
     if (productCompareStatus) {
-      dispatch(removeProductFromComparisons(product.id))
+      dispatch(removeProductFromComparisons(product?.id))
     } else {
       dispatch(addProductToComparisons(product))
     }
   }
 
   const wishlistProducts = useSelector(state => state.productState.wishlistProducts);
-  const productWishlistStatus = wishlistProducts.find((p) => p.id === product.id);
+  const productWishlistStatus = wishlistProducts.find((p) => p.id === product?.id);
   const handleHeartButton = () => {
     if (productWishlistStatus) {
-      dispatch(removeProductFromWishlist(product.id));
+      dispatch(removeProductFromWishlist(product?.id));
     } else {
       dispatch(addProductToWishlist(product))
     }
@@ -112,9 +120,9 @@ function ProductDetail() {
                 ) : null
               }
               <i className="fa-solid fa-chevron-right"></i>
-              <Link to={`/product/${product.path}`}>{product.name}</Link>
+              <Link to={`/product/${product?.path}`}>{product?.name}</Link>
             </div>
-            <h2 className="section-title">{product.name}</h2>
+            <h2 className="section-title">{product?.name}</h2>
           </div>
           <div className="right">
             <div className="product-icons">

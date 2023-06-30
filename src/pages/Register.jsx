@@ -1,10 +1,11 @@
 import React from 'react'
+import PrimarySection from '../components/sections/PrimarySection'
 
 function Register() {
   return (
-    <>
-      Register
-    </>
+    <PrimarySection className='register' path='register' rootLink='Qeydiyyat' sectionTitle='Qeydiyyat'>
+
+    </PrimarySection>
   )
 }
 

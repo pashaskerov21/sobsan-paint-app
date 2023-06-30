@@ -24,7 +24,7 @@ function Search({showSearch, toggleSearch}) {
             <div className="row">
                 <div className="col-10">
                     <form onSubmit={handleSeacrhFormSubmit}>
-                        <input type="text" placeholder='Axtar' value={searchInputValue} onChange={(e) => setSearchInputValue(e.target.value)}  />
+                        <input type="text" placeholder='Axtar' onChange={(e) => setSearchInputValue(e.target.value)}  />
                         <button type='submit'><i className='fa-solid fa-magnifying-glass'></i></button>
                     </form>
                 </div>

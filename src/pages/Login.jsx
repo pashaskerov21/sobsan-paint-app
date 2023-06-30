@@ -1,10 +1,11 @@
 import React from 'react'
+import PrimarySection from '../components/sections/PrimarySection'
 
 function Login() {
   return (
-    <>
-      Login
-    </>
+    <PrimarySection className='login' path='login' rootLink='Giriş' sectionTitle='Giriş' >
+
+    </PrimarySection>
   )
 }
 
