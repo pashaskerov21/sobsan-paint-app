@@ -36,7 +36,7 @@ function CatalogSobmatik({sobmatikStatus}) {
                     <i className='fa-solid fa-chevron-down'></i>
                 </button>
             </h2>
-            <div id='catalog-collapse-1' className="accordion-collapse collapse" data-bs-parent="#catalog-accordion">
+            <div id='catalog-collapse-1' className="accordion-collapse collapse">
                 <div className="accordion-body">
                     {
                         showLoader ? (

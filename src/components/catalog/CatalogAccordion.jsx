@@ -22,7 +22,7 @@ function CatalogAccordion({ catalog, sobmatikStatus }) {
   };
 
   return (
-    <div className='accordion' id='catalog-accordion'>
+    <div className='accordion'>
       <CatalogSobmatik sobmatikStatus={sobmatikStatus} />
       {
         catalog.length > 0 ? (
@@ -36,7 +36,7 @@ function CatalogAccordion({ catalog, sobmatikStatus }) {
                       <i className='fa-solid fa-chevron-down'></i>
                     </button>
                   </h2>
-                  <div id={`collapse-${catalog.id}`} className="accordion-collapse collapse" data-bs-parent="#catalog-accordion">
+                  <div id={`collapse-${catalog.id}`} className="accordion-collapse collapse">
                     <div className="accordion-body">
                       {
                         showLoader ? (

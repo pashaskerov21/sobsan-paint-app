@@ -3,7 +3,7 @@ import TextTranslate from '../../translate/TextTranslate'
 import CatalogModal from '../catalog/CatalogModal'
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
-import { addProductToBasket } from '../../redux/actions/ProductAction';
+import { addProductToBasket, updateBasketProducts } from '../../redux/actions/ProductAction';
 import { colorCatalog } from '../../data/color-catalog/Catalog';
 import { catalogSobmatik } from '../../data/color-catalog/Sobmatik';
 
@@ -16,7 +16,15 @@ function ProductDetailForm({ product }) {
     const [selectedModalCatalogColor, setSelectedModalCatalogColor] = useState()
 
 
+    const catalogColor = useSelector(state => state.colorState.catalogColor)
 
+
+    useEffect(() => {
+        setSelectedModalCatalogColor(catalogColor)
+    }, [catalogColor])
+
+
+    //product amount
     const [amount, setAmount] = useState(1);
 
     const handleIncrementButton = () => {
@@ -33,6 +41,7 @@ function ProductDetailForm({ product }) {
     }
 
 
+    //product catalog colors
     const [catalogName, setCatalogName] = useState('');
     useEffect(() => {
         if (product.colorStatus === 'catalog') {
@@ -42,6 +51,14 @@ function ProductDetailForm({ product }) {
 
     const [activeCatalog, setActiveCatalog] = useState();
     const [activeCatalogColors, setActiveCatalogColors] = useState([])
+
+
+
+
+
+
+
+
 
     useEffect(() => {
         let sobmatik = catalogSobmatik
@@ -63,9 +80,11 @@ function ProductDetailForm({ product }) {
         }
     }, [catalogName])
 
-    
 
 
+
+
+    //basketColor
     const [basketColor, setBasketColor] = useState();
     useEffect(() => {
         if (product.colorStatus === 'no-color') {
@@ -73,64 +92,53 @@ function ProductDetailForm({ product }) {
         } else if (product.colorStatus === 'custom') {
             setBasketColor(selectedCustomColor)
         } else if (product.colorStatus === 'catalog') {
-            if(activeCatalogColors.length > 0){
+            if (activeCatalogColors.length > 0) {
                 setBasketColor(selectedModalCatalogColor)
-            }else{
+            } else {
                 setBasketColor('no-color')
             }
         }
-    }, [product, selectedCustomColor, selectedModalCatalogColor,activeCatalogColors])
-    
+    }, [product, selectedCustomColor, selectedModalCatalogColor, activeCatalogColors])
 
 
+
+
+
+    // product tested
     const { v4: uuidv4 } = require('uuid');
     const dispatch = useDispatch();
     const basketProducts = useSelector(state => state.productState.basketProducts)
-    const [productBasketStatus, setProductBasketStatus] = useState(false)
-    const [productInBasket, setProductInBasket] = useState()
-    useEffect(() => {
-        let p = basketProducts.find(
-            (p) =>
-                p.id === product.id &&
-                p.productBasketWeight === selectedWeight &&
-                p.productBasketColor === basketColor
-        );
-        setProductInBasket(p);
-    }, [basketProducts, product, selectedWeight, basketColor])
-
-    useEffect(() => {
-        if(productInBasket && productInBasket.productBasketWeight === selectedWeight && productInBasket.productBasketColor === basketColor){
-            setProductBasketStatus(true)
-        }else{
-            setProductBasketStatus(false)
-        }
-    },[productInBasket, selectedWeight, basketColor])
 
 
-    
-
+    // product add basket
     const submitProductDetailForm = (e) => {
         e.preventDefault();
 
-
         if (product.colorStatus !== 'no-color' && basketColor === undefined) {
             toast.error('Məhsul rəngini seçin!')
-        }else if(amount === 0){
+        } else if (amount === 0) {
             toast.error('Məhsul sayı sıfır ola bilməz!')
-        } else if (productBasketStatus) {
-            productInBasket.productBasketAmount = productInBasket.productBasketAmount + amount
-            
         } else {
-            
-            const newProduct = {
-                ...product,
-                productBasketID: uuidv4(),
-                productBasketColor: basketColor,
-                productBasketWeight: selectedWeight,
-                productBasketAmount: amount,
-            };
-            dispatch(addProductToBasket(newProduct))
-            toast.success('Məhsul səbətə əlavə olundu');
+            const productInBasket = basketProducts.find(
+                (basketProduct) =>
+                    basketProduct.id === product.id &&
+                    basketProduct.productBasketWeight === selectedWeight &&
+                    basketProduct.productBasketColor.colorID === basketColor.colorID
+            );
+            if (productInBasket) {
+                productInBasket.productBasketAmount = productInBasket.productBasketAmount + amount
+                dispatch(updateBasketProducts(basketProducts))
+            } else {
+                const newProduct = {
+                    ...product,
+                    productBasketID: uuidv4(),
+                    productBasketColor: basketColor,
+                    productBasketWeight: selectedWeight,
+                    productBasketAmount: amount,
+                };
+                dispatch(addProductToBasket(newProduct))
+                toast.success('Məhsul səbətə əlavə olundu');
+            }
         }
     }
     return (
@@ -182,7 +190,7 @@ function ProductDetailForm({ product }) {
                                     </>
                                 ) : (
                                     <>
-                                        <CatalogModal product={product} catalogName={catalogName} activeCatalog={activeCatalog} activeCatalogColors={activeCatalogColors}  selectedModalCatalogColor={selectedModalCatalogColor} setSelectedModalCatalogColor={setSelectedModalCatalogColor} productInBasket={productInBasket} setProductInBasket={setProductInBasket} />
+                                        <CatalogModal product={product} catalogName={catalogName} activeCatalog={activeCatalog} activeCatalogColors={activeCatalogColors} selectedModalCatalogColor={selectedModalCatalogColor} setSelectedModalCatalogColor={setSelectedModalCatalogColor} />
                                     </>
                                 )
                             ) : null
@@ -198,7 +206,7 @@ function ProductDetailForm({ product }) {
                                 <button type='button' onClick={handleIncrementButton}><i className="fa-solid fa-plus"></i></button>
                             </div>
                         </div>
-                        <div className="col-12 col-lg-6 ps-2">
+                        <div className="col-12 col-lg-6 ps-lg-2">
                             <button type="submit" className='basket-button'>{text['add-basket']}</button>
                         </div>
                     </div>
