@@ -45,7 +45,7 @@ function RegisterForm() {
     }
   }
   return (
-    <form onSubmit={handleRegisterFormSubmit} className='account-form register'>
+    <form onSubmit={handleRegisterFormSubmit} className='form-general account'>
       <div className="row">
         <div className="col-12 col-lg-6">
           <div className="form-floating">
@@ -89,13 +89,16 @@ function RegisterForm() {
             <label htmlFor="register-password-reply"><TextTranslate text='Şifrənizi təsdiq edin' /> *</label>
           </div>
         </div>
+        <div className="col-12">
+          <div className="form-buttons">
+            <button type='submit'><TextTranslate text='Qeydiyyat' /></button>
+            <Link className='d-lg-none' to='/login'><TextTranslate text='Giriş' /></Link>
+          </div>
+        </div>
       </div>
 
 
-      <div className="form-buttons">
-        <button type='submit'><TextTranslate text='Qeydiyyat' /></button>
-        <Link className='d-lg-none' to='/register'><TextTranslate text='Giriş' /></Link>
-      </div>
+
     </form>
   )
 }

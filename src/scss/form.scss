@@ -1,0 +1,178 @@
+.form-general {
+    width: 100%;
+    @include column-center;
+    padding: 15px;
+    .inner{
+        width: 100%;
+        height: 100%;
+        @include column-justify-start;
+    }
+
+    .form-floating {
+        width: 100%;
+        margin-bottom: 20px;
+
+        label {
+            background-color: transparent !important;
+            color: var(--text-general-theme-color) !important;
+            font-size: 15px;
+
+            &::after {
+                background-color: transparent !important;
+                color: var(--text-general-theme-color) !important;
+            }
+        }
+    }
+    .form-control {
+        border: 0;
+        box-shadow: none;
+        border-radius: 0;
+        border-bottom: 1px solid var(--input-border-color);
+        background-color: transparent;
+        color: var(--text-general-theme-color);
+
+        &:focus {
+            border-color: var(--color-1);
+        }
+    }
+    textarea.form-control{
+        resize: none;
+        min-height: 200px;
+        border: 1px solid var(--input-border-color);
+    }
+    .form-check{
+        &-input{
+            box-shadow: none;
+            border: 1px solid var(--color-1);
+            &:checked{
+                background-color: var(--color-1);
+            }
+        }
+    }
+    .submit-button{
+        width: 100%;
+        margin-top: 25px;
+        padding: 15px;
+        background-color: var(--color-1);
+        color: var(--color-5);
+        font-weight: 600;
+        &:hover{
+            animation: pulse-red 1s ease infinite;
+        }
+    }
+    &.account {
+        padding: 30px 15px;
+        border: 1px solid var(--border-theme-color);
+        .col-12{
+            margin-bottom: 0;
+        }
+        .restore-password {
+            width: 100%;
+            @include row-justify-start;
+            padding: 15px 0;
+            margin-bottom: 20px;
+
+            a {
+                font-size: 14px;
+                color: var(--color-1);
+                text-decoration: underline;
+
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+
+        .form-buttons {
+            width: 100%;
+            @include column-center;
+            margin-top: 40px;
+            button,
+            a {
+                width: 100%;
+                max-width: 300px;
+                padding: 15px;
+                font-weight: 600;
+            }
+
+            button {
+                background-color: var(--color-1);
+                color: var(--color-5);
+                margin-bottom: 10px;
+
+                &:hover {
+                    animation: pulse-red 1s ease infinite
+                }
+            }
+
+            a {
+                @include row-center;
+                border: 1px solid var(--color-1);
+                color: var(--color-1);
+            }
+        }
+    }
+    .order-info{
+     width: 100%;
+     height: 100%;
+     padding: 30px 15px;
+     border: 1px solid var(--border-theme-color);   
+     @include column-justify-start;
+     .title{
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid var(--border-theme-color);
+        width: 100%;
+        text-align: center;
+     }
+     .info-row{
+        width: 100%;
+        @include row-between;
+        color: var(--text-general-theme-color);
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--border-theme-color);
+        &.main{
+            color: var(--color-1);
+        }
+        span{
+            font-weight: 700;
+        }
+     }
+    }
+}
+
+
+@media only screen and (min-width: 576px){
+    .form-general{
+        &.account{
+            .restore-password{
+                a{
+                    font-size: 16px;
+                }
+            }
+            .form-buttons{
+                flex-direction: row;
+                justify-content: space-between;
+                button, a{
+                    max-width: 200px;
+                    margin: 0;
+                }
+            }
+        }
+        .order-info{
+            padding: 30px 25px;
+            span{
+                font-size: 18px;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 768px){
+    .form-general{
+        &.account{
+            padding: 40px 20px;
+        }
+    }
+}

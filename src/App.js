@@ -66,7 +66,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/forget-password" element={<ForgetPassword/>}/>
-            <Route path="/profile" element={<UserProfile/>}/>
+            <Route path="/profile/*" element={<UserProfile/>}/>
             <Route path="/about-us" element={<About />} />
             <Route path="/about-coloring-system" element={<ColorSystem />} />
             <Route path="/catalogs" element={<Catalogs />} />

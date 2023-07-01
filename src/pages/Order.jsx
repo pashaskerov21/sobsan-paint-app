@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import TextTranslate from '../translate/TextTranslate';
+import OrderForm from '../components/order/OrderForm';
 
 function Order() {
     const language = useSelector(state => state.language.language)
@@ -9,6 +10,8 @@ function Order() {
 
     const activeUserAccount = useSelector(state => state.accountState.activeUserAccount);
     const navigate = useNavigate();
+
+    
 
     useEffect(() => {
         if(!activeUserAccount){
@@ -28,6 +31,7 @@ function Order() {
                     </div>
                     <h2 className="section-title"><TextTranslate text="Sifariş" /></h2>
                 </div>
+                <OrderForm/>
             </div>
         </section>
     )

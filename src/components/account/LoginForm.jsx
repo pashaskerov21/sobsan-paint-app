@@ -15,11 +15,7 @@ function LoginForm() {
 
     const handleLoginFormSubmit = (e) => {
         e.preventDefault();
-        console.log(userAccounts)
-        console.log(loginEmailValue)
-        console.log(loginPasswordValue)
         const activeProfile = userAccounts.find((user) => user.userEmail === loginEmailValue && user.userPassword === loginPasswordValue);
-        console.log(activeProfile)
         if(activeProfile){
             dispatch(openActiveUserAccount(activeProfile))
             navigate('/profile')
@@ -28,7 +24,7 @@ function LoginForm() {
         }
     }
     return (
-        <form onSubmit={handleLoginFormSubmit} className='account-form login'>
+        <form onSubmit={handleLoginFormSubmit} className='form-general account'>
             <div className="form-floating">
                 <input type="email" className="form-control" id="login-email" placeholder="email" onChange={(e) => setLoginEmailValue(e.target.value)} />
                 <label htmlFor="login-email"><TextTranslate text='E-poçt'/> *</label>

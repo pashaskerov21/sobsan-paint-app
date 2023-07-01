@@ -1,10 +1,11 @@
-import { ADD_PRODUCT_TO_BASKET, ADD_PRODUCT_TO_COMPARISONS, ADD_PRODUCT_TO_WISHLIST, DECREASE_BASKET_PRODUCT_AMOUNT, INCREASE_BASKET_PRODUCT_AMOUNT, REMOVE_ALL_PRODUCTS_FROM_BASKET, REMOVE_ALL_PRODUCTS_FROM_COMPARISONS, REMOVE_ALL_PRODUCTS_FROM_WISHLIST, REMOVE_PRODUCT_FROM_BASKET, REMOVE_PRODUCT_FROM_COMPARISONS, REMOVE_PRODUCT_FROM_WISHLIST, SEARCH_PRODUCTS, SET_BASKET_PRODUCT_AMOUNT, UPDATE_BASKET_PRODUCTS } from "../ActionTypes"
+import { ADD_PRODUCT_TO_BASKET, ADD_PRODUCT_TO_COMPARISONS, ADD_PRODUCT_TO_WISHLIST, DECREASE_BASKET_PRODUCT_AMOUNT, INCREASE_BASKET_PRODUCT_AMOUNT, REMOVE_ALL_PRODUCTS_FROM_BASKET, REMOVE_ALL_PRODUCTS_FROM_COMPARISONS, REMOVE_ALL_PRODUCTS_FROM_WISHLIST, REMOVE_PRODUCT_FROM_BASKET, REMOVE_PRODUCT_FROM_COMPARISONS, REMOVE_PRODUCT_FROM_WISHLIST, SEARCH_PRODUCTS, SEND_BASKET_TOTAL, SET_BASKET_PRODUCT_AMOUNT, UPDATE_BASKET_PRODUCTS } from "../ActionTypes"
 
 const initialState = {
     comparisonProducts: [],
     wishlistProducts: [],
     basketProducts: [],
     searchProducts: [],
+    basketTotal: 0,
 }
 
 
@@ -87,11 +88,11 @@ const ProductReducer = (state = initialState, action) => {
                 })
             }
         case SET_BASKET_PRODUCT_AMOUNT:
-            return{
+            return {
                 ...state,
                 basketProducts: state.basketProducts.map((product) => {
-                    if(product.productBasketID === action.payload[0]){
-                        return{
+                    if (product.productBasketID === action.payload[0]) {
+                        return {
                             ...product,
                             productBasketAmount: action.payload[1] > 1 ? action.payload[1] : 1
                         }
@@ -99,8 +100,13 @@ const ProductReducer = (state = initialState, action) => {
                     return product;
                 })
             }
+        case SEND_BASKET_TOTAL:
+            return {
+                ...state,
+                basketTotal: action.payload 
+            }
         case SEARCH_PRODUCTS:
-            return{
+            return {
                 ...state,
                 searchProducts: [...action.payload]
             }

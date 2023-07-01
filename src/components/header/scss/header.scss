@@ -54,20 +54,20 @@ header {
 
     .fix-nav-items {
         @include row-justify-end;
-
-        .login {
+        .profile{
             margin-right: 15px;
+            font-size: 20px;
+            color: var(--color-1);
         }
 
         .login {
             color: var(--text-general-theme-color);
             text-transform: capitalize;
             @include row-center;
+            margin-right: 15px;
             img {
                 margin-right: 5px;
             }
-
-
         }
     }
 }

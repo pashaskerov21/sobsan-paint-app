@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import basket_icon from '../../image/icon/basket-black.png'
 import heart_icon from '../../image/icon/heart-black.png'
 import compare_icon from '../../image/icon/compare-black.png'
 import { Link } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { saveUserBasketProducts, saveUserCompareProducts, saveUserWishlistProducts } from '../../redux/actions/AccountActions'
 
 function Toolbar() {
     const language = useSelector(state => state.language.language)
@@ -13,10 +14,44 @@ function Toolbar() {
         this.window.scrollY > 400 ? setFixed(true) : setFixed(false);
     })
 
-    const comparisonProducts = useSelector(state => state.productState.comparisonProducts);
-    const wishlistProducts = useSelector(state => state.productState.wishlistProducts)
-    const basketProducts = useSelector(state => state.productState.basketProducts)
 
+    const activeUserAccount = useSelector(state => state.accountState.activeUserAccount);
+
+    
+    
+    const basketProducts = useSelector(state => state.productState.basketProducts)
+    const wishlistProducts = useSelector(state => state.productState.wishlistProducts)
+    const comparisonProducts = useSelector(state => state.productState.comparisonProducts);
+
+    // const userBasketProducts =useSelector(state => state.accountState.userBasketProducts)
+    // const userWishlistProducts = useSelector(state => state.accountState.userWishlistProducts)
+    // const userCompareProducts = useSelector(state => state.accountState.userCompareProducts);
+
+    const [basketLength, setBasketLength] = useState(basketProducts.length)
+    const [wishlistLength, setWishlistLength] = useState(wishlistProducts.length)
+    const [compareLength, setCompareLength] = useState(comparisonProducts.length)
+
+
+    // const dispatch = useDispatch()
+    // useEffect(() => {
+    //     dispatch(saveUserBasketProducts(basketProducts))
+    //     dispatch(saveUserWishlistProducts(wishlistProducts))
+    //     dispatch(saveUserCompareProducts(comparisonProducts))
+    // },[dispatch,basketProducts,wishlistProducts,comparisonProducts]) 
+
+    // useEffect(() => {
+        
+    //     if(activeUserAccount){
+    //         setBasketLength(userBasketProducts?.length)
+    //         setWishlistLength(userWishlistProducts?.length)
+    //         setCompareLength(userCompareProducts?.length)
+    //     }else{
+    //         setBasketLength(basketProducts.length)
+    //         setWishlistLength(wishlistProducts.length)
+    //         setCompareLength(comparisonProducts.length)
+    //     }
+    //     console.log(wishlistProducts)
+    // },[activeUserAccount, basketProducts, wishlistProducts, comparisonProducts, userBasketProducts, userWishlistProducts, userCompareProducts])
 
 
     return (
@@ -34,21 +69,21 @@ function Toolbar() {
                 <div className="toolbar-card">
                     <div className="icon">
                         <img src={basket_icon} alt="icon" />
-                        <span className='amount'>{basketProducts.length}</span>
+                        <span className='amount'>{basketLength}</span>
                     </div>
                     <Link to='/basket'>{text['basket']}</Link>
                 </div>
                 <div className="toolbar-card">
                     <div className="icon">
                         <img src={heart_icon} alt="icon" />
-                        <span className='amount'>{wishlistProducts.length}</span>
+                        <span className='amount'>{wishlistLength}</span>
                     </div>
                     <Link to='/wishlist'>{text['wishlist']}</Link>
                 </div>
                 <div className="toolbar-card">
                     <div className="icon">
                         <img src={compare_icon} alt="icon" />
-                        <span className='amount'>{comparisonProducts.length}</span>
+                        <span className='amount'>{compareLength}</span>
                     </div>
                     <Link to='/compare'>{text['comparisons']}</Link>
                 </div>

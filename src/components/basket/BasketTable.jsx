@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { decreaseBasketProductAmount, increaseBasketProductAmount, removeAllProductsFromBasket, removeProductFromBasket, setBasketProductAmount } from '../../redux/actions/ProductAction';
+import { decreaseBasketProductAmount, increaseBasketProductAmount, removeAllProductsFromBasket, removeProductFromBasket, sendBasketTotal, setBasketProductAmount } from '../../redux/actions/ProductAction';
 import TextTranslate from '../../translate/TextTranslate';
 import { Link } from 'react-router-dom';
 
@@ -36,6 +36,10 @@ function BasketTable() {
     }, [basketProducts, dispatch]);
 
     const activeUserAccount = useSelector(state => state.accountState.activeUserAccount)
+
+    const handleBasketConfirm = () => {
+        dispatch(sendBasketTotal(total))
+    }
     return (
         <>
             {
@@ -139,7 +143,7 @@ function BasketTable() {
                             </div>
                             <div className="buttons">
                                 <button onClick={handleRemoveProductsButton} className='button reset'><TextTranslate text='Səbəti təmizlə'/></button>
-                                <Link to={activeUserAccount ? '/basket/order' : '/login'} className='button confirm'><TextTranslate text='Təsdiqlə'/></Link>
+                                <Link onClick={handleBasketConfirm} to={activeUserAccount ? '/basket/order' : '/login'} className='button confirm'><TextTranslate text='Təsdiqlə'/></Link>
                             </div>
                         </div>
                     </>

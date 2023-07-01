@@ -1,0 +1,110 @@
+@import 'profile-menu.scss';
+
+.profile-section {
+    .col-12 {
+        justify-content: flex-start;
+    }
+
+    .collapse-button {
+        width: 100%;
+        padding: 15px;
+        @include row-between;
+        background: url('../../image/large-drop-bg.png') var(--color-1);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        color: var(--color-5);
+        font-weight: 600;
+
+        i {
+            transform: rotate(180deg);
+            transition: all 0.2s;
+        }
+
+        &.active {
+            i {
+                transform: rotate(0);
+            }
+        }
+    }
+
+    .collapse-item {
+        width: 100%;
+        @include column-center;
+        margin-bottom: 35px;
+    }
+
+    .collapse-menu {
+        width: 100%;
+        border: 1px solid var(--border-theme-color);
+        transition: all 0.3s;
+
+        &.active {
+            height: 0;
+            overflow: hidden;
+
+            .inner {
+                opacity: 0;
+                height: 0;
+                overflow: hidden;
+            }
+        }
+
+        .inner {
+            width: 100%;
+            @include column-center;
+            transition: all 0.2s;
+        }
+
+        .item {
+            width: 100%;
+            padding: 10px 15px;
+            border-bottom: 1px solid var(--border-theme-color);
+
+            &:last-child {
+                border-bottom: 0;
+            }
+
+            button,
+            a {
+                color: var(--text-general-theme-color);
+                font-weight: 600;
+
+                &:hover {
+                    transform: translateX(20px);
+                    color: var(--color-1);
+                }
+
+                &.active {
+                    color: var(--color-1);
+                }
+            }
+        }
+    }
+}
+
+.profile-main-panel {
+    width: 100%;
+    @include column-center;
+
+    .header {
+        width: 100%;
+        @include row-between;
+
+        .title {
+            font-weight: 700;
+        }
+
+        button {
+            align-items: flex-end;
+        }
+    }
+
+}
+
+@media only screen and (min-width: 1200px) {
+    .profile-main-panel {
+        padding: 20px;
+        border: 1px solid var(--border-theme-color);
+    }
+}

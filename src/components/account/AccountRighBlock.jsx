@@ -6,7 +6,7 @@ import TextTranslate from '../../translate/TextTranslate'
 
 function AccountRighBlock({ path, linkName }) {
   return (
-    <div className='right-block'>
+    <div className='right-block d-none d-lg-flex'>
       <div className="inner">
         <Link className='logo' to='/'><img src={logo} alt="logo" /></Link>
         <SocialMedia />
