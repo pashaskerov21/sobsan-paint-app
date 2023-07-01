@@ -13,7 +13,7 @@ function Search({showSearch, toggleSearch}) {
         toggleSearch()
         navigate('/search');
         let products = productsArr.slice();
-        let searchProducts = products.filter((product) => product.name.toLowerCase().includes(searchInputValue))
+        let searchProducts = products.filter((product) => product.name.toLocaleLowerCase().includes(searchInputValue.toLocaleLowerCase()))
         dispatch(sendSearchProducts(searchProducts))
     }
   return (
