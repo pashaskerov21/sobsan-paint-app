@@ -26,6 +26,9 @@ import Products from "./pages/Products";
 import Toolbar from "./components/toolbar/Toolbar";
 import ProductDetail from "./pages/ProductDetail";
 import SearchPage from "./pages/SearchPage";
+import ForgetPassword from "./pages/ForgetPassword";
+import UserProfile from "./pages/UserProfile";
+import Order from "./pages/Order";
 
 
 function App() {
@@ -59,8 +62,11 @@ function App() {
             <Route path="/compare" element={<Compare />} />
             <Route path="/wishlist" element={<Wishlist />} />
             <Route path="/basket" element={<Basket />} />
+            <Route path="/basket/order" element={<Order/>} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/forget-password" element={<ForgetPassword/>}/>
+            <Route path="/profile" element={<UserProfile/>}/>
             <Route path="/about-us" element={<About />} />
             <Route path="/about-coloring-system" element={<ColorSystem />} />
             <Route path="/catalogs" element={<Catalogs />} />

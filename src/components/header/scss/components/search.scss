@@ -56,6 +56,8 @@
             border-radius: 10px;
             padding-right: 60px;
             caret-color: var(--color-1);
+            background-color: transparent;
+            color: var(--text-general-theme-color);
             &::placeholder{
                 font-weight: 600;
                 color: var(--color-1);

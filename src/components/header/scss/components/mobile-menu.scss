@@ -1,4 +1,4 @@
-.mobile-menu-backdrop{
+.mobile-menu-backdrop {
     position: fixed;
     top: 0;
     left: 0;
@@ -7,24 +7,28 @@
     background-color: var(--black-7);
     z-index: 199;
     opacity: 0;
-    
+
     display: none;
     animation: menu-backdrop 0.2s ease forwards;
-    &.active{
+
+    &.active {
         display: block;
         transform: translateX(0);
         opacity: 1;
     }
 }
-@keyframes menu-backdrop{
-    0%{
+
+@keyframes menu-backdrop {
+    0% {
         opacity: 0;
     }
-    100%{
+
+    100% {
         opacity: 1;
     }
 }
-.mobile-menu{
+
+.mobile-menu {
     position: fixed;
     top: 0;
     left: -100%;
@@ -35,73 +39,89 @@
     opacity: 0;
     background-color: var(--bg-general-theme-color);
     transition: all 0.4s;
-    
+
     @include column-justify-start;
-    &.active{
+
+    &.active {
         left: 0;
         opacity: 1;
     }
-    .header{
+
+    .header {
         width: 100%;
         padding: 10px 12px;
         @include row-between;
         margin-bottom: 30px;
-        .logo{
-            img{
+
+        .logo {
+            img {
                 max-width: 50px;
             }
         }
-        .close-button{
+
+        .close-button {
             min-width: 40px;
             min-height: 40px;
             font-size: 25px;
             border: 2px solid var(--color-1);
             color: var(--color-1);
             border-radius: 50%;
-            &:hover{
+
+            &:hover {
                 background-color: var(--color-1);
                 color: var(--bg-general-theme-color);
             }
         }
-        .icons{
+
+        .icons {
             @include row-between;
             width: 100%;
-            max-width: 150px;
+            max-width: 200px;
             margin: 0 10px;
-            a{
+
+            a {
                 @include row-center;
                 color: var(--text-general-theme-color);
                 text-transform: capitalize;
                 font-weight: 600;
-                img{
-                    margin-right: 10px;
-                    transform: scale(1.4);
-                }
-                &.icon-red{
-                    width: 40px;
-                    height: 40px;
+
+                &.icon-red {
+                    width: 30px;
+                    height: 30px;
                     background-color: var(--color-1);
+                    font-size: 12px;
                     color: var(--color-5);
                     border-radius: 50%;
                     @include row-center;
                     animation: pulse-red 1s ease infinite;
                 }
             }
+
+            .login {
+                font-size: 14px;
+                img {
+                    transform: scale(1.4);
+                    margin-right: 10px;
+                }
+            }
         }
     }
-    .menu-body{
+
+    .menu-body {
         width: 100%;
         @include column-center;
     }
-    .menu-footer{
+
+    .menu-footer {
         position: fixed;
         bottom: 0;
         width: 100%;
         @include row-between;
         padding: 15px 10px;
         box-shadow: 0 0 5px var(--black-4);
-        .masters-link{
-            img{
+
+        .masters-link {
+            img {
                 max-width: 100px;
             }
         }
@@ -109,11 +129,30 @@
 }
 
 
-@media only screen and (min-width: 576px){
-    .mobile-menu{
-        .header{
-            .icons{
-                max-width: 230px;
+@media only screen and (min-width: 380px) {
+    .mobile-menu {
+        .header {
+            .icons {
+                max-width: 220px;
+                a{
+                    &.icon-red{
+                        width: 40px;
+                        height: 40px;
+                        font-size: 16px;
+                    }
+                }
+                .login{
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}
+@media only screen and (min-width: 576px) {
+    .mobile-menu {
+        .header {
+            .icons {
+                max-width: 220px;
             }
         }
     }

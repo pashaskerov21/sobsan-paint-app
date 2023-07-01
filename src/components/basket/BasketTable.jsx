@@ -34,6 +34,8 @@ function BasketTable() {
         const newTotal = basketProducts.reduce((acc, product) => acc + product.price * product.productBasketAmount, 0);
         setTotal(newTotal)
     }, [basketProducts, dispatch]);
+
+    const activeUserAccount = useSelector(state => state.accountState.activeUserAccount)
     return (
         <>
             {
@@ -137,7 +139,7 @@ function BasketTable() {
                             </div>
                             <div className="buttons">
                                 <button onClick={handleRemoveProductsButton} className='button reset'><TextTranslate text='Səbəti təmizlə'/></button>
-                                <Link className='button confirm'><TextTranslate text='Təsdiqlə'/></Link>
+                                <Link to={activeUserAccount ? '/basket/order' : '/login'} className='button confirm'><TextTranslate text='Təsdiqlə'/></Link>
                             </div>
                         </div>
                     </>

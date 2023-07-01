@@ -13,6 +13,7 @@ import SocialMedia from '../SocialMedia'
 function MobileMenu({ mobileMenu, toggleMobileMenu,handleLinkClick }) {
   const language = useSelector(state => state.language.language)
   const text = require(`../../lang/${language}.json`);
+  const activeUserAccount = useSelector(state => state.accountState.activeUserAccount)
   return (
     <>
       <div className={mobileMenu ? 'mobile-menu-backdrop active' : 'mobile-menu-backdrop'} onClick={toggleMobileMenu}></div>
@@ -22,7 +23,13 @@ function MobileMenu({ mobileMenu, toggleMobileMenu,handleLinkClick }) {
           <div className="icons">
             <Link className='icon-red'><i className='fa-solid fa-phone'></i></Link>
             <Link className='icon-red'><i className='fa-solid fa-question'></i></Link>
-            <Link onClick={() => handleLinkClick()} to='/login'><img src={login_icon} alt="general-icon" /> <span className='d-none d-sm-flex'>{text['sign-in']}</span></Link>
+            {
+              activeUserAccount ? (
+                <Link to='/profile' className='icon-red'><i className="fa-solid fa-user"></i></Link>
+              ) : (
+                <Link className='login' onClick={() => handleLinkClick()} to='/login'><img src={login_icon} alt="general-icon" /> <span className=''>{text['sign-in']}</span></Link>
+              )
+            }
           </div>
           <button className='close-button' onClick={toggleMobileMenu}><i className="fa-solid fa-xmark"></i></button>
         </div>
