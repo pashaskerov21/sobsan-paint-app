@@ -47,7 +47,6 @@ function Compare() {
     })
 
     let filteredCategories = productCategories.filter((category) => allCategories.includes(category.name))
-    console.log(filteredCategories)
 
     setCategoryNames([...filteredCategories])
 
@@ -55,7 +54,7 @@ function Compare() {
   return (
     <SecondarySection className='compare' path='comparisons' rootLink='Müqayisə' sectionTitle='Məhsul müqayisəsi' removeProductsButtonFunc={handleRemoveProductsButton}>
       {
-        comparisonProducts.length > -1 ? (
+        comparisonProducts.length > 0 ? (
           <div className="row">
             <div className="col-12 p-0">
               <div className="category-buttons-row">
