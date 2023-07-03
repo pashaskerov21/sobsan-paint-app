@@ -5,6 +5,7 @@ import ProductCard from '../components/product/ProductCard';
 import { productCategories } from '../data/ProductData';
 import { removeAllProductsFromComparisons } from '../redux/actions/ProductAction';
 import SecondarySection from '../components/sections/SecondarySection';
+import CompareContainer from '../components/compare/CompareContainer';
 
 function Compare() {
   const language = useSelector(state => state.language.language)
@@ -54,7 +55,7 @@ function Compare() {
   return (
     <SecondarySection className='compare' path='comparisons' rootLink='Müqayisə' sectionTitle='Məhsul müqayisəsi' removeProductsButtonFunc={handleRemoveProductsButton}>
       {
-        comparisonProducts.length > 0 ? (
+        comparisonProducts.length > -1 ? (
           <div className="row">
             <div className="col-12 p-0">
               <div className="category-buttons-row">
@@ -66,13 +67,7 @@ function Compare() {
                 }
               </div>
             </div>
-            {
-              products.map(product => (
-                <div className="col-12 col-md-6 col-lg-4 col-xxl-3" key={product.id}>
-                  <ProductCard product={product} />
-                </div>
-              ))
-            }
+            <CompareContainer products={products}/>
           </div>
         ) : (
           <h3 className='alert-text'><TextTranslate text='Müqayisə üçün məhsul seçilməyib' /></h3>
