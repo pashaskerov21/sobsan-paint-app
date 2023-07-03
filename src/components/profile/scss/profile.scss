@@ -4,17 +4,17 @@
     .col-12 {
         justify-content: flex-start;
     }
-
     .collapse-button {
         width: 100%;
         padding: 15px;
         @include row-between;
-        background: url('../../image/large-drop-bg.png') var(--color-1);
+        background: url('../../../image/large-drop-bg.png') var(--color-1);
         background-repeat: no-repeat;
         background-size: cover;
-        background-position: center;
+        background-position: top center;
         color: var(--color-5);
         font-weight: 600;
+        z-index: 3;
 
         i {
             transform: rotate(180deg);
@@ -27,33 +27,23 @@
             }
         }
     }
-
     .collapse-item {
         width: 100%;
         @include column-center;
         margin-bottom: 35px;
     }
-
     .collapse-menu {
         width: 100%;
         border: 1px solid var(--border-theme-color);
         transition: all 0.3s;
-
-        &.active {
-            height: 0;
-            overflow: hidden;
-
-            .inner {
-                opacity: 0;
-                height: 0;
-                overflow: hidden;
-            }
-        }
+        z-index: 1;
+        animation: collapse-menu 0.3s ease forwards;
 
         .inner {
             width: 100%;
             @include column-center;
-            transition: all 0.2s;
+            transition: all 0.4s;
+            
         }
 
         .item {
@@ -82,7 +72,6 @@
         }
     }
 }
-
 .profile-main-panel {
     width: 100%;
     @include column-center;
@@ -90,6 +79,7 @@
     .header {
         width: 100%;
         @include row-between;
+        margin-bottom: 30px;
 
         .title {
             font-weight: 700;
@@ -98,6 +88,10 @@
         button {
             align-items: flex-end;
         }
+    }
+    .body{
+        width: 100%;
+        @include column-center;
     }
 
 }
@@ -108,3 +102,16 @@
         border: 1px solid var(--border-theme-color);
     }
 }
+@keyframes collapse-menu{
+    0%{
+        opacity: 0;
+        transform: translateY(-50px)
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0)
+    }
+}
+
+@import 'order-list.scss';
+@import 'settings.scss';

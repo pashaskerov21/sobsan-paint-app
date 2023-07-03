@@ -18,6 +18,13 @@ function RegisterForm() {
   const [userEmail, setUserEmail] = useState();
   const [userPassword, setUserPassword] = useState();
   const [userPasswordReply, setUserPasswordReply] = useState();
+
+
+  const basketProducts = useSelector(state => state.productState.basketProducts)
+  const wishlistProducts = useSelector(state => state.productState.wishlistProducts)
+  const comparisonProducts = useSelector(state => state.productState.comparisonProducts);
+
+
   const handleRegisterFormSubmit = (e) => {
     e.preventDefault();
     if (userPassword !== userPasswordReply) {
@@ -29,9 +36,17 @@ function RegisterForm() {
         userFirstName,
         userLastName,
         userPhone,
+        userPhoneSecond: '',
         userAddress,
+        userCityAddress: '',
+        userRegionAddress: '',
+        userAddressDetail: '',
+        userGender: '',
         userEmail,
         userPassword,
+        userBasketProducts: [...basketProducts],
+        userWishlistProducts: [...wishlistProducts],
+        userCompareProducts: [...comparisonProducts]
       }
 
       let testUser = userAccounts.find((user) => user.userFirstName === userFirstName && user.userPhone === userPhone && user.userEmail === userEmail)
@@ -45,7 +60,7 @@ function RegisterForm() {
     }
   }
   return (
-    <form onSubmit={handleRegisterFormSubmit} className='form-general account'>
+    <form onSubmit={handleRegisterFormSubmit} className='form-general account px-2'>
       <div className="row">
         <div className="col-12 col-lg-6">
           <div className="form-floating">
@@ -74,7 +89,7 @@ function RegisterForm() {
         <div className="col-12">
           <div className="form-floating">
             <input type="email" className="form-control" id="register-email" placeholder="email" required onChange={(e) => setUserEmail(e.target.value)} />
-            <label htmlFor="register-email"><TextTranslate text='E-poçt' /> *</label>
+            <label htmlFor="register-email"><TextTranslate text='E-poçt' /></label>
           </div>
         </div>
         <div className="col-12 col-lg-6">

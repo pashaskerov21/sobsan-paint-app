@@ -1,11 +1,8 @@
-import { DELETE_ACTIVE_PROFILE, LOG_OUT_ACTIVE_PROFILE, OPEN_ACTIVE_USER_ACCOUNT, SAVE_USER_BASKET_PRODUCTS, SAVE_USER_COMPARE_PRODUCTS, SAVE_USER_DATA, SAVE_USER_WISHLIST_PRODUCTS, UPDATE_ACTIVE_PROFILE_DATA } from "../ActionTypes"
+import { DELETE_ACTIVE_PROFILE, LOG_OUT_ACTIVE_PROFILE, OPEN_ACTIVE_USER_ACCOUNT, SAVE_USER_DATA, UPDATE_ACTIVE_PROFILE_DATA, UPDATE_USERS_DATA } from "../ActionTypes"
 
 const initialState = {
     userAccounts: [],
     activeUserAccount: undefined,
-    userBasketProducts: [],
-    userWishlistProducts: [],
-    userCompareProducts: [],
 }
 
 
@@ -15,6 +12,11 @@ const AccountReducer = (state = initialState, action) => {
             return {
                 ...state,
                 userAccounts: [...state.userAccounts, action.payload]
+            }
+        case UPDATE_USERS_DATA:
+            return {
+                ...state,
+                userAccounts: [...action.payload]
             }
         case OPEN_ACTIVE_USER_ACCOUNT:
             return {
@@ -35,21 +37,6 @@ const AccountReducer = (state = initialState, action) => {
             return {
                 ...state,
                 userAccounts: [...state.userAccounts.filter((user) => user.userID !== action.payload)]
-            }
-        case SAVE_USER_BASKET_PRODUCTS:
-            return {
-                ...state,
-                userBasketProducts: [...action.payload]
-            }
-        case SAVE_USER_WISHLIST_PRODUCTS:
-            return {
-                ...state,
-                userWishlistProducts: [...action.payload]
-            }
-        case SAVE_USER_COMPARE_PRODUCTS:
-            return {
-                ...state,
-                userCompareProducts: [...action.payload]
             }
         default:
             return state;

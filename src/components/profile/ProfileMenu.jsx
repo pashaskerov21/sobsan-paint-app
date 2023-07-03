@@ -2,14 +2,17 @@ import React from 'react'
 import TextTranslate from '../../translate/TextTranslate'
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { deleteActiveProfile, logOutActiveProfile } from '../../redux/actions/AccountActions';
+import { deleteActiveProfile, logOutActiveProfile, updateUsersData } from '../../redux/actions/AccountActions';
 import { deleteOrderData } from '../../redux/actions/OrderAction';
 import { removeAllProductsFromBasket, removeAllProductsFromComparisons, removeAllProductsFromWishlist } from '../../redux/actions/ProductAction';
 
 function ProfileMenu({ showProfileMenu, toggleProfileMenu, activeCollapseMenu, handleCollapseButtonClick, activeProfileSection }) {
     const navigate = useNavigate();
     const dispatch = useDispatch();
+
+    const userAccounts = useSelector(state => state.accountState.userAccounts);
     const activeUserAccount = useSelector(state => state.accountState.activeUserAccount);
+
     const handleDeleteProfileButton = () => {
         dispatch(deleteActiveProfile(activeUserAccount?.userID))
         dispatch(deleteOrderData(activeUserAccount?.userID))
@@ -19,7 +22,24 @@ function ProfileMenu({ showProfileMenu, toggleProfileMenu, activeCollapseMenu, h
         dispatch(removeAllProductsFromWishlist())
         navigate('/')
     }
+
+
+    const basketProducts = useSelector(state => state.productState.basketProducts)
+    const wishlistProducts = useSelector(state => state.productState.wishlistProducts)
+    const comparisonProducts = useSelector(state => state.productState.comparisonProducts);
+
     const handleLogOutButton = () => {
+
+        const updatedUser = userAccounts.find((user) => user.userID === activeUserAccount.userID)
+        updatedUser.userBasketProducts = [...basketProducts]
+        updatedUser.userWishlistProducts = [...wishlistProducts]
+        updatedUser.userCompareProduts = [...comparisonProducts]
+        
+        dispatch(updateUsersData(userAccounts))
+        dispatch(removeAllProductsFromBasket())
+        dispatch(removeAllProductsFromComparisons())
+        dispatch(removeAllProductsFromWishlist())
+
         dispatch(logOutActiveProfile())
         navigate('/')
     }
@@ -36,7 +56,7 @@ function ProfileMenu({ showProfileMenu, toggleProfileMenu, activeCollapseMenu, h
                             <span><TextTranslate text='Mənim hesabım' /></span>
                             <i className='fa-solid fa-chevron-up'></i>
                         </button>
-                        <div className={`collapse-menu ${activeCollapseMenu === 'my-account' ? 'active' : ''}`}>
+                        <div className={`collapse-menu ${activeCollapseMenu === 'my-account' ? 'd-none' : ''}`}>
                             <div className="inner">
                                 <div className="item">
                                     <Link to='/profile/settings' onClick={toggleProfileMenu} className={`${activeProfileSection === 'settings' ? 'active' : ''}`}><TextTranslate text={'Tənzimləmələr'} /></Link>
@@ -55,7 +75,7 @@ function ProfileMenu({ showProfileMenu, toggleProfileMenu, activeCollapseMenu, h
                             <span><TextTranslate text='İsmarıclarım' /></span>
                             <i className='fa-solid fa-chevron-up'></i>
                         </button>
-                        <div className={`collapse-menu ${activeCollapseMenu === 'my-messages' ? 'active' : ''}`}>
+                        <div className={`collapse-menu ${activeCollapseMenu === 'my-messages' ? 'd-none' : ''}`}>
                             <div className="inner">
                                 <div className="item">
                                     <Link to='/profile/sends' onClick={toggleProfileMenu} className={`${activeProfileSection === 'sends' ? 'active' : ''}`}><TextTranslate text={'Göndərilənlər'} /></Link>
@@ -71,7 +91,7 @@ function ProfileMenu({ showProfileMenu, toggleProfileMenu, activeCollapseMenu, h
                             <span><TextTranslate text='Sifarişlər' /></span>
                             <i className='fa-solid fa-chevron-up'></i>
                         </button>
-                        <div className={`collapse-menu ${activeCollapseMenu === 'my-orders' ? 'active' : ''}`}>
+                        <div className={`collapse-menu ${activeCollapseMenu === 'my-orders' ? 'd-none' : ''}`}>
                             <div className="inner">
                                 <div className="item">
                                     <Link to='order-history' onClick={toggleProfileMenu} className={`${activeProfileSection === 'order-history' ? 'active' : ''}`}><TextTranslate text={'Sifariş tarixcəsi'} /></Link>
@@ -84,7 +104,7 @@ function ProfileMenu({ showProfileMenu, toggleProfileMenu, activeCollapseMenu, h
                             <span><TextTranslate text='Sifarişlər' /></span>
                             <i className='fa-solid fa-chevron-up'></i>
                         </button>
-                        <div className={`collapse-menu ${activeCollapseMenu === 'my-lists' ? 'active' : ''}`}>
+                        <div className={`collapse-menu ${activeCollapseMenu === 'my-lists' ? 'd-none' : ''}`}>
                             <div className="inner">
                                 <div className="item">
                                     <Link to='/basket'><TextTranslate text={'Səbət'} /></Link>

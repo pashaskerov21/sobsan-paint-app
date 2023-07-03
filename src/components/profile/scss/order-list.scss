@@ -1,0 +1,91 @@
+.order-list{
+    width: 100%;
+    @include column-center;
+    .order-component{
+        width: 100%;
+        @include column-center;
+        border: 1px solid var(--border-theme-color);
+        margin-bottom: 30px;
+        .product-data{
+            width: 100%;
+            overflow: auto;
+            @include row-justify-start;
+            margin-bottom: 15px;
+            table{
+                width: 100%;
+                min-width: 700px;
+                margin-bottom: 30px;
+                thead{
+                    th{
+                        padding: 10px;
+                        background-color: var(--color-1);
+                        color: var(--color-5);
+                        text-align: center;
+                        border-right: 1px solid var(--color-5);
+                    }
+                }
+                tbody{
+                    td{
+                        border-right: 1px solid var(--border-theme-color);
+                        &:last-child{
+                            border: none;
+                        }
+                    }
+                    tr{
+                        border-bottom: 1px solid var(--border-theme-color);
+                        
+                    }
+                }
+                .td-inner{
+                    width: 100%;
+                    @include column-center;
+                    padding: 0px;
+                }
+                .product-image{
+                    width: 70px;
+                    height: 70px;
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                    }
+                }
+                .product-name,
+                .product-amount{
+                    text-align: center;
+                    font-weight: 600;
+                    color: var(--text-general-theme-color);
+                    text-transform: capitalize;
+                    a{
+                        color: var(--text-general-theme-color);
+                    }
+                }
+                .product-price,
+                .product-total-price{
+                    text-align: center;
+                    font-weight: 700;
+                    color: var(--color-1);
+                }
+            }
+        }
+        .user-data{
+            @include column-center;
+            width: 100%;
+            .data-row{
+                width: 100%;
+                @include row-between;
+                padding: 10px;
+                border-bottom: 1px solid var(--border-theme-color);
+                margin-bottom: 6px;
+                span{
+                    font-weight: 700;
+                }
+                &.main{
+                    span{
+                        color: var(--color-1);
+                    }
+                }
+            }
+        }
+    }
+}

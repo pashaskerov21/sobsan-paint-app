@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import { openActiveUserAccount } from '../../redux/actions/AccountActions';
 import { toast } from 'react-toastify';
+import { updateBasketProducts, updateCompareProducts, updateWishlistProducts } from '../../redux/actions/ProductAction';
 
 function LoginForm() {
     const [loginEmailValue, setLoginEmailValue] = useState();
@@ -18,6 +19,9 @@ function LoginForm() {
         const activeProfile = userAccounts.find((user) => user.userEmail === loginEmailValue && user.userPassword === loginPasswordValue);
         if(activeProfile){
             dispatch(openActiveUserAccount(activeProfile))
+            dispatch(updateBasketProducts(activeProfile?.userBasketProducts))
+            dispatch(updateWishlistProducts(activeProfile?.userWishlistProducts))
+            dispatch(updateCompareProducts(activeProfile?.userCompareProducts))
             navigate('/profile')
         }else{
             toast.error('Məlumatlar düzgün daxil edilməyib!')

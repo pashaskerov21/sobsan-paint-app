@@ -3,8 +3,7 @@ import basket_icon from '../../image/icon/basket-black.png'
 import heart_icon from '../../image/icon/heart-black.png'
 import compare_icon from '../../image/icon/compare-black.png'
 import { Link } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
-import { saveUserBasketProducts, saveUserCompareProducts, saveUserWishlistProducts } from '../../redux/actions/AccountActions'
+import { useSelector } from 'react-redux'
 
 function Toolbar() {
     const language = useSelector(state => state.language.language)
@@ -15,43 +14,24 @@ function Toolbar() {
     })
 
 
-    const activeUserAccount = useSelector(state => state.accountState.activeUserAccount);
 
-    
-    
     const basketProducts = useSelector(state => state.productState.basketProducts)
     const wishlistProducts = useSelector(state => state.productState.wishlistProducts)
     const comparisonProducts = useSelector(state => state.productState.comparisonProducts);
 
-    // const userBasketProducts =useSelector(state => state.accountState.userBasketProducts)
-    // const userWishlistProducts = useSelector(state => state.accountState.userWishlistProducts)
-    // const userCompareProducts = useSelector(state => state.accountState.userCompareProducts);
 
     const [basketLength, setBasketLength] = useState(basketProducts.length)
     const [wishlistLength, setWishlistLength] = useState(wishlistProducts.length)
     const [compareLength, setCompareLength] = useState(comparisonProducts.length)
 
 
-    // const dispatch = useDispatch()
-    // useEffect(() => {
-    //     dispatch(saveUserBasketProducts(basketProducts))
-    //     dispatch(saveUserWishlistProducts(wishlistProducts))
-    //     dispatch(saveUserCompareProducts(comparisonProducts))
-    // },[dispatch,basketProducts,wishlistProducts,comparisonProducts]) 
 
-    // useEffect(() => {
-        
-    //     if(activeUserAccount){
-    //         setBasketLength(userBasketProducts?.length)
-    //         setWishlistLength(userWishlistProducts?.length)
-    //         setCompareLength(userCompareProducts?.length)
-    //     }else{
-    //         setBasketLength(basketProducts.length)
-    //         setWishlistLength(wishlistProducts.length)
-    //         setCompareLength(comparisonProducts.length)
-    //     }
-    //     console.log(wishlistProducts)
-    // },[activeUserAccount, basketProducts, wishlistProducts, comparisonProducts, userBasketProducts, userWishlistProducts, userCompareProducts])
+    useEffect(() => {
+
+        setBasketLength(basketProducts.length)
+        setWishlistLength(wishlistProducts.length)
+        setCompareLength(comparisonProducts.length)
+    }, [basketProducts, wishlistProducts, comparisonProducts])
 
 
     return (
@@ -89,7 +69,7 @@ function Toolbar() {
                 </div>
             </div>
             <div className="toolbar-bottom">
-                <button onClick={() => window.scrollTo(0,0)} className={fixed ? 'page-up-scroll-btn' : 'page-up-scroll-btn d-none'}><i className="fa-solid fa-arrow-up"></i></button>
+                <button onClick={() => window.scrollTo(0, 0)} className={fixed ? 'page-up-scroll-btn' : 'page-up-scroll-btn d-none'}><i className="fa-solid fa-arrow-up"></i></button>
                 <Link className="hot-line-mobile d-md-none"><span>*4545</span></Link>
             </div>
         </>

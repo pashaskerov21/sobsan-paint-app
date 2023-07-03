@@ -1,4 +1,4 @@
-import { ADD_PRODUCT_TO_BASKET, ADD_PRODUCT_TO_COMPARISONS, ADD_PRODUCT_TO_WISHLIST, DECREASE_BASKET_PRODUCT_AMOUNT, INCREASE_BASKET_PRODUCT_AMOUNT, REMOVE_ALL_PRODUCTS_FROM_BASKET, REMOVE_ALL_PRODUCTS_FROM_COMPARISONS, REMOVE_ALL_PRODUCTS_FROM_WISHLIST, REMOVE_PRODUCT_FROM_BASKET, REMOVE_PRODUCT_FROM_COMPARISONS, REMOVE_PRODUCT_FROM_WISHLIST, SEARCH_PRODUCTS, SEND_BASKET_TOTAL, SET_BASKET_PRODUCT_AMOUNT, UPDATE_BASKET_PRODUCTS } from "../ActionTypes"
+import { ADD_PRODUCT_TO_BASKET, ADD_PRODUCT_TO_COMPARISONS, ADD_PRODUCT_TO_WISHLIST, DECREASE_BASKET_PRODUCT_AMOUNT, INCREASE_BASKET_PRODUCT_AMOUNT, REMOVE_ALL_PRODUCTS_FROM_BASKET, REMOVE_ALL_PRODUCTS_FROM_COMPARISONS, REMOVE_ALL_PRODUCTS_FROM_WISHLIST, REMOVE_PRODUCT_FROM_BASKET, REMOVE_PRODUCT_FROM_COMPARISONS, REMOVE_PRODUCT_FROM_WISHLIST, SEARCH_PRODUCTS, SEND_BASKET_TOTAL, SET_BASKET_PRODUCT_AMOUNT, UPDATE_BASKET_PRODUCTS, UPDATE_COMPARE_PRODUCTS, UPDATE_WISHLIST_PRODUCTS } from "../ActionTypes"
 
 const initialState = {
     comparisonProducts: [],
@@ -26,6 +26,11 @@ const ProductReducer = (state = initialState, action) => {
                 ...state,
                 comparisonProducts: []
             }
+        case UPDATE_COMPARE_PRODUCTS:
+            return {
+                ...state,
+                comparisonProducts: [...action.payload]
+            }
         case ADD_PRODUCT_TO_WISHLIST:
             return {
                 ...state,
@@ -40,6 +45,11 @@ const ProductReducer = (state = initialState, action) => {
             return {
                 ...state,
                 wishlistProducts: []
+            }
+        case UPDATE_WISHLIST_PRODUCTS:
+            return {
+                ...state,
+                wishlistProducts: [...action.payload]
             }
         case ADD_PRODUCT_TO_BASKET:
             return {
@@ -59,7 +69,7 @@ const ProductReducer = (state = initialState, action) => {
         case UPDATE_BASKET_PRODUCTS:
             return {
                 ...state,
-                basketProducts: action.payload
+                basketProducts: [...action.payload]
             }
         case INCREASE_BASKET_PRODUCT_AMOUNT:
             return {
@@ -103,7 +113,7 @@ const ProductReducer = (state = initialState, action) => {
         case SEND_BASKET_TOTAL:
             return {
                 ...state,
-                basketTotal: action.payload 
+                basketTotal: action.payload
             }
         case SEARCH_PRODUCTS:
             return {

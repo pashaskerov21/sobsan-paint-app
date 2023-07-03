@@ -1,5 +1,6 @@
-import { ADD_PRODUCT_TO_BASKET, ADD_PRODUCT_TO_COMPARISONS, ADD_PRODUCT_TO_WISHLIST, DECREASE_BASKET_PRODUCT_AMOUNT, INCREASE_BASKET_PRODUCT_AMOUNT, REMOVE_ALL_PRODUCTS_FROM_BASKET, REMOVE_ALL_PRODUCTS_FROM_COMPARISONS, REMOVE_ALL_PRODUCTS_FROM_WISHLIST, REMOVE_PRODUCT_FROM_BASKET, REMOVE_PRODUCT_FROM_COMPARISONS, REMOVE_PRODUCT_FROM_WISHLIST, SEARCH_PRODUCTS, SEND_BASKET_TOTAL, SET_BASKET_PRODUCT_AMOUNT, UPDATE_BASKET_PRODUCTS } from "../ActionTypes"
+import { ADD_PRODUCT_TO_BASKET, ADD_PRODUCT_TO_COMPARISONS, ADD_PRODUCT_TO_WISHLIST, DECREASE_BASKET_PRODUCT_AMOUNT, INCREASE_BASKET_PRODUCT_AMOUNT, REMOVE_ALL_PRODUCTS_FROM_BASKET, REMOVE_ALL_PRODUCTS_FROM_COMPARISONS, REMOVE_ALL_PRODUCTS_FROM_WISHLIST, REMOVE_PRODUCT_FROM_BASKET, REMOVE_PRODUCT_FROM_COMPARISONS, REMOVE_PRODUCT_FROM_WISHLIST, SEARCH_PRODUCTS, SEND_BASKET_TOTAL, SET_BASKET_PRODUCT_AMOUNT, UPDATE_BASKET_PRODUCTS, UPDATE_COMPARE_PRODUCTS, UPDATE_WISHLIST_PRODUCTS } from "../ActionTypes"
 
+// comparisons
 export const addProductToComparisons = (product) => {
     return{
         type: ADD_PRODUCT_TO_COMPARISONS,
@@ -18,8 +19,14 @@ export const removeAllProductsFromComparisons = () => {
         type: REMOVE_ALL_PRODUCTS_FROM_COMPARISONS,
     }
 }
+export const updateCompareProducts = (products) => {
+    return{
+        type: UPDATE_COMPARE_PRODUCTS,
+        payload: products
+    }
+}
 
-
+// wishlist
 export const addProductToWishlist = (product) => {
     return{
         type: ADD_PRODUCT_TO_WISHLIST,
@@ -38,8 +45,15 @@ export const removeAllProductsFromWishlist = () => {
         type: REMOVE_ALL_PRODUCTS_FROM_WISHLIST
     }
 }
+export const updateWishlistProducts = (products) => {
+    return{
+        type: UPDATE_WISHLIST_PRODUCTS,
+        payload: products
+    }
+}
 
 
+// basket
 export const addProductToBasket = (product) => {
     return{
         type: ADD_PRODUCT_TO_BASKET,
@@ -63,6 +77,8 @@ export const updateBasketProducts = (basketProducts) => {
         payload: basketProducts
     }
 }
+
+
 export const increaseBasketProductAmount = (basketID) => {
     return{
         type: INCREASE_BASKET_PRODUCT_AMOUNT,
@@ -82,6 +98,8 @@ export const setBasketProductAmount = (amountArray) => {
         payload: amountArray
     }
 }
+
+
 export const sendBasketTotal = (total) => {
     return{
         type: SEND_BASKET_TOTAL,
