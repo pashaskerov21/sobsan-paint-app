@@ -1,3 +1,14 @@
+.popular-products-section{
+    .section-title{
+        padding: 12px;
+    }
+    .product-slide{
+        width: 100%;
+        display: flex !important;
+        @include row-center;
+        padding: 12px;
+    }
+}
 .product-card {
     width: 100%;
     max-width: 350px;
