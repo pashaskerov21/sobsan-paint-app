@@ -200,3 +200,29 @@
         }
     }
 }
+
+.text-container{
+    width: 100%;
+    @include column-center;
+    .col-12{
+        justify-content: flex-start;
+    }
+    .image{
+        width: 100%;
+        max-width: 650px;
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}
+@media only screen and (min-width: 992px){
+    .text-container{
+        .row{
+            &:nth-child(2n){
+                flex-direction: row-reverse;
+            }
+        }
+    }
+}
