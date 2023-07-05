@@ -216,6 +216,18 @@
             object-fit: cover;
         }
     }
+    .text{
+        width: 100%;
+        @include column-align-start;
+        ul{
+            padding-left: 25px;
+            margin-bottom: 25px;
+        }
+    }
+    .title{
+        font-weight: 700;
+        margin-bottom: 15px;
+    }
 }
 @media only screen and (min-width: 992px){
     .text-container{
