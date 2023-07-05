@@ -13,8 +13,8 @@ function PopularProducts() {
                 {dots.slice(0, 8)}
             </ul>
         ),
-        infinite: false,
-        speed: 1000,
+        infinite: true,
+        speed: 500,
         slidesToShow: 4,
         slidesToScroll: 4,
         initialSlide: 0,

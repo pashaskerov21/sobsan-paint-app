@@ -1,0 +1,51 @@
+.masters-section{
+    .col-12{
+        justify-content: flex-start;
+    }
+    .master-forms{
+        width: 100%;
+        @include column-center;
+        .buttons{
+            width: 100%;
+            @include row-center;
+            margin-bottom: 20px;
+            button{
+                width: 100%;
+                padding: 15px;
+                border: 1px solid var(--border-theme-color);
+                font-weight: 600;
+                color: var(--text-general-color);
+                &.active{
+                    background-color: var(--color-1);
+                    color: var(--color-5);
+                    border-color: var(--color-1);
+                }
+            }
+        }
+        form{
+            border: 1px solid var(--border-theme-color);
+            padding: 30px 15px;
+        }
+    }
+    .master-info{
+        width: 100%;
+        @include column-center;
+        .banner-slide{
+            width: 100%;
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+        .content{
+            @include column-center;
+            .title{
+                text-transform: uppercase;
+                margin-bottom: 10px;
+                font-weight: 700;
+            }
+        }
+    }
+    
+}
