@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import TextTranslate from '../../translate/TextTranslate';
 import { toast } from 'react-toastify';
-import { deleteActiveProfile, openActiveUserAccount, saveUserAccountData, updateUsersData } from '../../redux/actions/AccountActions';
+import { updateUsersData } from '../../redux/actions/AccountActions';
 
 function ProfileSettings() {
   const [profileFirstName, setProfileFirstName] = useState('');

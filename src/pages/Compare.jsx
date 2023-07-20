@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import TextTranslate from '../translate/TextTranslate';
-import ProductCard from '../components/product/ProductCard';
 import { productCategories } from '../data/ProductData';
 import { removeAllProductsFromComparisons } from '../redux/actions/ProductAction';
 import SecondarySection from '../components/sections/SecondarySection';

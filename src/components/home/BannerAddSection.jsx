@@ -4,6 +4,7 @@ import TextTranslate from '../../translate/TextTranslate'
 import { Link } from 'react-router-dom'
 import add_1 from '../../image/banner/banner-add-1.png'
 import add_2 from '../../image/banner/banner-add-2.png'
+import TiltComponent from './TiltComponent'
 
 function BannerAddSection() {
 
@@ -39,6 +40,8 @@ function BannerAddSection() {
         autoplay: true,
     };
 
+
+
     return (
         <section className="banner-add-section">
             <div className="container">
@@ -64,9 +67,11 @@ function BannerAddSection() {
                                                 </div>
                                             </div>
                                             <div className="col-12 col-lg-6">
-                                                <div className="add-image">
-                                                    <img src={item.img} alt="banner" />
-                                                </div>
+                                                <TiltComponent>
+                                                    <div className="add-image">
+                                                        <img src={item.img} alt="banner" />
+                                                    </div>
+                                                </TiltComponent>
                                             </div>
                                         </div>
                                     </div>
@@ -78,7 +83,7 @@ function BannerAddSection() {
                         <div className="row">
                             <div className="col-12 col-lg-6 mb-4 mb-lg-0">
                                 <div className="text">
-                                    <TextTranslate text='Peşəkar bir məsləhətçinin məsləhətinə ehtiyacınız var?'/>
+                                    <TextTranslate text='Peşəkar bir məsləhətçinin məsləhətinə ehtiyacınız var?' />
                                 </div>
                             </div>
                             <div className="col-12 col-lg-6">
@@ -93,7 +98,7 @@ function BannerAddSection() {
                                         <div className="icon">
                                             <i className="fa-solid fa-question"></i>
                                         </div>
-                                        <span><TextTranslate text='Bizə yazın'/></span>
+                                        <span><TextTranslate text='Bizə yazın' /></span>
                                     </div>
                                 </div>
                             </div>
