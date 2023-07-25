@@ -13,8 +13,9 @@ function Search({showSearch, toggleSearch}) {
         toggleSearch()
         navigate('/search');
         let products = productsArr.slice();
-        let searchProducts = products.filter((product) => product.name.toLocaleLowerCase().includes(searchInputValue.toLocaleLowerCase()))
-        dispatch(sendSearchProducts(searchProducts))
+        let searchProducts = products.filter((product) => product.name.trim().toLocaleLowerCase().includes(searchInputValue.trim().toLocaleLowerCase()))
+        dispatch(sendSearchProducts(searchProducts));
+        setSearchInputValue('');
     }
   return (
     <>
@@ -24,7 +25,7 @@ function Search({showSearch, toggleSearch}) {
             <div className="row">
                 <div className="col-10">
                     <form onSubmit={handleSeacrhFormSubmit}>
-                        <input type="text" placeholder='Axtar' onChange={(e) => setSearchInputValue(e.target.value)}  />
+                        <input type="text" placeholder='Axtar' value={searchInputValue} onChange={(e) => setSearchInputValue(e.target.value)} />
                         <button type='submit'><i className='fa-solid fa-magnifying-glass'></i></button>
                     </form>
                 </div>
