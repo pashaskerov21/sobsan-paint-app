@@ -5,7 +5,7 @@
     width: 100%;
     min-height: 100vh;
     background-color: var(--black-7);
-    z-index: 199;
+    z-index: 1500;
     opacity: 0;
 
     display: none;
@@ -36,7 +36,7 @@
     max-width: 450px;
     overflow: auto;
     min-height: 100vh;
-    z-index: 200;
+    z-index: 2000;
     opacity: 0;
     background-color: var(--bg-general-theme-color);
     transition: all 0.4s;
